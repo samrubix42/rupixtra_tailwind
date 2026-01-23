@@ -1,5 +1,5 @@
 <div>
-  <header class="hidden md:block bg-white shadow-sm">
+  <header class="hidden md:block bg-white border border-gray-200 shadow-xl">
     <div class="relative mx-auto px-[3%] py-4">
 
       <!-- LEFT: Logo -->
