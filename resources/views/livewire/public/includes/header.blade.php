@@ -1,62 +1,73 @@
 <div>
   <header class="hidden md:block bg-white shadow-sm">
-    <div class="mx-auto">
+    <div class="relative mx-auto px-[3%] py-4">
 
-      <!-- Top Bar -->
-      <div class="flex items-center gap-6 py-4 px-[3%]">
-        <img src="{{ asset('images/logo-light.png') }}" class="h-9" />
-
-        <!-- Search -->
-        <div class="flex-1 relative">
-          <input
-            type="text"
-            placeholder="Search services, loans, EMI..."
-            class="w-full bg-gray-100 border border-gray-300 rounded-lg
-                 pl-4 pr-12 py-2.5 text-sm
-                 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white" />
-          <i class="ri-search-line absolute right-4 top-1/2 -translate-y-1/2 text-primary text-lg"></i>
-        </div>
-
-        <!-- Icons -->
-        <div class="flex items-center gap-3 text-primary">
-          <button class="p-2 rounded-full hover:bg-gray-100">
-            <i class="ri-phone-line text-xl"></i>
-          </button>
-          <i class="ri-whatsapp-line text-2xl"></i>
-        </div>
+      <!-- LEFT: Logo -->
+      <div class="absolute left-[3%] top-1/2 -translate-y-1/2">
+        <img src="{{ asset('images/logo-light.png') }}" class="h-10" />
       </div>
 
-      <!-- Bottom Nav -->
-      <nav class="flex items-center bg-primary text-white px-[3%] gap-8 text-sm font-medium text-gray-700 border-t border-gray-200 py-3">
+      <!-- CENTER: Menu Links -->
+      <nav class="flex justify-center items-center gap-8 py-3 text-normal font-medium text-gray-700">
         <a href="#" class="hover:text-primary">Home</a>
+        <a href="#" class="hover:text-primary">Our Story</a>
 
+        <!-- Dropdown -->
         <div
           x-data="{ open: false }"
           @mouseenter="open = true"
           @mouseleave="open = false"
           class="relative">
-          <button class="flex items-center gap-1">
+          <button class="flex items-center gap-1 hover:text-primary">
             Our Offerings
-            <i class="ri-arrow-down-s-line"></i>
+            <i class="ri-arrow-down-s-line text-sm"></i>
           </button>
 
           <div
             x-show="open"
             x-transition
-            class="absolute left-0 top-full mt-3 w-56 bg-[#002a53] rounded-lg shadow-lg">
-            <a href="#" class="block px-4 py-3 hover:bg-[#004080]">Loans</a>
-            <a href="#" class="block px-4 py-3 hover:bg-[#004080]">Mutual Funds</a>
-            <a href="#" class="block px-4 py-3 hover:bg-[#004080]">Insurance</a>
-            <a href="#" class="block px-4 py-3 hover:bg-[#004080]">Calculator</a>
+            class="absolute left-1/2 -translate-x-1/2 mt-3
+         w-56 bg-[#002a53] text-white
+         rounded-lg shadow-xl
+         z-50">
+            <a href="#" class="block px-4 py-2 hover:bg-[#004080]">Personal Loan</a>
+            <a href="#" class="block px-4 py-2 hover:bg-[#004080]">Business Loan</a>
+            <a href="#" class="block px-4 py-2 hover:bg-[#004080]">Home Loan</a>
+            <a href="#" class="block px-4 py-2 hover:bg-[#004080]">LAP</a>
+            <a href="#" class="block px-4 py-2 hover:bg-[#004080]">Credit Card</a>
+            <a href="#" class="block px-4 py-2 hover:bg-[#004080]">Self Employed Loan</a>
           </div>
+
         </div>
 
         <a href="#" class="hover:text-primary">Blog</a>
         <a href="#" class="hover:text-primary">Reach Us</a>
       </nav>
 
+      <!-- RIGHT: Search + Icons -->
+      <div class="absolute right-[3%] top-1/2 -translate-y-1/2 flex items-center gap-3">
+
+        <!-- Search -->
+        <div class="relative w-[250px]">
+          <input
+            type="text"
+            placeholder="Search..."
+            class="w-full bg-gray-100 border border-gray-300 rounded-md
+                 px-3 py-2 text-sm
+                 focus:outline-none focus:ring-2 focus:ring-primary" />
+          <i class="ri-search-line absolute right-3 top-1/2 -translate-y-1/2 text-primary text-sm"></i>
+        </div>
+
+        <!-- Icons -->
+        <button class="p-1.5 rounded-full text-primary hover:bg-gray-100">
+          <i class="ri-phone-line text-lg"></i>
+        </button>
+        <i class="ri-whatsapp-line text-xl text-primary"></i>
+      </div>
+
     </div>
   </header>
+
   <header x-data="{ open: false, offerings: false }" class="md:hidden">
     <div class="px-4 py-4">
 
