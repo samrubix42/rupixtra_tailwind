@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/techldjy/rupixtra1.smartadvagency.com/
+    - /bin/cp -R * $DEPLOYPATH 
