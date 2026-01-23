@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/* === Smooth horizontal scroll === */
+.scroll-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+  scroll-behavior: smooth;
+}
+
+/* === Hide scrollbar (cross-browser) === */
+.scroll-x::-webkit-scrollbar { 
+  display: none;
+}
+
+.scroll-x {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* === Prevent scroll jump / card cut === */
+.scroll-padding {
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-left: -6px;
+  margin-right: -6px;
+}
+
+/* === Snap scrolling (optional but premium) === */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-item {
+  scroll-snap-align: start;
+}
+
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    
+    --color-primary: #162b51;
+}
+
+
