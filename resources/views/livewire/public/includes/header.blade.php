@@ -102,6 +102,7 @@
     <div
       x-show="open"
       x-transition
+      x-cloak
       class="fixed inset-0 bg-primary text-white z-50">
       <!-- Header -->
       <div class="flex items-center justify-between px-4 py-4">
