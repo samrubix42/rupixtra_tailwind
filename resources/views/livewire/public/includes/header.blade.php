@@ -1,6 +1,6 @@
 <div>
   <header class="hidden md:block bg-white border border-gray-200 shadow-xl">
-    <div class="relative mx-auto px-[3%] py-4">
+    <div class="relative mx-auto px-[3%]  py-4">
 
       <!-- LEFT: Logo -->
       <div class="absolute left-[3%] top-1/2 -translate-y-1/2">
@@ -26,6 +26,7 @@
           <div
             x-show="open"
             x-transition
+            x-cloak
             class="absolute left-1/2 -translate-x-1/2 mt-3
          w-56 bg-[#002a53] text-white
          rounded-lg shadow-xl

@@ -1,29 +1,39 @@
-@import 'tailwindcss';
+/* --------------------------------------------------
+   Tailwind v4 Import
+-------------------------------------------------- */
+@import "tailwindcss";
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+/* --------------------------------------------------
+   Laravel Blade / JS Sources
+-------------------------------------------------- */
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
+@source "../**/*.blade.php";
+@source "../**/*.js";
 
-/* === Smooth horizontal scroll === */
+/* --------------------------------------------------
+   Custom Utilities (Non-Tailwind)
+-------------------------------------------------- */
+
+/* Smooth horizontal scroll */
 .scroll-x {
   overflow-x: auto;
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+  -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
 
-/* === Hide scrollbar (cross-browser) === */
-.scroll-x::-webkit-scrollbar { 
+/* Hide scrollbar */
+.scroll-x::-webkit-scrollbar {
   display: none;
 }
 
 .scroll-x {
-  -ms-overflow-style: none;  /* IE & Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* === Prevent scroll jump / card cut === */
+/* Prevent card cut on scroll */
 .scroll-padding {
   padding-left: 6px;
   padding-right: 6px;
@@ -31,7 +41,7 @@
   margin-right: -6px;
 }
 
-/* === Snap scrolling (optional but premium) === */
+/* Snap scrolling */
 .snap-x {
   scroll-snap-type: x mandatory;
 }
@@ -40,12 +50,74 @@
   scroll-snap-align: start;
 }
 
-
+/* --------------------------------------------------
+   Theme Tokens (Tailwind v4 compliant)
+-------------------------------------------------- */
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
-    
-    --color-primary: #162b51;
+  /* Fonts */
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui,
+    'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Brand Colors */
+  --color-primary: #162b51;
+  --color-secondary: #e7c892;
+  --color-accent: #cd954b;
+
+  /* Neutral Colors */
+  --color-dark: #0f172a;
+  --color-light: #f8fafc;
 }
 
+/* --------------------------------------------------
+   Custom Utility Classes (Using Theme Variables)
+-------------------------------------------------- */
 
+/* Backgrounds */
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-dark { background-color: var(--color-dark); }
+.bg-light { background-color: var(--color-light); }
+
+/* Text */
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-accent { color: var(--color-accent); }
+.text-dark { color: var(--color-dark); }
+.text-light { color: var(--color-light); }
+
+/* Borders */
+.border-primary { border-color: var(--color-primary); }
+.border-secondary { border-color: var(--color-secondary); }
+.border-accent { border-color: var(--color-accent); }
+
+/* --------------------------------------------------
+   Global Base Styling
+-------------------------------------------------- */
+html {
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+/* --------------------------------------------------
+   Optional Animations
+-------------------------------------------------- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
