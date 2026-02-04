@@ -16,7 +16,8 @@
             style="background-image: url('{{ asset('images/hero-bg.png') }}');">
         </div>
 
-        <div class="relative max-w-7xl mx-auto px-10 py-12 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="relative max-w-7xl mx-auto px-10 py-14
+                grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
             <!-- LEFT CONTENT -->
             <div>
@@ -39,31 +40,35 @@
                 </p>
 
                 <!-- CTA BUTTONS -->
-                <div class="mt-10 flex flex-wrap gap-4">
+                <div class="mt-10 flex gap-4">
 
                     <a href="#"
-                        class="font-bold px-8 py-3 rounded-md transition
-                          bg-dark-cyan text-blue hover:opacity-90">
+                        class="font-bold px-8 py-3
+                          bg-dark-cyan text-blue
+                          hover:opacity-90 transition">
                         READ MORE
                     </a>
 
-                    <a href="#" class="font-bold px-8 py-3 rounded-md border-2  border-dark-cyan text-dark-cyan hover:text-blue">
+                    <a href="#"
+                        class="font-bold px-8 py-3 border-2
+                          border-dark-cyan text-dark-cyan
+                          hover:bg-dark-cyan hover:text-blue transition">
                         CALL NOW
                     </a>
                 </div>
             </div>
-            <!-- RIGHT IMAGE -->
-            <div class="relative translate-y-8 md:translate-y-14">
+
+            <!-- RIGHT IMAGE (MOVED DOWN CLEANLY) -->
+            <div class="relative mt-12 lg:mt-20">
                 <img
                     src="{{ asset('images/hero-img.png') }}"
                     alt="Loan Consultation"
                     class="w-full object-contain">
             </div>
 
-
-
         </div>
     </section>
+
 
     <!-- mobile hero section -->
     <section
@@ -81,20 +86,20 @@
         <!-- CONTENT -->
         <div class="relative px-6 py-20">
 
-            <h1 class="text-4xl font-extrabold leading-tight text-blue">
+            <h1 class="text-5xl font-extrabold leading-tight text-blue">
                 More <span class="text-dark-cyan">Options.</span><br>
                 More <span class="text-dark-cyan">You.</span>
             </h1>
 
-            <h2 class="mt-6 text-2xl font-semibold text-blue">
+            <h2 class="mt-6 text-3xl font-semibold text-blue">
                 Compare Loans Online
             </h2>
 
-            <p class="mt-2 text-2xl font-bold text-dark-cyan">
+            <p class="mt-2 text-3xl font-bold text-dark-cyan">
                 50% faster
             </p>
 
-            <p class="mt-5 max-w-md text-sm leading-relaxed text-zinc-700">
+            <p class="mt-5 max-w-md text-normal leading-relaxed text-zinc-700">
                 We understand that finding the right loan can be overwhelming.
                 That’s why we’re here to help simplify the process.
             </p>
@@ -103,13 +108,13 @@
             <div class="mt-8 flex gap-4">
 
                 <a href="#"
-                    class="text-center font-bold px-6 py-3 rounded-md
+                    class="text-center font-bold px-6 py-3 
                       bg-dark-cyan text-blue hover:opacity-90 transition">
                     READ MORE
                 </a>
 
                 <a href="#"
-                    class="text-center font-bold px-6 py-3 rounded-md border-2
+                    class="text-center font-bold px-6 py-3 border-2
                       border-dark-cyan text-dark-cyan
                       hover:bg-dark-cyan hover:text-blue transition">
                     CALL NOW

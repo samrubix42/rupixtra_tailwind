@@ -27,14 +27,14 @@
         <livewire:public.includes.footer />
     </div>
     <!-- Floating contact buttons: replace phone/wa numbers with real values -->
-    <div class="fixed right-4 bottom-6 flex flex-col gap-3 z-50">
+    <div class="floating-contact fixed right-4 bottom-6 flex flex-col gap-3 z-50">
         <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp" title="WhatsApp"
-           class="w-14 h-14 rounded-full flex items-center justify-center bg-cyan-600 text-white shadow-lg hover:scale-110 transform transition-transform duration-150">
+           class="w-14 h-14 rounded-full flex items-center justify-center bg-primary text-white shadow-lg hover:scale-110 transform transition-transform duration-150">
             <i class="ri-whatsapp-fill text-3xl"></i>
         </a>
 
-        <a href="tel:+1234567890" aria-label="Call us" title="Call"
-           class="w-14 h-14 rounded-full flex items-center justify-center bg-cyan-600 text-white shadow-lg hover:scale-110 transform transition-transform duration-150">
+          <a href="tel:+1234567890" aria-label="Call us" title="Call"
+              class="w-14 h-14 rounded-full flex items-center justify-center bg-primary text-white shadow-lg hover:scale-110 transform transition-transform duration-150">
             <i class="ri-phone-fill text-3xl"></i>
         </a>
     </div>

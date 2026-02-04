@@ -39,7 +39,7 @@
               x-transition.origin.top
               x-cloak
               class="absolute mt-4 left-0
-                               w-56 bg-white rounded-xl shadow-lg
+                               w-56 bg-white  shadow-lg
                                border border-gray-100 z-50 overflow-hidden">
 
               <a href="#"
@@ -147,11 +147,11 @@
       x-show="open"
       x-transition.opacity
       x-cloak
-      class="fixed inset-0 bg-white z-50">
+      class="fixed inset-0 bg-cyan z-50">
 
       <!-- MENU HEADER -->
       <div class="flex items-center justify-between px-4 py-4 ">
-        <img src="{{ asset('images/logo-light.png') }}" class="h-8">
+        <img src="{{ asset('images/logo-light.png') }}" class="h-12">
         <button @click="open = false">
           <i class="ri-close-line text-2xl text-slate-700"></i>
         </button>
