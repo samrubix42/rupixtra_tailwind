@@ -10,6 +10,13 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+     theme: {
+    extend: {
+      fontFamily: {
+        raleway: ['Raleway', 'sans-serif'],
+      },
+    },
+  },
     server: {
         watch: {
             ignored: ['**/storage/framework/views/**'],

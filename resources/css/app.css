@@ -55,13 +55,18 @@
 -------------------------------------------------- */
 @theme {
   /* Fonts */
-  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui,
+  --font-sans: 'Raleway', ui-sans-serif, system-ui,
     'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* Brand Colors */
-  --color-primary: #162b51;
-  --color-secondary: #e7c892;
+  --color-primary: #6ad3d4;
+  --color-primary-dark: #112c61;
+  /* Additional theme colors requested */
+  --color-cyan: #eefcfd;
+  --color-blue: #122B5F;
+  --color-dark-cyan: #12CEDA;
+  --color-secondary: #64cbd5;
   --color-accent: #cd954b;
 
   /* Neutral Colors */
@@ -79,6 +84,10 @@
 .bg-accent { background-color: var(--color-accent); }
 .bg-dark { background-color: var(--color-dark); }
 .bg-light { background-color: var(--color-light); }
+/* New brand backgrounds */
+.bg-cyan { background-color: var(--color-cyan); }
+.bg-blue { background-color: var(--color-blue); }
+.bg-dark-cyan { background-color: var(--color-dark-cyan); }
 
 /* Text */
 .text-primary { color: var(--color-primary); }
@@ -86,11 +95,19 @@
 .text-accent { color: var(--color-accent); }
 .text-dark { color: var(--color-dark); }
 .text-light { color: var(--color-light); }
+/* New brand text colors */
+.text-cyan { color: var(--color-cyan); }
+.text-blue { color: var(--color-blue); }
+.text-dark-cyan { color: var(--color-dark-cyan); }
 
 /* Borders */
 .border-primary { border-color: var(--color-primary); }
 .border-secondary { border-color: var(--color-secondary); }
 .border-accent { border-color: var(--color-accent); }
+/* New brand borders */
+.border-cyan { border-color: var(--color-cyan); }
+.border-blue { border-color: var(--color-blue); }
+.border-dark-cyan { border-color: var(--color-dark-cyan); }
 
 /* --------------------------------------------------
    Global Base Styling
