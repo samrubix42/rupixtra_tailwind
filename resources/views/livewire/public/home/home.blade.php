@@ -208,7 +208,7 @@
                             rounded-full bg-dark-cyan shadow-xl
                             flex flex-col items-center justify-center gap-1 sm:gap-2">
                         <img src="{{ asset('Icons/employee-svgrepo-com.png') }}"
-                            class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12">
+                            class="w-auto h-8 sm:w-10 sm:h-10 lg:w-auto lg:h-12">
                         <span class="text-white text-[10px] sm:text-xs lg:text-sm
                                  font-medium text-center">
                             Self Employed
@@ -222,7 +222,7 @@
                             rounded-full bg-dark-cyan shadow-xl
                             flex flex-col items-center justify-center gap-1 sm:gap-2">
                         <img src="{{ asset('Icons/admin-users-svgrepo-com.png') }}"
-                            class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12">
+                            class="w-9 h-9 sm:w-10 sm:h-10 lg:w-13 lg:h-13">
                         <span class="text-white text-[10px] sm:text-xs lg:text-sm
                                  font-medium text-center">
                             Personal Loan
