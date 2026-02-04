@@ -1,230 +1,97 @@
 <div>
-    <section class="bg-white py-10">
-        <div class="mx-auto px-[3%]">
+ <section class="bg-cyan-50 py-20">
+    <div class="max-w-7xl mx-auto px-6">
 
-            <!-- Wrapper -->
-            <div
-                class="flex gap-6 overflow-x-auto pb-2
-             md:grid  md:px[5%] md:grid-cols-6 md:gap-x-12 md:gap-y-7 md:overflow-visible
-             justify-items-center
-             scroll-x">
+        <!-- Header -->
+        <div class="mb-16">
+            <span class="text-cyan-500 font-semibold uppercase tracking-widest">
+                What we do
+            </span>
 
-                <!-- Item -->
-                <a href="#"  class="flex items-center flex-col justify-center text-center group">
-                    <div
-                        class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20
-                 rounded-xl bg-zinc-100
-                 flex items-center justify-center
-                 shadow-sm transition
-                 group-hover:shadow-md group-hover:-translate-y-0.5">
-                        <img src="{{ asset('icons/assets.png') }}" class="h-6 w-6 md:h-9 md:w-9" />
-                    </div>
-                    <p class="mt-2 text-[11px] sm:text-xs font-medium text-gray-700">
-                        LAP
-                    </p>
-                </a>
+            <h2 class="text-4xl font-bold text-slate-800 mt-2">
+                Our services.
+            </h2>
 
-                <a href="#"  class="flex items-center flex-col justify-center text-center group">
-                    <div class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-xl bg-zinc-100 flex items-center justify-center shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5">
-                        <img src="{{ asset('icons/house.png') }}" class="h-6 w-6 md:h-9 md:w-9" />
-                    </div>
-                    <p class="mt-2 text-[11px] sm:text-xs font-medium text-gray-700">
-                        Home Loan
-                    </p>
-                </a>
-
-                <a href="#"  class="flex items-center flex-col justify-center text-center group">
-                    <div class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-xl bg-zinc-100 flex items-center justify-center shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5">
-                        <img src="{{ asset('icons/loan.png') }}" class="h-6 w-6 md:h-9 md:w-9" />
-                    </div>
-                    <p class="mt-2 text-[11px] sm:text-xs font-medium text-gray-700">
-                        Business Loan
-                    </p>
-                </a>
-
-                <a href="#"  class="flex items-center flex-col justify-center text-center group">
-                    <div class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-xl bg-zinc-100 flex items-center justify-center shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5">
-                        <img src="{{ asset('icons/manager.png') }}" class="h-6 w-6 md:h-9 md:w-9" />
-                    </div>
-                    <p class="mt-2 text-[11px] sm:text-xs font-medium text-gray-700">
-                        Self Employed
-                    </p>
-                </a>
-
-                <a href="#"  class="flex items-center flex-col justify-center text-center group">
-                    <div class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-xl bg-zinc-100 flex items-center justify-center shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5">
-                        <img src="{{ asset('icons/personal.png') }}" class="h-6 w-6 md:h-9 md:w-9" />
-                    </div>
-                    <p class="mt-2 text-[11px] sm:text-xs font-medium text-gray-700">
-                        Personal Loan
-                    </p>
-                </a>
-
-                <a href="#"  class="flex items-center flex-col justify-center text-center group">
-                    <div class="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-xl bg-zinc-100 flex items-center justify-center shadow-sm transition group-hover:shadow-md group-hover:-translate-y-0.5">
-                        <img src="{{ asset('icons/atm-card.png') }}" class="h-6 w-6 md:h-9 md:w-9" />
-                    </div>
-                    <p class="mt-2 text-[11px] sm:text-xs font-medium text-gray-700">
-                        Credit Card
-                    </p>
-                </a>
-
-            </div>
-
+            <p class="mt-4 max-w-2xl text-slate-600">
+                <span class="font-semibold text-slate-700">
+                    Your Trusted Guide to Finding the Perfect Loan
+                </span><br>
+                We provide clear, step-by-step assistance tailored to your unique
+                financial needs, ensuring that you find the perfect loan with confidence.
+            </p>
         </div>
-    </section>
 
+        <!-- Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 justify-items-center">
 
-    <section class="bg-zinc-50 py-2">
-        <div
-            wire:ignore
-            x-data
-            x-init="
-      setTimeout(() => {
-        new Swiper($refs.slider, {
-          loop: true,
-          speed: 800,
-          autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-          },
-        });
-      }, 100);
-    "
-            class="mx-auto px-[3%]">
-            <div
-                class="swiper rounded-2xl overflow-hidden shadow-md"
-                x-ref="slider">
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <img
-                            src="https://picsum.photos/id/1015/1400/600"
-                            class="w-full h-[180px] sm:h-[260px] md:h-[360px] object-cover">
-                    </div>
-
-                    <div class="swiper-slide">
-                        <img
-                            src="https://picsum.photos/id/1016/1400/600"
-                            class="w-full h-[180px] sm:h-[260px] md:h-[360px] object-cover">
-                    </div>
-
-                    <div class="swiper-slide">
-                        <img
-                            src="https://picsum.photos/id/1018/1400/600"
-                            class="w-full h-[180px] sm:h-[260px] md:h-[360px] object-cover">
-                    </div>
-
-                    <div class="swiper-slide">
-                        <img
-                            src="https://picsum.photos/id/1020/1400/600"
-                            class="w-full h-[180px] sm:h-[260px] md:h-[360px] object-cover">
-                    </div>
-
+            <!-- Card -->
+            <div class="group">
+                <div class="w-32 h-32 rounded-full bg-cyan-400 shadow-lg flex items-center justify-center
+                            transition transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <img src="/images/lap.png" alt="LAP" class="w-12 h-12 object-contain">
                 </div>
+                <p class="text-center mt-4 text-sm font-medium text-slate-700">
+                    LAP
+                </p>
             </div>
-        </div>
-    </section>
-    <section class="bg-white py-2">
-        <div class="mx-auto px-[3%]">
 
-            <!-- Cards Wrapper -->
-            <div
-                class="flex gap-4 overflow-x-auto pb-2
-             md:grid md:grid-cols-4 md:gap-6 md:overflow-visible">
+            <div class="group">
+                <div class="w-32 h-32 rounded-full bg-cyan-400 shadow-lg flex items-center justify-center
+                            transition transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <img src="/images/home-loan.png" alt="Home Loan" class="w-12 h-12 object-contain">
+                </div>
+                <p class="text-center mt-4 text-sm font-medium text-slate-700">
+                    Home Loan
+                </p>
+            </div>
 
-                <!-- Card -->
-                <a href="#"
-                    class="flex-shrink-0 w-[220px] md:w-auto
-                rounded-2xl overflow-hidden
-                shadow-sm hover:shadow-md transition group">
-                    <div class="relative h-[280px]">
-                        <img
-                            src="https://picsum.photos/id/1011/600/800"
-                            class="w-full h-full object-cover group-hover:scale-105 transition">
+            <div class="group">
+                <div class="w-32 h-32 rounded-full bg-cyan-400 shadow-lg flex items-center justify-center
+                            transition transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <img src="/images/business-loan.png" alt="Business Loan" class="w-12 h-12 object-contain">
+                </div>
+                <p class="text-center mt-4 text-sm font-medium text-slate-700">
+                    Business Loan
+                </p>
+            </div>
 
-                        <!-- Gradient Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
+            <div class="group">
+                <div class="w-32 h-32 rounded-full bg-cyan-400 shadow-lg flex items-center justify-center
+                            transition transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <img src="/images/self-employed.png" alt="Self Employed" class="w-12 h-12 object-contain">
+                </div>
+                <p class="text-center mt-4 text-sm font-medium text-slate-700">
+                    Self Employed
+                </p>
+            </div>
 
-                        <!-- Text -->
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <h3 class="text-sm font-semibold leading-tight">
-                                Personal Loan
-                            </h3>
-                            <p class="text-xs opacity-90">
-                                Funds up to ₹55 Lakh
-                            </p>
-                        </div>
-                    </div>
-                </a>
+            <div class="group">
+                <div class="w-32 h-32 rounded-full bg-cyan-400 shadow-lg flex items-center justify-center
+                            transition transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <img src="/images/personal-loan.png" alt="Personal Loan" class="w-12 h-12 object-contain">
+                </div>
+                <p class="text-center mt-4 text-sm font-medium text-slate-700">
+                    Personal Loan
+                </p>
+            </div>
 
-                <!-- Card -->
-                <a href="#"
-                    class="flex-shrink-0 w-[220px] md:w-auto
-                rounded-2xl overflow-hidden
-                shadow-sm hover:shadow-md transition group">
-                    <div class="relative h-[280px]">
-                        <img
-                            src="https://picsum.photos/id/1012/600/800"
-                            class="w-full h-full object-cover group-hover:scale-105 transition">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <h3 class="text-sm font-semibold">
-                                Fixed Deposit
-                            </h3>
-                            <p class="text-xs opacity-90">
-                                Up to 7.30% p.a.
-                            </p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card -->
-                <a href="#"
-                    class="flex-shrink-0 w-[220px] md:w-auto
-                rounded-2xl overflow-hidden
-                shadow-sm hover:shadow-md transition group">
-                    <div class="relative h-[280px]">
-                        <img
-                            src="https://picsum.photos/id/1013/600/800"
-                            class="w-full h-full object-cover group-hover:scale-105 transition">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <h3 class="text-sm font-semibold">
-                                Insta EMI Card
-                            </h3>
-                            <p class="text-xs opacity-90">
-                                Limit up to ₹3 Lakh
-                            </p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card -->
-                <a href="#"
-                    class="flex-shrink-0 w-[220px] md:w-auto
-                rounded-2xl overflow-hidden
-                shadow-sm hover:shadow-md transition group">
-                    <div class="relative h-[280px]">
-                        <img
-                            src="https://picsum.photos/id/1014/600/800"
-                            class="w-full h-full object-cover group-hover:scale-105 transition">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4 text-white">
-                            <h3 class="text-sm font-semibold">
-                                Washing Machines
-                            </h3>
-                            <p class="text-xs opacity-90">
-                                EMI starting ₹999*
-                            </p>
-                        </div>
-                    </div>
-                </a>
-
+            <div class="group">
+                <div class="w-32 h-32 rounded-full bg-cyan-400 shadow-lg flex items-center justify-center
+                            transition transform group-hover:-translate-y-2 group-hover:shadow-xl">
+                    <img src="/images/credit-card.png" alt="Credit Card" class="w-12 h-12 object-contain">
+                </div>
+                <p class="text-center mt-4 text-sm font-medium text-slate-700">
+                    Credit Card
+                </p>
             </div>
 
         </div>
-    </section>
+    </div>
+</section>
+
+
+
+
 
 
 </div>

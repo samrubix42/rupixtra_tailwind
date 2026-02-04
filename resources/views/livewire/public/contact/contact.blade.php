@@ -1,24 +1,53 @@
 <div>
 
-  <!-- ================= HERO ================= -->
-  <section class="bg-primary py-16 sm:py-24 text-white">
-    <div class="max-w-6xl mx-auto px-4 text-center">
+  <!-- ================= PAGE HEADER ================= -->
+  <section class="relative bg-primary text-white overflow-hidden">
 
-      <span class="text-xs tracking-[0.3em] uppercase text-secondary">
-        Contact Us
-      </span>
+    <!-- Accent Line -->
+    <div class="absolute bottom-0 left-0 w-full h-[3px] bg-secondary"></div>
 
-      <h1 class="mt-4 sm:mt-6 text-3xl sm:text-5xl font-semibold">
-        We’re Here to Help You
-      </h1>
+    <!-- Soft Glow -->
+    <div class="absolute -top-24 right-24 w-60 h-60 
+              bg-secondary/15 blur-[120px] rounded-full"></div>
 
-      <p class="mt-4 max-w-2xl mx-auto text-white/70 text-base sm:text-lg">
-        Have questions about loans, eligibility, or documentation?
-        Our team is ready to assist you at every step.
-      </p>
+    <div class="relative max-w-7xl mx-auto px-6 py-12 sm:py-14">
+
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+
+        <!-- Left Content -->
+        <div>
+          <span class="text-xs tracking-[0.3em] uppercase text-secondary">
+            Contact
+          </span>
+
+          <h1 class="mt-2 text-2xl sm:text-3xl font-semibold">
+            We’re Here to Help You
+          </h1>
+
+          <p class="mt-2 text-white/70 text-sm sm:text-base max-w-xl">
+            Have questions about loans, eligibility, or documentation?
+            Our team is ready to assist you at every step.
+          </p>
+        </div>
+
+        <!-- Breadcrumb -->
+        <nav class="text-sm text-white/70">
+          <ol class="flex items-center flex-wrap gap-1">
+            <li>
+              <a href="/" class="hover:text-secondary transition">Home</a>
+            </li>
+            <li class="mx-1">/</li>
+            <li>
+              <span class="text-secondary">Contact</span>
+            </li>
+          </ol>
+        </nav>
+
+      </div>
 
     </div>
   </section>
+
 
   <!-- ================= CONTACT INFO ================= -->
   <section class="bg-secondary/25 py-10 sm:py-12">
@@ -140,7 +169,7 @@
                     order-2 lg:order-1">
 
           <img src="{{ asset('images/contact.jpg') }}"
-               class="absolute inset-0 w-full h-full object-cover">
+            class="absolute inset-0 w-full h-full object-cover">
 
           <div class="absolute inset-0 bg-primary/75"></div>
 
@@ -177,8 +206,8 @@
           MG Road, Mumbai – 400001
         </p>
         <a href="https://maps.google.com?q=MG+Road+Mumbai"
-           target="_blank"
-           class="inline-flex items-center gap-2 mt-4
+          target="_blank"
+          class="inline-flex items-center gap-2 mt-4
                   px-6 py-3 bg-primary text-white rounded-lg text-sm">
           <i class="ri-direction-line"></i> Get Directions
         </a>
