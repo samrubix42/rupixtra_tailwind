@@ -301,7 +301,7 @@
 
                                 <!-- DATE -->
                                 <span class="absolute top-4 left-4 bg-black/60
-                                         text-white text-xs px-3 py-1 rounded">
+                                         text-white text-xs px-3 py-1">
                                     <span x-text="item.date"></span>
                                 </span>
 
@@ -427,7 +427,7 @@
                     Testimonials
                 </span>
 
-                <div class="w-14 sm:w-16 h-1.5 bg-zinc-700  mt-2 mb-4 sm:mb-6"></div>
+                <div class="w-14 sm:w-16 h-1.5 bg-zinc-700 rounded mt-2 mb-4 sm:mb-6"></div>
 
                 <h2 class="text-2xl sm:text-4xl lg:text-5xl font-bold text-blue">
                     Client's Testimonials
