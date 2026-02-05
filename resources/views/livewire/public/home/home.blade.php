@@ -183,7 +183,7 @@
                 <div class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan shadow-xl
-                            flex flex-col items-center justify-center gap-1 sm:gap-2">
+                            flex flex-col items-center justify-center gap-1 shadow-card sm:gap-2">
                         <img src="{{ asset('Icons/home-svgrepo-com.png') }}"
                             class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12">
                         <span class="text-white text-[10px] sm:text-xs lg:text-sm
@@ -197,7 +197,7 @@
                 <div class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan shadow-xl
-                            flex flex-col items-center justify-center gap-1 sm:gap-2">
+                            flex flex-col items-center justify-center shadow-card gap-1 sm:gap-2">
                         <img src="{{ asset('Icons/business-svgrepo-com.png') }}"
                             class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12">
                         <span class="text-white text-[10px] sm:text-xs lg:text-sm
@@ -211,10 +211,10 @@
                 <div class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan shadow-xl
-                            flex flex-col items-center justify-center gap-1 sm:gap-2">
+                            flex flex-col items-center justify-center shadow-card gap-1 sm:gap-2">
                         <img src="{{ asset('Icons/employee-svgrepo-com.png') }}"
                             class="w-auto h-8 sm:w-10 sm:h-10 lg:w-auto lg:h-12">
-                        <span class="text-white text-[10px] sm:text-xs lg:text-sm
+                        <span class="text-white text-[10px]  sm:text-xs lg:text-sm
                                  font-medium text-center">
                             Self Employed
                         </span>
@@ -225,7 +225,7 @@
                 <div class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan shadow-xl
-                            flex flex-col items-center justify-center gap-1 sm:gap-2">
+                            flex flex-col items-center shadow-card justify-center gap-1 sm:gap-2">
                         <img src="{{ asset('Icons/admin-users-svgrepo-com.png') }}"
                             class="w-9 h-9 sm:w-10 sm:h-10 lg:w-13 lg:h-13">
                         <span class="text-white text-[10px] sm:text-xs lg:text-sm
@@ -239,7 +239,7 @@
                 <div class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan
-                            flex flex-col items-center justify-center gap-1 sm:gap-2
+                            flex flex-col items-center shadow-card justify-center gap-1 sm:gap-2
                             shadow-card">
                         <img src="{{ asset('Icons/credit-card-svgrepo-com.png') }}"
                             alt="Credit Card"
