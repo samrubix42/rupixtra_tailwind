@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\Admin\Blog\Category\BlogCategoryList;
+use App\Livewire\Admin\Blog\Post\PostList;
+use App\Livewire\Admin\Dashboard\Dashboard;
 use App\Livewire\Public\About\About;
 use App\Livewire\Public\Calculator\Calulator;
 use App\Livewire\Public\Contact\Contact;
@@ -18,4 +21,9 @@ Route::get('/clear-cache', function() {
     Artisan::call('config:cache');
     Artisan::call('view:clear');
     return "Cache Cleared!";
+});
+Route::prefix('admin')->group(function () {
+    Route::livewire('/',Dashboard::class)->name('admin.dashboard');
+    Route::livewire('blog/category',BlogCategoryList::class)->name('admin.blog.category');
+    Route::livewire('blog-list',PostList::class)->name('admin.blog-list');
 });
