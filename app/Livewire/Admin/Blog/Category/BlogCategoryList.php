@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Url;
 use App\Models\BlogCategory;
+use Illuminate\Support\Str;
 
 class BlogCategoryList extends Component
 {
@@ -84,6 +85,10 @@ class BlogCategoryList extends Component
         CRUD
     --------------------------*/
 
+    public function updatedTitle()
+    {
+        $this->slug = Str::slug($this->title);
+    }
     public function save()
     {
         $this->validate();
