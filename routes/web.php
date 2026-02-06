@@ -5,6 +5,7 @@ use App\Livewire\Admin\Blog\Post\PostList;
 use App\Livewire\Admin\Dashboard\Dashboard;
 use App\Livewire\Admin\Testimonial\TestimonialList;
 use App\Livewire\Auth\Login;
+use App\Livewire\Page\PageMangement;
 use App\Livewire\Public\About\About;
 use App\Livewire\Public\Calculator\Calulator;
 use App\Livewire\Public\Contact\Contact;
@@ -36,4 +37,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('testimonial', TestimonialList::class)->name('admin.testimonial');
     Route::livewire('blog/category', BlogCategoryList::class)->name('admin.blog.category');
     Route::livewire('blog-list', PostList::class)->name('admin.blog-list');
+    Route::livewire('page-management',PageMangement::class)->name('admin.page-management');
 });
