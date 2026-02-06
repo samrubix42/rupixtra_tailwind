@@ -12,23 +12,21 @@
 </head>
 
 <body>
-    <div x-data="{ sidebarOpen:false }" class="flex h-screen bg-gray-100">
+    <div class="flex h-screen bg-gray-100">
 
-        <livewire:admin.include.sidebar />
+
 
         <div class="flex flex-col flex-1">
-            <livewire:admin.include.header />
 
             <main class="flex-1 p-6 overflow-y-auto">
                 {{ $slot }}
             </main>
         </div>
 
-    </div>
-    @include('livewire.admin.include.toast')
 
 
-    @livewireScripts
+
+        @livewireScripts
 </body>
 
 </html>

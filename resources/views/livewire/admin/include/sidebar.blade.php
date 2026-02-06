@@ -30,7 +30,7 @@
                        : 'hover:bg-slate-800 hover:text-white' }}">
             <i class="{{ $item->icon }}
                       {{ request()->url() === $item->url
-                          ? 'text-purple-400'
+                          ? 'text-blue-400'
                           : 'text-slate-400' }} text-lg"></i>
             <span class="flex-1">{{ $item->title }}</span>
         </a>
@@ -51,7 +51,7 @@
                 </div>
 
                 <i class="ri-arrow-down-s-line text-slate-400 text-lg transition-transform duration-200"
-                   :class="openMenu === '{{ $item->title }}' ? 'rotate-180 text-purple-400' : ''">
+                   :class="openMenu === '{{ $item->title }}' ? 'rotate-180 text-blue-400' : ''">
                 </i>
             </button>
 
