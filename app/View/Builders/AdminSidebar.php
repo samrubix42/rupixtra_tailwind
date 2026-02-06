@@ -29,15 +29,15 @@ class AdminSidebar
                 'hasSubmenu' => false,
                 'submenu' => [],
             ],
-                 (object)[
+            (object)[
                 'title' => 'Blog',
                 'icon' => 'ri-article-line',
                 'url' => 'javascript:void(0)',
                 'hasSubmenu' => true,
                 'submenu' => [
-                  
+
                     (object)[
-                        'title'=> 'Blog Categories',
+                        'title' => 'Blog Categories',
                         'icon' => 'ri-list-check',
                         'url' => route('admin.blog.category'),
                         'hasSubmenu' => false,
@@ -50,8 +50,16 @@ class AdminSidebar
                         'hasSubmenu' => false,
                         'submenu' => [],
                     ],
+
                 ],
             ],
+             (object)[
+                        'title' => 'Testimonials',
+                        'icon' => 'ri-chat-quote-line',
+                        'url' => route('admin.testimonial'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
         ]);
 
         return $menu;

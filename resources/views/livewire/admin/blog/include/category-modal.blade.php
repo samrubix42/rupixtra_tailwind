@@ -34,6 +34,7 @@
                                placeholder="auto-generated or custom slug"
                                class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-800
                                        focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none">
+                            @error('slug') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                        </div>
 
                        <div>

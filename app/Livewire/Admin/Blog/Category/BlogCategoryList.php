@@ -119,7 +119,7 @@ class BlogCategoryList extends Component
         BlogCategory::findOrFail($id)->delete();
     }
 
-    private function resetForm()
+    public function resetForm()
     {
         $this->reset(['BlogCategoryId', 'title', 'slug', 'description', 'status']);
         $this->status = true;
