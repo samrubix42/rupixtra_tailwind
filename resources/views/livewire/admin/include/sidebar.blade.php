@@ -23,6 +23,7 @@
         @if (! $item->hasSubmenu)
         <a
             href="{{ $item->url }}"
+            wire:navigate
             class="flex items-center gap-3 px-4 py-3 rounded-lg transition
                    {{ request()->url() === $item->url
                        ? 'bg-slate-800 text-white font-semibold shadow-inner'
@@ -62,6 +63,7 @@
                 @foreach ($item->submenu as $child)
                 <a
                     href="{{ $child->url }}"
+                    wire:navigate
                     class="flex items-center px-3 py-2 text-sm rounded-lg transition
                            {{ request()->url() === $child->url
                                ? 'bg-slate-800 text-white font-medium'
