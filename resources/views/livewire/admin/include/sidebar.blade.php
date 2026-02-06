@@ -8,10 +8,8 @@
     :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
 
     <!-- Logo -->
-    <div class="flex items-center h-16 px-6 bg-slate-900">
-        <span class="text-xl font-bold text-white tracking-wide">
-            HMS Admin
-        </span>
+    <div class="flex items-center h-16 px-10 pt-3 bg-slate-900">
+        <img src="{{asset('images/logo-dark.png')}}" class="object-contain h-10" alt="Logo">
     </div>
 
     <!-- Navigation -->
