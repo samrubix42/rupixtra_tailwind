@@ -85,6 +85,17 @@
                                             <i class="ri-edit-line text-sm"></i>
                                             Edit
                                         </a>
+
+                                        <button
+                                            @click="
+                                                $dispatch('open-delete-modal');
+                                                $wire.confirmDelete({{ $post->id }})
+                                            "
+                                            wire:confirm="Are you sure?"
+                                            class="inline-flex items-center gap-1 rounded-md border border-rose-200 px-2.5 py-1.5 text-xs font-medium text-rose-600 hover:bg-rose-50">
+                                            <i class="ri-delete-bin-6-line text-sm"></i>
+                                            Delete
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
@@ -129,6 +140,17 @@
                             <i class="ri-edit-line text-sm"></i>
                             Edit
                         </a>
+
+                        <button
+                            @click="
+                                $dispatch('open-delete-modal');
+                                $wire.confirmDelete({{ $post->id }})
+                            "
+                            wire:confirm="Are you sure?"
+                            class="inline-flex items-center gap-1 rounded-md border border-rose-200 px-2.5 py-1.5 text-xs font-medium text-rose-600 hover:bg-rose-50">
+                            <i class="ri-delete-bin-6-line text-sm"></i>
+                            Delete
+                        </button>
                     </div>
                 </div>
             @empty
@@ -141,5 +163,7 @@
         <div class="mt-3 flex justify-end">
             {{ $posts->links() }}
         </div>
+    
+        @include('livewire.admin.blog.include.post-delete')
     </div>
 </div>

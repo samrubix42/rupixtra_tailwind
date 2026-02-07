@@ -20,6 +20,8 @@ class PostList extends Component
 
     public array $perPageOptions = [10, 25, 50];
 
+    public ?int $deleteId = null;
+
     public function updatingSearch(): void
     {
         $this->resetPage();
@@ -32,6 +34,30 @@ class PostList extends Component
         }
 
         $this->resetPage();
+    }
+
+    /* -------------------------
+        Delete handlers
+    --------------------------*/
+
+    public function confirmDelete(int $id): void
+    {
+        $this->deleteId = $id;
+    }
+
+    public function deleteConfirmed(): void
+    {
+        Post::findOrFail($this->deleteId)->delete();
+
+        $this->reset('deleteId');
+
+        $this->dispatch('toast-show', [
+            'message' => 'Post deleted successfully!',
+            'type' => 'success',
+            'position' => 'top-right',
+        ]);
+
+        $this->dispatch('close-delete-modal');
     }
 
     #[Layout('layouts.admin')]
