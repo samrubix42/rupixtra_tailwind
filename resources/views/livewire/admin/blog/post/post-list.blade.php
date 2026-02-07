@@ -1,12 +1,12 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-    <div class="mb-6 flex items-center justify-between gap-3">
-        <div>
+    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div class="space-y-1">
             <h1 class="text-xl font-semibold text-slate-900">Blog Posts</h1>
             <p class="mt-1 text-sm text-slate-500">Manage blog posts with search, pagination and quick actions.</p>
         </div>
 
-        <a wire:navigate
+        <a
             href="{{ route('admin.blog.post.add') }}"
             class="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:ring-offset-1">
             <i class="ri-add-line text-base"></i>
@@ -50,6 +50,7 @@
                     <thead class="bg-slate-50">
                         <tr class="text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                             <th class="px-4 py-3 w-12">#</th>
+                            <th class="px-4 py-3 w-20">Image</th>
                             <th class="px-4 py-3">Title</th>
                             <th class="px-4 py-3">Category</th>
                             <th class="px-4 py-3">Slug</th>
@@ -61,6 +62,20 @@
                         @forelse($posts as $post)
                             <tr wire:key="post-{{ $post->id }}" class="hover:bg-slate-50/80">
                                 <td class="px-4 py-3 text-slate-500">{{ $loop->iteration }}</td>
+                                <td class="px-4 py-3">
+                                    @if($post->featured_image)
+                                        <div class="h-12 w-12 rounded-md overflow-hidden border border-slate-200 bg-slate-50">
+                                            <img
+                                                src="{{ asset('storage/' . $post->featured_image) }}"
+                                                alt="{{ $post->title }}"
+                                                class="h-full w-full object-cover">
+                                        </div>
+                                    @else
+                                        <div class="h-12 w-12 rounded-md border border-dashed border-slate-200 flex items-center justify-center text-[10px] text-slate-400 bg-slate-50">
+                                            N/A
+                                        </div>
+                                    @endif
+                                </td>
                                 <td class="px-4 py-3 font-medium text-slate-800">{{ $post->title }}</td>
                                 <td class="px-4 py-3 text-slate-600">{{ $post->category?->title ?? '—' }}</td>
                                 <td class="px-4 py-3 text-slate-600 text-xs font-mono break-all">{{ $post->slug }}</td>
@@ -112,13 +127,27 @@
         <div class="space-y-3 sm:hidden">
             @forelse($posts as $post)
                 <div wire:key="post-card-{{ $post->id }}" class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                    <div class="flex items-start justify-between gap-3">
-                        <div>
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0">
+                            @if($post->featured_image)
+                                <div class="h-14 w-14 rounded-md overflow-hidden border border-slate-200 bg-slate-50">
+                                    <img
+                                        src="{{ asset('storage/' . $post->featured_image) }}"
+                                        alt="{{ $post->title }}"
+                                        class="h-full w-full object-cover">
+                                </div>
+                            @else
+                                <div class="h-14 w-14 rounded-md border border-dashed border-slate-200 flex items-center justify-center text-[10px] text-slate-400 bg-slate-50">
+                                    N/A
+                                </div>
+                            @endif
+                        </div>
+                        <div class="flex-1">
                             <p class="text-sm font-semibold text-slate-900">{{ $post->title }}</p>
                             <p class="mt-0.5 text-[11px] font-mono text-slate-500 break-all">{{ $post->slug }}</p>
                             <p class="mt-1 text-xs text-slate-500">{{ $post->category?->title ?? '—' }}</p>
                         </div>
-                        <div class="text-right text-xs">
+                        <div class="text-right text-xs flex-shrink-0">
                             @if($post->is_published)
                                 <span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
                                     <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>

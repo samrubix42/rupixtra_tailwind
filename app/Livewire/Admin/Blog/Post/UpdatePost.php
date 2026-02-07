@@ -62,9 +62,8 @@ class UpdatePost extends Component
 
     public function updatedTitle(): void
     {
-        if (! $this->slug) {
             $this->slug = Str::slug($this->title);
-        }
+        
     }
 
     public function save(): void

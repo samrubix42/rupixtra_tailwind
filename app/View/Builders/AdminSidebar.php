@@ -49,13 +49,6 @@ class AdminSidebar
                         'submenu' => [],
                     ],
                     (object) [
-                        'title' => 'Add Post',
-                        'icon' => 'ri-add-line',
-                        'url' => route('admin.blog.post.add'),
-                        'hasSubmenu' => false,
-                        'submenu' => [],
-                    ],
-                    (object) [
                         'title' => 'Blog List',
                         'icon' => 'ri-file-list-3-line',
                         'url' => route('admin.blog-list'),
