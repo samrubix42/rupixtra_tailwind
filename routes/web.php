@@ -6,6 +6,7 @@ use App\Livewire\Admin\Blog\Post\PostList;
 use App\Livewire\Admin\Blog\Post\UpdatePost;
 use App\Livewire\Admin\Dashboard\Dashboard;
 use App\Livewire\Admin\Testimonial\TestimonialList;
+use App\Livewire\Admin\Setting\Setting as AdminSetting;
 use App\Livewire\Auth\Login;
 use App\Livewire\Page\PageMangement;
 use App\Livewire\Public\About\About;
@@ -42,4 +43,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('blog/post/add', AddPost::class)->name('admin.blog.post.add');
     Route::livewire('blog/post/edit/{postId}', UpdatePost::class)->name('admin.blog.post.edit');
     Route::livewire('page-management',PageMangement::class)->name('admin.page-management');
+    Route::livewire('settings', AdminSetting::class)->name('admin.settings');
 });

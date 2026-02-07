@@ -64,6 +64,13 @@ class AdminSidebar
                 'hasSubmenu' => false,
                 'submenu' => [],
             ],
+            (object) [
+                'title' => 'Settings',
+                'icon' => 'ri-settings-3-line',
+                'url' => route('admin.settings'),
+                'hasSubmenu' => false,
+                'submenu' => [],
+            ],
         ]);
     }
 }

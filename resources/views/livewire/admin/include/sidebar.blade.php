@@ -7,9 +7,19 @@
            transform transition-transform duration-300 lg:translate-x-0 lg:static"
     :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
 
-    <!-- Logo -->
-    <div class="flex items-center h-16 px-10 pt-3 bg-slate-900">
-        <img src="{{asset('images/logo-dark.png')}}" class="object-contain h-10" alt="Logo">
+    <!-- Logo / Mobile close -->
+    <div class="flex items-center h-16 px-4 sm:px-6 bg-slate-900">
+        <img src="{{ asset('images/logo-dark.png') }}" class="object-contain h-9 sm:h-10" alt="Logo">
+
+        <!-- Mobile close button -->
+        <button
+            @click="sidebarOpen = false"
+            class="ml-auto inline-flex items-center justify-center rounded-lg p-2 text-slate-300 hover:bg-slate-800 hover:text-white lg:hidden"
+            aria-label="Close sidebar"
+            type="button"
+        >
+            <i class="ri-close-line text-xl"></i>
+        </button>
     </div>
 
     <!-- Navigation -->
