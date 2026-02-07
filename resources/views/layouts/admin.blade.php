@@ -27,8 +27,24 @@
     </div>
     @include('livewire.admin.include.toast')
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
-
+    <script src="{{ asset('tinymce/tinymce.js') }}"></script>
+    <script>
+        document.addEventListener('livewire:navigate', function () {
+            Livewire.hook('message.processed', function (message, component) {
+                if (message.updateQueue.some(update => update.type === 'callMethod' && update.method === 'initializeEditor')) {
+                    tinymce.remove(); // Remove any existing editors
+                    tinymce.init({
+                        selector: '.rich-text-editor',
+                        height: 300,
+                        menubar: false,
+                        plugins: 'lists link image preview',
+                        toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview',
+                        content_style: 'body { font-family:Raleway, sans-serif; font-size:14px }'
+                    });
+                }
+            });
+        });
+    </script>
     @livewireScripts
 </body>
 

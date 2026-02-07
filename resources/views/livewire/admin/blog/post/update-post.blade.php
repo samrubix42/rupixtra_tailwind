@@ -49,26 +49,68 @@
 
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 space-y-3">
                 <div class="flex items-center justify-between">
-                    <h2 class="text-sm font-semibold text-slate-900">Content</h2>
-                    <p class="text-xs text-slate-400">Powered by CKEditor</p>
+                    <div>
+                        <h2 class="text-sm font-semibold text-slate-900">Content</h2>
+                        <p class="text-xs text-slate-400">Powered by TinyMCE</p>
+                    </div>
                 </div>
 
-                <div wire:ignore x-data x-init="
-                    if (window.ClassicEditor) {
-                        ClassicEditor
-                            .create($refs.editor)
-                            .then(editor => {
-                                editor.model.document.on('change:data', () => {
-                                    $wire.set('content', editor.getData());
-                                });
-                            })
-                            .catch(error => console.error(error));
-                    }
-                ">
+                <div wire:ignore
+                     x-data="{ value: @entangle('content') }"
+                     x-init="
+                        if (window.tinymce) {
+                            tinymce.init({
+                                target: $refs.tinymce,
+                                height: 350,
+                                menubar: 'file edit view insert format tools table help',
+                                plugins: [
+                                    'advlist autolink lists link image charmap print preview anchor',
+                                    'searchreplace visualblocks visualchars code fullscreen',
+                                    'insertdatetime media table emoticons hr wordcount'
+                                ],
+                                toolbar:
+                                    'undo redo | styleselect formatselect | fontselect fontsizeselect | ' +
+                                    'bold italic underline strikethrough forecolor backcolor | ' +
+                                    'alignleft aligncenter alignright alignjustify | ' +
+                                    'bullist numlist outdent indent | ' +
+                                    'blockquote hr subscript superscript | ' +
+                                    'link image media emoticons | table | ' +
+                                    'removeformat code fullscreen',
+                                toolbar_mode: 'sliding',
+                                branding: false,
+                                setup: function (editor) {
+                                    editor.on('blur', function () {
+                                        value = editor.getContent();
+                                    });
+
+                                    editor.on('init', function () {
+                                        if (value != null) {
+                                            editor.setContent(value);
+                                        }
+                                    });
+
+                                    function putCursorToEnd() {
+                                        editor.selection.select(editor.getBody(), true);
+                                        editor.selection.collapse(false);
+                                    }
+
+                                    $watch('value', function (newValue) {
+                                        if (newValue !== editor.getContent()) {
+                                            editor.setContent(newValue || '');
+                                            putCursorToEnd();
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                     "
+                >
                     <textarea
-                        x-ref="editor"
-                        class="w-full border border-slate-200 rounded-md text-sm">{!! $content !!}</textarea>
+                        x-ref="tinymce"
+                        class="w-full border border-slate-200 rounded-md text-sm"
+                    >{!! $content !!}</textarea>
                 </div>
+
                 @error('content')<span class="text-xs text-rose-500 mt-1 block">{{ $message }}</span>@enderror
             </div>
         </div>
