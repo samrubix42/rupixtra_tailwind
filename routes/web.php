@@ -1,7 +1,9 @@
 <?php
 
 use App\Livewire\Admin\Blog\Category\BlogCategoryList;
+use App\Livewire\Admin\Blog\Post\AddPost;
 use App\Livewire\Admin\Blog\Post\PostList;
+use App\Livewire\Admin\Blog\Post\UpdatePost;
 use App\Livewire\Admin\Dashboard\Dashboard;
 use App\Livewire\Admin\Testimonial\TestimonialList;
 use App\Livewire\Auth\Login;
@@ -37,5 +39,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('testimonial', TestimonialList::class)->name('admin.testimonial');
     Route::livewire('blog/category', BlogCategoryList::class)->name('admin.blog.category');
     Route::livewire('blog-list', PostList::class)->name('admin.blog-list');
+    Route::livewire('blog/post/add', AddPost::class)->name('admin.blog.post.add');
+    Route::livewire('blog/post/edit/{postId}', UpdatePost::class)->name('admin.blog.post.edit');
     Route::livewire('page-management',PageMangement::class)->name('admin.page-management');
 });

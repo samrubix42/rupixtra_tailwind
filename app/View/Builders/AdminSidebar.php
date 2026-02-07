@@ -20,48 +20,57 @@ class AdminSidebar
 
     public function get(): Collection
     {
-        $menu = collect([
-
-            (object)[
+        return collect([
+            (object) [
                 'title' => 'Dashboard',
                 'icon' => 'ri-dashboard-line',
                 'url' => route('admin.dashboard'),
                 'hasSubmenu' => false,
                 'submenu' => [],
             ],
-            (object)[
+            (object) [
+                'title' => 'Pages',
+                'icon' => 'ri-file-list-3-line',
+                'url' => route('admin.page-management'),
+                'hasSubmenu' => false,
+                'submenu' => [],
+            ],
+            (object) [
                 'title' => 'Blog',
                 'icon' => 'ri-article-line',
                 'url' => 'javascript:void(0)',
                 'hasSubmenu' => true,
                 'submenu' => [
-
-                    (object)[
+                    (object) [
                         'title' => 'Blog Categories',
                         'icon' => 'ri-list-check',
                         'url' => route('admin.blog.category'),
                         'hasSubmenu' => false,
                         'submenu' => [],
                     ],
-                    (object)[
+                    (object) [
+                        'title' => 'Add Post',
+                        'icon' => 'ri-add-line',
+                        'url' => route('admin.blog.post.add'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
+                    (object) [
                         'title' => 'Blog List',
                         'icon' => 'ri-file-list-3-line',
                         'url' => route('admin.blog-list'),
                         'hasSubmenu' => false,
                         'submenu' => [],
                     ],
-
                 ],
             ],
-             (object)[
-                        'title' => 'Testimonials',
-                        'icon' => 'ri-chat-quote-line',
-                        'url' => route('admin.testimonial'),
-                        'hasSubmenu' => false,
-                        'submenu' => [],
-                    ],
+            (object) [
+                'title' => 'Testimonials',
+                'icon' => 'ri-chat-quote-line',
+                'url' => route('admin.testimonial'),
+                'hasSubmenu' => false,
+                'submenu' => [],
+            ],
         ]);
-
-        return $menu;
     }
 }

@@ -27,6 +27,7 @@
     </div>
     @include('livewire.admin.include.toast')
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
 
     @livewireScripts
 </body>
