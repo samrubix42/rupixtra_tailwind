@@ -30,7 +30,7 @@
                         <!-- Date Badge -->
                         <span class="absolute top-4 left-4 
                                  bg-black/60 text-white text-xs
-                                 px-3 py-1 rounded-md">
+                                 px-3 py-1 ">
                             16TH APRIL 2025
                         </span>
 
@@ -77,7 +77,7 @@
 
                         <span class="absolute top-4 left-4 
                                  bg-black/60 text-white text-xs
-                                 px-3 py-1 rounded-md">
+                                 px-3 py-1 ">
                             12 JAN 2026
                         </span>
 
@@ -122,7 +122,7 @@
 
                         <span class="absolute top-4 left-4 
                                  bg-black/60 text-white text-xs
-                                 px-3 py-1 rounded-md">
+                                 px-3 py-1 ">
                             16 APRIL 2025
                         </span>
 
@@ -168,7 +168,7 @@
                         <!-- Date Badge -->
                         <span class="absolute top-4 left-4 
                                  bg-black/60 text-white text-xs
-                                 px-3 py-1 rounded-md">
+                                 px-3 py-1 ">
                             16TH APRIL 2025
                         </span>
 
@@ -215,7 +215,7 @@
 
                         <span class="absolute top-4 left-4 
                                  bg-black/60 text-white text-xs
-                                 px-3 py-1 rounded-md">
+                                 px-3 py-1 ">
                             12 JAN 2026
                         </span>
 
@@ -260,7 +260,7 @@
 
                         <span class="absolute top-4 left-4 
                                  bg-black/60 text-white text-xs
-                                 px-3 py-1 rounded-md">
+                                 px-3 py-1 ">
                             16 APRIL 2025
                         </span>
 
@@ -306,7 +306,7 @@
                         <!-- Date Badge -->
                         <span class="absolute top-4 left-4 
                                  bg-black/60 text-white text-xs
-                                 px-3 py-1 rounded-md">
+                                 px-3 py-1 ">
                             16TH APRIL 2025
                         </span>
 
@@ -353,7 +353,7 @@
 
                         <span class="absolute top-4 left-4 
                                  bg-black/60 text-white text-xs
-                                 px-3 py-1 rounded-md">
+                                 px-3 py-1 ">
                             12 JAN 2026
                         </span>
 
@@ -398,7 +398,7 @@
 
                         <span class="absolute top-4 left-4 
                                  bg-black/60 text-white text-xs
-                                 px-3 py-1 rounded-md">
+                                 px-3 py-1 ">
                             16 APRIL 2025
                         </span>
 
