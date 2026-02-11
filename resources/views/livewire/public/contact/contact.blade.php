@@ -14,7 +14,7 @@
       <!-- LEFT CONTACT FORM (70%) -->
       <div class="lg:col-span-8 bg-[#bfe3e6] rounded-[30px] p-12 shadow-lg">
 
-        <h2 class="text-3xl font-semibold text-[#2e2a7b] mb-8">
+        <h2 class="text-3xl font-semibold text-blue mb-8">
           Get in touch with us.
         </h2>
 
@@ -22,7 +22,7 @@
 
           <!-- Full Name -->
           <div>
-            <label class="block text-[#2e2a7b] font-medium mb-2">
+            <label class="block text-blue font-medium mb-2">
               Full Name
             </label>
             <input type="text"
@@ -34,7 +34,7 @@
 
           <!-- Email -->
           <div>
-            <label class="block text-[#2e2a7b] font-medium mb-2">
+            <label class="block text-blue font-medium mb-2">
               Email Address
             </label>
             <input type="email"
@@ -46,7 +46,7 @@
 
           <!-- Phone -->
           <div>
-            <label class="block text-[#2e2a7b] font-medium mb-2">
+            <label class="block text-blue font-medium mb-2">
               Phone Number
             </label>
             <input type="text"
@@ -58,7 +58,7 @@
 
           <!-- Country -->
           <div>
-            <label class="block text-[#2e2a7b] font-medium mb-2">
+            <label class="block text-blue font-medium mb-2">
               Country
             </label>
             <input type="text"
@@ -69,7 +69,7 @@
 
           <!-- Message -->
           <div>
-            <label class="block text-[#2e2a7b] font-medium mb-2">
+            <label class="block text-blue font-medium mb-2">
               Message
             </label>
             <textarea rows="4"
@@ -92,36 +92,36 @@
       <!-- RIGHT CONTACT INFO (30%) -->
       <div class="lg:col-span-4 bg-[#bfe3e6] rounded-[30px] p-8 shadow-lg space-y-8">
 
-        <h2 class="text-2xl font-semibold text-[#2e2a7b]">
+        <h2 class="text-2xl font-semibold text-blue">
           Need more help?
         </h2>
 
         <!-- Call -->
         <div class="flex gap-4 items-start">
-          <i class="ri-phone-line text-xl text-[#2e2a7b]"></i>
+          <i class="ri-phone-line text-xl text-blue"></i>
           <div>
-            <p class="font-semibold text-[#2e2a7b] text-sm">Call Now</p>
-            <p class="text-sm text-[#2e2a7b]/70">(123) 456-7891</p>
-            <p class="text-sm text-[#2e2a7b]/70">(907) 456-7891</p>
+            <p class="font-semibold text-blue text-sm">Call Now</p>
+            <p class="text-sm text-blue/70">(123) 456-7891</p>
+            <p class="text-sm text-blue/70">(907) 456-7891</p>
           </div>
         </div>
 
         <!-- Email -->
         <div class="flex gap-4 items-start">
-          <i class="ri-mail-line text-xl text-[#2e2a7b]"></i>
+          <i class="ri-mail-line text-xl text-blue"></i>
           <div>
-            <p class="font-semibold text-[#2e2a7b] text-sm">Email</p>
-            <p class="text-sm text-[#2e2a7b]/70">info@example.com</p>
-            <p class="text-sm text-[#2e2a7b]/70">support@example.com</p>
+            <p class="font-semibold text-blue text-sm">Email</p>
+            <p class="text-sm text-blue/70">info@example.com</p>
+            <p class="text-sm text-blue/70">support@example.com</p>
           </div>
         </div>
 
         <!-- Location -->
         <div class="flex gap-4 items-start">
-          <i class="ri-map-pin-line text-xl text-[#2e2a7b]"></i>
+          <i class="ri-map-pin-line text-xl text-blue"></i>
           <div>
-            <p class="font-semibold text-[#2e2a7b] text-sm">Location</p>
-            <p class="text-sm text-[#2e2a7b]/70">
+            <p class="font-semibold text-blue text-sm">Location</p>
+            <p class="text-sm text-blue/70">
               Royal Ln, Mesa,<br>
               New Jersey 45643
             </p>
@@ -129,10 +129,14 @@
         </div>
 
         <!-- Map -->
-        <div class="rounded-2xl overflow-hidden shadow-md">
-          <img src="{{ asset('images/world-map.png') }}"
-            alt="Map"
-            class="w-full h-56 object-cover">
+        <div class="rounded-2xl overflow-hidden shadow-md mt-2">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019927123456!2d-122.41941548468192!3d37.77492977975944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5b6e4b1b%3A0x4a1a1a1a1a1a1a1a!2sRoyal%20Ln%2C%20Mesa%2C%20New%20Jersey%2045643!5e0!3m2!1sen!2sus!4v1610000000000!5m2!1sen!2sus"
+            class="w-full h-56 md:h-72 border-0"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
       </div>

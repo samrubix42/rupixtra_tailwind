@@ -27,7 +27,7 @@ Route::livewire('/reach-us', Contact::class)->name('reach-us');
 Route::livewire('calculator', Calulator::class)->name('calculator');
 Route::livewire('blog',Blog::class)->name('blog');
 Route::livewire('blog/{slug}',BlogView::class)->name('blog.post');
-Route::livewire('services',ServiceView::class)->name('services');
+Route::livewire('service/{slug}',ServiceView::class)->name('services');
 Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');

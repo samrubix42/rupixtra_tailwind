@@ -14,14 +14,14 @@
         <div class="max-w-xl">
 
           <span class="text-blue font-bold tracking-widest uppercase
-                     text-2xl md:text-2xl">
+                     text-3xl md:text-4xl">
             About Us
           </span>
 
           <!-- underline -->
           <div class="w-16 h-1.5 bg-zinc-700 rounded mt-2 mb-6"></div>
 
-          <h2 class="text-3xl md:text-4xl font-bold text-blue leading-tight">
+          <h2 class="text-xl md:text-3xl font-bold text-blue leading-tight">
             Why Choose Us
           </h2>
 

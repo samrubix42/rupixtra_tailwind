@@ -42,31 +42,31 @@
                                w-56 bg-white  shadow-lg
                                border border-gray-100 z-50 overflow-hidden">
 
-              <a href="#"
+              <a wire:navigate href="{{ route('services', ['slug' => 'personal-loan']) }}"
                 class="block px-4 py-2.5 text-sm text-zinc-700
                                   hover:bg-cyan-50 hover:text-[#112b5e] transition">
                 Personal Loan
               </a>
 
-              <a href="#"
+              <a wire:navigate href="{{ route('services', ['slug' => 'business-loan']) }}"
                 class="block px-4 py-2.5 text-sm text-zinc-700
                                   hover:bg-cyan-50 hover:text-[#112b5e] transition">
                 Business Loan
               </a>
 
-              <a href="#"
+              <a wire:navigate href="{{ route('services', ['slug' => 'home-loan']) }}"
                 class="block px-4 py-2.5 text-sm text-zinc-700
                                   hover:bg-cyan-50 hover:text-[#112b5e] transition">
                 Home Loan
               </a>
 
-              <a href="#"
+              <a wire:navigate href="{{ route('services', ['slug' => 'lap']) }}"
                 class="block px-4 py-2.5 text-sm text-zinc-700
                                   hover:bg-cyan-50 hover:text-[#112b5e] transition">
                 LAP
               </a>
 
-              <a href="#"
+              <a wire:navigate href="{{ route('services', ['slug' => 'credit-card']) }}"
                 class="block px-4 py-2.5 text-sm text-zinc-700
                                   hover:bg-cyan-50 hover:text-[#112b5e] transition">
                 Credit Card
@@ -180,11 +180,11 @@
             x-transition
             class="mt-3 ml-4 space-y-3 text-sm text-slate-600">
 
-            <a href="#" class="block">Personal Loan</a>
-            <a href="#" class="block">Business Loan</a>
-            <a href="#" class="block">Home Loan</a>
-            <a href="#" class="block">LAP</a>
-            <a href="#" class="block">Credit Card</a>
+            <a wire:navigate href="{{ route('services', ['slug' => 'personal-loan']) }}" class="block">Personal Loan</a>
+            <a wire:navigate href="{{ route('services', ['slug' => 'business-loan']) }}" class="block">Business Loan</a>
+            <a wire:navigate href="{{ route('services', ['slug' => 'home-loan']) }}" class="block">Home Loan</a>
+            <a wire:navigate href="{{ route('services', ['slug' => 'lap']) }}" class="block">LAP</a>
+            <a wire:navigate href="{{ route('services', ['slug' => 'credit-card']) }}" class="block">Credit Card</a>
           </div>
         </div>
 
