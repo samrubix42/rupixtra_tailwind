@@ -1,235 +1,222 @@
 <div>
+
+
     <style>
         .range-slider {
             -webkit-appearance: none;
             width: 100%;
             height: 6px;
             border-radius: 999px;
-            background: linear-gradient(to right,
-                    #e7c892 0%,
-                    #e7c892 40%,
-                    #e7c892 40%,
-                    #e7c892 100%);
+            background: #dbeafe;
             outline: none;
         }
 
-        /* WebKit Track */
         .range-slider::-webkit-slider-runnable-track {
             height: 6px;
             border-radius: 999px;
+            background: #1e3a8a;
         }
 
-        /* WebKit Thumb */
         .range-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            background: #cd954b;
+            width: 22px;
+            height: 22px;
+            background: #1e3a8a;
             border-radius: 50%;
             cursor: pointer;
-            margin-top: -6px;
+            margin-top: -8px;
         }
 
-        /* Firefox */
         .range-slider::-moz-range-track {
             height: 6px;
-            background: #e5e7eb;
-            border-radius: 999px;
-        }
-
-        .range-slider::-moz-range-progress {
-            height: 6px;
-            background: #e7c892;
+            background: #1e3a8a;
             border-radius: 999px;
         }
 
         .range-slider::-moz-range-thumb {
-            width: 18px;
-            height: 18px;
-            background: #e7c892;
+            width: 22px;
+            height: 22px;
+            background: #1e3a8a;
             border-radius: 50%;
-            border: none;
             cursor: pointer;
         }
     </style>
-    <section class="relative bg-primary text-white overflow-hidden">
-        <!-- Subtle Accent Line -->
-        <div class="absolute bottom-0 left-0 w-full h-[3px] bg-secondary"></div>
 
-        <!-- Soft Glow (Very Minimal) -->
-        <div class="absolute -top-32 right-20 w-64 h-64 
-                bg-secondary/15 blur-[120px] rounded-full"></div>
+    <section class="bg-cyan py-16 max-w-7xl mx-auto px-4 sm:px-6 ">
 
-        <div class="relative max-w-7xl mx-auto px-6 py-12 md:py-14">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 
-                <!-- Title -->
-                <div>
-                    <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight">
-                        Loan EMI Calculator
-                    </h1>
-                    <p class="mt-2 text-white/75 text-sm sm:text-base max-w-xl">
-                        Instantly calculate EMI for personal, home and car loans with accurate results.
-                    </p>
-                </div>
+        <div class="px-2 sm:px-8 lg:px-16 mb-10  text-left">
+            <span class="text-blue font-bold  tracking-widest uppercase
+                     text-2xl md:text-4xl">
+                Calculator
+            </span>
 
-                <!-- Breadcrumb / Context -->
-                <div class="text-sm text-white/70">
-                    <span class="hover:text-secondary transition cursor-pointer">Home</span>
-                    <span class="mx-2">/</span>
-                    <span class="text-secondary">EMI Calculator</span>
-                </div>
+            <!-- underline -->
+            <div class="w-16 h-1.5  bg-zinc-700 rounded mt-2 mb-6"></div>
+        </div>
 
+        <div x-data="loanCalculator()" class="max-w-6xl mx-auto px-4 sm:px-6">
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap gap-4 mb-12 justify-center lg:justify-start">
+                <template x-for="type in ['Personal','Home','Car']">
+                    <button
+                        @click="changeType(type)"
+                        class="px-6 py-3 rounded-lg font-semibold border transition"
+                        :class="loanType === type
+                    ? 'bg-[#18b8bd] text-blue border-[#18b8bd]'
+                    : 'bg-transparent border-gray-400 text-gray-700 hover:border-[#18b8bd]'"
+                        x-text="`${type.toUpperCase()} LOAN`">
+                    </button>
+                </template>
             </div>
-        </div>
-    </section>
-    <div
-        x-data="loanCalculator()"
-        class="max-w-6xl mx-auto bg-white rounded-2xl p-5 sm:p-6 lg:p-8 border border-gray-200">
 
-        <!-- Tabs -->
-        <div class="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-10">
-            <template x-for="type in ['Personal','Home','Car']">
-                <button
-                    @click="changeType(type)"
-                    class="px-4 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-medium border transition"
-                    :class="loanType === type
-                    ? 'bg-primary text-white border-primary'
-                    : 'bg-gray-50 border-gray-300 text-gray-700 hover:border-primary'"
-                    x-text="`${type} Loan`">
-                </button>
-            </template>
-        </div>
+            <div class="grid lg:grid-cols-3 gap-10">
 
-        <div class="grid gap-8 lg:grid-cols-3 lg:gap-10">
+                <!-- LEFT SIDE -->
+                <div class="lg:col-span-2 bg-[#bfe3e6] rounded-3xl p-8 shadow-lg space-y-10">
 
-            <!-- LEFT -->
-            <div class="lg:col-span-2 space-y-7 sm:space-y-8">
+                    <!-- Loan Amount -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#1e3a8a] mb-4">
+                            Loan Amount
+                        </h3>
 
-                <!-- Loan Amount -->
-                <div>
-                    <div class="flex justify-between items-center mb-2 text-xs sm:text-sm font-medium">
-                        <label>Loan Amount (₹)</label>
+                        <div class="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-4">
+                            <input type="range"
+                                :min="minAmount"
+                                :max="maxAmount"
+                                step="1000"
+                                x-model="amount"
+                                class="range-slider">
 
-                        <input
-                            type="number"
-                            x-model.number="amount"
-                            :min="minAmount"
-                            :max="maxAmount"
-                            step="1000"
-                            class="w-32 sm:w-40 px-3 py-1.5 text-right
-                               border border-gray-300 rounded-md
-                               focus:outline-none focus:ring-2 focus:ring-primary/30">
+                            <div class="relative w-full sm:w-32">
+
+                                <span class="absolute left-3 top-1/2 -translate-y-1/2 
+                 text-zinc-700 font-semibold">
+                                    ₹
+                                </span>
+
+
+                                <input type="number"
+                                    x-model.number="amount"
+                                    :min="minAmount"
+                                    :max="maxAmount"
+                                    step="1000"
+                                    class="w-full sm:w-36 px-4 py-2 text-right
+                                      bg-white/70 border border-[#1e3a8a]/20
+                                      rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a8a]/30">
+                            </div>
+
+
+
+
+                        </div>
+
+
                     </div>
 
-                    <input type="range"
-                        :min="minAmount"
-                        :max="maxAmount"
-                        step="1000"
-                        x-model="amount"
-                        class="w-full range-slider">
-                </div>
+                    <!-- Interest Rate -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#1e3a8a] mb-4">
+                            Interest Rate
+                        </h3>
 
-                <!-- Interest -->
-                <div>
-                    <div class="flex justify-between items-center mb-2 text-xs sm:text-sm font-medium">
-                        <label>Interest Rate (% p.a)</label>
+                        <div class="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-4">
+                            <input type="range"
+                                :min="minRate"
+                                :max="maxRate"
+                                step="0.1"
+                                x-model="rate"
+                                class="range-slider">
 
-                        <input
-                            type="number"
-                            x-model.number="rate"
-                            step="0.1"
-                            :min="minRate"
-                            :max="maxRate"
-                            class="w-20 sm:w-24 px-3 py-1.5 text-right
-                               border border-gray-300 rounded-md
-                               focus:outline-none focus:ring-2 focus:ring-primary/30">
+                            <input type="number"
+                                x-model.number="rate"
+                                step="0.1"
+                                :min="minRate"
+                                :max="maxRate"
+                                class="w-full sm:w-32 px-4 py-2 text-right
+                                     bg-cyan border border-zinc-600
+                                      rounded-lg  focus:ring-zinc-600">
+                        </div>
+
+
                     </div>
 
-                    <input type="range"
-                        :min="minRate"
-                        :max="maxRate"
-                        step="0.1"
-                        x-model="rate"
-                        class="w-full range-slider">
-                </div>
+                    <!-- Tenure -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#1e3a8a] mb-4">
+                            Tenure (Months)
+                        </h3>
 
-                <!-- Tenure -->
-                <div>
-                    <div class="flex justify-between items-center mb-2 text-xs sm:text-sm font-medium">
-                        <label>
-                            Tenure (<span x-text="tenureType"></span>)
-                        </label>
+                        <div class="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-4">
 
-                        <input
-                            type="number"
-                            x-model.number="tenure"
-                            :min="minTenure"
-                            :max="maxTenure"
-                            class="w-20 sm:w-24 px-3 py-1.5 text-right
-                               border border-gray-300 rounded-md
-                               focus:outline-none focus:ring-2 focus:ring-primary/30">
+                            <input type="range"
+                                :min="minTenure"
+                                :max="maxTenure"
+                                x-model="tenure"
+                                class="range-slider">
+
+                            <input type="number"
+                                x-model.number="tenure"
+                                :min="minTenure"
+                                :max="maxTenure"
+                                class="w-full sm:w-32 px-4 py-2 text-right
+                                      bg-white/70 border border-[#1e3a8a]/20
+                                      rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a8a]/30">
+                        </div>
+
                     </div>
 
-                    <input type="range"
-                        :min="minTenure"
-                        :max="maxTenure"
-                        x-model="tenure"
-                        class="w-full range-slider">
                 </div>
 
-                <!-- EMI Result -->
-                <div class="bg-gray-50 rounded-xl p-5 sm:p-6 border border-gray-200
-                        flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
+                <!-- RIGHT SIDE EMI CARD -->
+                <div class="bg-[#bfe3e6] rounded-3xl p-8 shadow-lg space-y-6">
 
                     <div>
-                        <p class="text-xs uppercase tracking-wide text-gray-500">
-                            Monthly EMI
+                        <p class="text-xl text-center font-semibold text-[#1e3a8a]">
+                            Your Monthly EMI
                         </p>
-                        <p class="text-2xl sm:text-3xl font-semibold text-primary mt-1 break-all">
+
+                        <p class="text-4xl text-center font-bold text-[#1e3a8a] mt-3">
                             ₹ <span x-text="emi.toLocaleString('en-IN')"></span>
                         </p>
                     </div>
 
-                    <a wire:navigate href="{{route('reach-us')}}"
-                        class="w-full sm:w-auto bg-secondary text-primary font-semibold
-                           px-6 py-3 rounded-lg hover:opacity-90 transition">
-                        Apply Now
-                    </a>
-                </div>
-
-            </div>
-
-            <!-- RIGHT SUMMARY -->
-            <div class="bg-gray-50 rounded-2xl p-5 sm:p-6 lg:p-8 border border-gray-200 space-y-6">
-
-                <div>
-                    <p class="text-xs sm:text-sm text-gray-500">Total Amount Payable</p>
-                    <p class="text-2xl sm:text-3xl font-semibold text-primary mt-1 break-all">
+                    <div class="bg-[#18b8bd] text-blue rounded-xl py-4 text-center font-semibold shadow-md">
+                        Total Payable <br>
                         ₹ <span x-text="totalPayable.toLocaleString('en-IN')"></span>
-                    </p>
-                </div>
-
-                <div class="border-t pt-5 space-y-4 text-xs sm:text-sm">
-                    <div class="flex justify-between gap-4">
-                        <span class="text-gray-600">Principal Amount</span>
-                        <span class="font-medium text-primary text-right break-all">
-                            ₹ <span x-text="amount.toLocaleString('en-IN')"></span>
-                        </span>
                     </div>
 
-                    <div class="flex justify-between gap-4">
-                        <span class="text-gray-600">Total Interest</span>
-                        <span class="font-medium text-accent text-right break-all">
-                            ₹ <span x-text="totalInterest.toLocaleString('en-IN')"></span>
-                        </span>
+                    <div class="bg-[#18b8bd] text-blue rounded-xl py-4 text-center font-semibold shadow-md">
+                        Tenure <br>
+                        <span x-text="tenure"></span> Months
                     </div>
+
+                    <div class="space-y-3 text-sm pt-4">
+                        <div class="flex justify-between">
+                            <span>Principal</span>
+                            <span>₹ <span x-text="amount.toLocaleString('en-IN')"></span></span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Total Interest</span>
+                            <span>₹ <span x-text="totalInterest.toLocaleString('en-IN')"></span></span>
+                        </div>
+                    </div>
+
+                    <a wire:navigate href="{{route('reach-us')}}"
+                        class="block text-center bg-[#18b8bd] text-blue py-3 rounded-lg font-semibold mt-6 hover:opacity-90 transition">
+                        APPLY FOR LOAN
+                    </a>
+
                 </div>
 
             </div>
 
         </div>
-    </div>
+
+    </section>
 
 
 

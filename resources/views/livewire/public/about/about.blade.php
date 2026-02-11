@@ -1,148 +1,168 @@
 <div>
-    <section class="relative bg-primary text-white py-32 overflow-hidden">
+  <section class="relative overflow-hidden bg-cyan py-20 lg:py-28">
 
-  <!-- Soft Accent Glow -->
-  <div class="absolute -top-48 left-1/2 -translate-x-1/2
-              w-[600px] h-[280px] bg-accent/20
-              blur-[180px] rounded-full"></div>
-
-  <div class="relative max-w-6xl mx-auto px-4 text-center">
-
-    <span class="inline-block text-xs tracking-[0.35em] uppercase text-secondary">
-      About Us
-    </span>
-
-    <h1 class="mt-8 text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
-      We Build Digital Products<br>
-      That <span class="text-secondary">Stand Out</span>
-    </h1>
-
-    <p class="mt-6 max-w-2xl mx-auto text-white/70 text-lg">
-      A creative team focused on design clarity, engineering excellence,
-      and long-term business growth.
-    </p>
-
-  </div>
-</section>
-<section class="py-28 bg-white">
-  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-24 items-center">
-
-    <!-- Left -->
-    <div>
-      <h2 class="text-3xl sm:text-4xl font-semibold text-primary">
-        Who We Are
-      </h2>
-
-      <p class="mt-8 text-gray-600 leading-relaxed text-lg">
-        We are a digital-first team crafting refined user experiences
-        powered by modern technologies and thoughtful design.
-      </p>
-
-      <p class="mt-5 text-gray-600 leading-relaxed">
-        Every detail matters — from typography to performance —
-        because premium products demand precision.
-      </p>
+    <!-- Background -->
+    <div
+      class="absolute inset-0 bg-no-repeat bg-left bg-contain  pointer-events-none"
+      style="background-image: url('{{ asset('images/hero-bg.png') }}');">
     </div>
 
-    <!-- Right Card -->
-    <div class="relative">
-      <div class="absolute inset-0 bg-secondary/40 blur-3xl rounded-3xl"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-      <div class="relative bg-primary text-white p-12 rounded-3xl shadow-xl">
-        <h3 class="text-xl font-semibold text-secondary">
-          Our Philosophy
-        </h3>
-        <p class="mt-4 text-white/80 leading-relaxed">
-          Simple. Elegant. Effective.  
-          We believe the best solutions feel effortless to use.
-        </p>
+        <!-- LEFT CONTENT -->
+        <div class="max-w-xl">
+
+          <span class="text-blue font-bold tracking-widest uppercase
+                     text-2xl md:text-2xl">
+            About Us
+          </span>
+
+          <!-- underline -->
+          <div class="w-16 h-1.5 bg-zinc-700 rounded mt-2 mb-6"></div>
+
+          <h2 class="text-3xl md:text-4xl font-bold text-blue leading-tight">
+            Why Choose Us
+          </h2>
+
+          <p class="mt-6 text-blue font-semibold">
+            Experience excellence in loan review and comparison.
+          </p>
+
+          <p class="mt-2 text-zinc-500 text-sm leading-relaxed">
+            Our dedicated team conducts thorough research and analysis
+            to provide comprehensive and unbiased reviews.
+          </p>
+          <!-- Features -->
+          <div class="mt-8 space-y-4">
+
+            <!-- Item -->
+            <div class="flex items-center gap-3">
+              <i class="ri-check-line text-blue text-2xl"></i>
+              <span class="text-blue font-medium">
+                Comprehensive Reviews
+              </span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i class="ri-check-line text-blue text-2xl"></i>
+              <span class="text-blue font-medium">
+                Expert Guidance & Insights
+              </span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i class="ri-check-line text-blue text-2xl"></i>
+              <span class="text-blue font-medium">
+                User-Friendly Comparison
+              </span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i class="ri-check-line text-blue text-2xl"></i>
+              <span class="text-blue font-medium">
+                Trusted User Reviews
+              </span>
+            </div>
+
+          </div>
+
+          <!-- Button -->
+          <div class="mt-10">
+            <a href="#"
+              class="inline-block px-8 py-3
+                   bg-[#66cfda] text-blue font-semibold
+                   hover:opacity-90 transition">
+              READ MORE
+            </a>
+          </div>
+
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="flex justify-center lg:justify-end">
+          <img src="{{ asset('images/about-illustration.png') }}"
+            alt="Loan Illustration"
+            class="w-full max-w-lg">
+        </div>
+
       </div>
     </div>
 
-  </div>
-</section>
-<section class="py-28 bg-secondary/20">
-  <div class="max-w-6xl mx-auto px-4 text-center">
+  </section>
 
-    <h2 class="text-3xl sm:text-4xl font-semibold text-primary">
-      What We Do
-    </h2>
+  <section class="bg-cyan py-12 lg:py-16">
 
-    <div class="mt-20 grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="bg-white p-10 rounded-2xl border border-secondary/40
-                  hover:shadow-xl transition">
-        <h3 class="text-lg font-semibold text-primary">
-          Web Development
-        </h3>
-        <p class="mt-4 text-gray-600">
-          High-performance websites built to scale with your business.
-        </p>
+      <div class="bg-[#d4f5f6] rounded-3xl shadow-lg 
+                px-6 sm:px-10 py-20">
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+          <!-- Item 1 -->
+          <div class="flex flex-col items-center space-y-3">
+            <div class="w-20 h-20 flex items-center justify-center 
+                      rounded-full bg-blue text-white text-3xl">
+              <i class="ri-money-rupee-circle-fill"></i>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-blue">
+              66.6k
+            </h3>
+            <p class="text-blue text-sm font-medium">
+              Total Services Loan
+            </p>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="flex flex-col items-center space-y-3">
+            <div class="w-20 h-20 flex items-center justify-center 
+                      rounded-full bg-blue text-white text-3xl">
+              <i class="ri-emotion-happy-line"></i>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-blue">
+              99.6k
+            </h3>
+            <p class="text-blue text-sm font-medium">
+              Customer Satisfaction
+            </p>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="flex flex-col items-center space-y-3">
+            <div class="w-20 h-20 flex items-center justify-center 
+                      rounded-full bg-blue text-white text-3xl">
+              <i class="ri-bank-line"></i>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-blue">
+              44.6k
+            </h3>
+            <p class="text-blue text-sm font-medium">
+              Compare Loan
+            </p>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="flex flex-col items-center space-y-3">
+            <div class="w-20 h-20 flex items-center justify-center 
+                      rounded-full bg-blue text-white text-3xl">
+              <i class="ri-award-line"></i>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-blue">
+              56+
+            </h3>
+            <p class="text-blue text-sm font-medium">
+              Awards Won
+            </p>
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="bg-white p-10 rounded-2xl border border-secondary/40
-                  hover:shadow-xl transition">
-        <h3 class="text-lg font-semibold text-primary">
-          UI / UX Design
-        </h3>
-        <p class="mt-4 text-gray-600">
-          Minimal, intuitive interfaces users love to interact with.
-        </p>
-      </div>
-
-      <div class="bg-white p-10 rounded-2xl border border-secondary/40
-                  hover:shadow-xl transition">
-        <h3 class="text-lg font-semibold text-primary">
-          Brand Identity
-        </h3>
-        <p class="mt-4 text-gray-600">
-          Visual systems that communicate trust and professionalism.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-<section class="py-28 bg-primary text-white">
-  <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-14 text-center">
-
-    <div>
-      <h3 class="text-4xl font-bold text-secondary">50+</h3>
-      <p class="mt-2 text-white/70">Projects</p>
     </div>
 
-    <div>
-      <h3 class="text-4xl font-bold text-secondary">5+</h3>
-      <p class="mt-2 text-white/70">Years</p>
-    </div>
+  </section>
 
-    <div>
-      <h3 class="text-4xl font-bold text-secondary">100%</h3>
-      <p class="mt-2 text-white/70">Satisfaction</p>
-    </div>
-
-    <div>
-      <h3 class="text-4xl font-bold text-secondary">24/7</h3>
-      <p class="mt-2 text-white/70">Support</p>
-    </div>
-
-  </div>
-</section>
-<section class="py-28 bg-secondary text-center">
-  <h2 class="text-3xl sm:text-4xl font-semibold text-primary">
-    Let’s Create Something Exceptional
-  </h2>
-
-  <p class="mt-4 text-primary/70">
-    Have an idea? Let’s turn it into a premium digital experience.
-  </p>
-
-  <a href="#contact"
-     class="inline-block mt-10 px-10 py-4 rounded-full
-            bg-primary text-white font-medium
-            hover:opacity-90 transition">
-    Get in Touch
-  </a>
-</section>
 
 </div>

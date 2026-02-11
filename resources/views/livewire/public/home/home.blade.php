@@ -52,7 +52,7 @@
                     <a href="#"
                         class="font-bold px-8 py-3 border-2
                           border-dark-cyan text-dark-cyan
-                          hover:bg-dark-cyan hover:text-blue transition">
+                        ">
                         CALL NOW
                     </a>
                 </div>

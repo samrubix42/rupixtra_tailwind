@@ -11,11 +11,11 @@
       <div class="flex justify-center gap-8">
         <nav class="flex items-center gap-8 text-[15px] font-medium">
 
-          <a href="#" class="text-zinc-700 tracking-wide hover:text-[#112b5e]">
+          <a wire:navigate href="{{ route('home') }}" class="text-zinc-700 tracking-wide hover:text-[#112b5e]">
             Home
           </a>
 
-          <a href="#" class="text-zinc-700 tracking-wide hover:text-[#112b5e]">
+          <a wire:navigate href="{{ route('our-story') }}" class="text-zinc-700 tracking-wide hover:text-[#112b5e]">
             Our Story
           </a>
 
@@ -74,15 +74,15 @@
             </div>
           </div>
 
-          <a href="#" class="text-zinc-700 tracking-wide hover:text-[#112b5e]">
+          <a wire:navigate href="{{ route('calculator') }}" class="text-zinc-700 tracking-wide hover:text-[#112b5e]">
             Calculator
           </a>
 
-          <a href="#" class="text-zinc-700 tracking-wide hover:text-[#112b5e]">
+          <a wire:navigate href="{{ route('blog') }}" class="text-zinc-700 tracking-wide hover:text-[#112b5e]">
             Blog
           </a>
 
-          <a href="#" class="text-zinc-700 tracking-wide hover:text-[#112b5e]">
+          <a wire:navigate href="{{ route('reach-us') }}" class="text-zinc-700 tracking-wide hover:text-[#112b5e]">
             Reach Us
           </a>
         </nav>
@@ -160,9 +160,9 @@
       <!-- MENU LINKS -->
       <nav class="px-6 py-6 space-y-6 text-base font-medium text-slate-700">
 
-        <a href="#" class="block tracking-wide hover:text-[#112b5e]">Home</a>
+        <a wire:navigate href="{{ route('home') }}" class="block tracking-wide hover:text-[#112b5e]">Home</a>
 
-        <a href="#" class="block tracking-wide hover:text-[#112b5e]">
+        <a wire:navigate href="{{ route('our-story') }}" class="block tracking-wide hover:text-[#112b5e]">
           Our Story
         </a>
 
@@ -188,15 +188,15 @@
           </div>
         </div>
 
-        <a href="#" class="block tracking-wide hover:text-[#112b5e]">
+        <a wire:navigate href="{{ route('calculator') }}" class="block tracking-wide hover:text-[#112b5e]">
           Calculator
         </a>
 
-        <a href="#" class="block tracking-wide hover:text-[#112b5e]">
+        <a wire:navigate href="{{ route('blog') }}" class="block tracking-wide hover:text-[#112b5e]">
           Blog
         </a>
 
-        <a href="#" class="block tracking-wide hover:text-[#112b5e]">
+        <a wire:navigate href="{{ route('reach-us') }}" class="block tracking-wide hover:text-[#112b5e]">
           Reach Us
         </a>
       </nav>
