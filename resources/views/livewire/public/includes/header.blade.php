@@ -3,9 +3,9 @@
     <div class="mx-auto py-5 flex items-center justify-between max-w-7xl px-4">
 
       <!-- LEFT: Logo -->
-      <div class="flex items-center shrink-0">
+      <a wire:navigate href="{{ route('home') }}" class="flex items-center shrink-0">
         <img src="{{ asset('images/logo-light.png') }}" class="h-16" alt="Rupixtra">
-      </div>
+      </a>
 
       <!-- MIDDLE: Navbar -->
       <div class="flex justify-center gap-8">

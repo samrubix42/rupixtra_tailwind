@@ -58,6 +58,28 @@ class AdminSidebar
                 ],
             ],
             (object) [
+                'title' => 'Services',
+                'icon' => 'ri-customer-service-2-line',
+                'url' => 'javascript:void(0)',
+                'hasSubmenu' => true,
+                'submenu' => [
+                    (object) [
+                        'title' => 'Service List',
+                        'icon' => 'ri-file-list-3-line',
+                        'url' => route('admin.services'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
+                    (object) [
+                        'title' => 'Add Service',
+                        'icon' => 'ri-add-line',
+                        'url' => route('admin.services.add'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
+                ],
+            ],
+            (object) [
                 'title' => 'Testimonials',
                 'icon' => 'ri-chat-quote-line',
                 'url' => route('admin.testimonial'),

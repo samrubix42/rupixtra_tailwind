@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('meta_keywords')->nullable();
             $table->text('tags')->nullable();
             $table->string('featured_image')->nullable();
-            $table->text('content');
+            $table->longText('content');
             $table->boolean('is_published')->default(false);
             $table->timestamps();
         });
