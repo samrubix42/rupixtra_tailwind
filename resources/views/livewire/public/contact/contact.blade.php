@@ -14,11 +14,13 @@
       <!-- LEFT CONTACT FORM (70%) -->
       <div class="lg:col-span-8 bg-[#bfe3e6] rounded-[30px] p-12 shadow-lg">
 
-        <h2 class="text-3xl font-semibold text-blue mb-8">
+        <h2 class="text-3xl font-semibold text-blue mb-6">
           Get in touch with us.
         </h2>
 
-        <form class="space-y-6">
+
+
+        <form wire:submit.prevent="submit" class="space-y-6">
 
           <!-- Full Name -->
           <div>
@@ -27,9 +29,13 @@
             </label>
             <input type="text"
               placeholder="Enter your name"
+              wire:model.defer="name"
               class="w-full px-5 py-3 rounded-xl
                                    bg-[#dff3f4] border border-[#2e2a7b]/20
                                    focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
+            @error('name')
+            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+            @enderror
           </div>
 
           <!-- Email -->
@@ -39,9 +45,13 @@
             </label>
             <input type="email"
               placeholder="Enter your email"
+              wire:model.defer="email"
               class="w-full px-5 py-3 rounded-xl
                                    bg-[#dff3f4] border border-[#2e2a7b]/20
                                    focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
+            @error('email')
+            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+            @enderror
           </div>
 
           <!-- Phone -->
@@ -51,9 +61,13 @@
             </label>
             <input type="text"
               placeholder="Enter your phone"
+              wire:model.defer="phone"
               class="w-full px-5 py-3 rounded-xl
                                    bg-[#dff3f4] border border-[#2e2a7b]/20
                                    focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
+            @error('phone')
+            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+            @enderror
           </div>
 
           <!-- Country -->
@@ -62,9 +76,13 @@
               Country
             </label>
             <input type="text"
+              wire:model.defer="country"
               class="w-full px-5 py-3 rounded-xl
                                    bg-[#dff3f4] border border-[#2e2a7b]/20
                                    focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
+            @error('country')
+            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+            @enderror
           </div>
 
           <!-- Message -->
@@ -73,17 +91,36 @@
               Message
             </label>
             <textarea rows="4"
+              wire:model.defer="message"
               class="w-full px-5 py-3 rounded-xl
                                    bg-[#dff3f4] border border-[#2e2a7b]/20
                                    focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30"></textarea>
+            @error('message')
+            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+            @enderror
           </div>
+          @if (session('success'))
+          <div class="mb-6 px-4 py-3 font-semibold text-blue text-sm">
+            {{ session('success') }}
+          </div>
+          @endif
 
           <!-- Submit -->
           <button type="submit"
+            wire:target="submit"
+            wire:loading.attr="disabled"
+            wire:loading.class="opacity-70 cursor-not-allowed"
             class="w-full bg-[#19b6b6] text-blue
                                py-3 rounded-xl font-semibold
-                               hover:opacity-90 transition">
-            SUBMIT
+                               hover:opacity-90 transition
+                               flex items-center justify-center">
+            <span wire:loading.remove wire:target="submit">
+              SUBMIT
+            </span>
+            <span wire:loading wire:target="submit" class="flex items-center gap-2 text-sm">
+              <span class="h-2 w-2 rounded-full bg-blue animate-ping"></span>
+              <span>Submitting...</span>
+            </span>
           </button>
 
         </form>
