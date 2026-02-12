@@ -17,6 +17,15 @@
         <!-- Left: main info + primary section + structured sections -->
         <div class="lg:col-span-2 space-y-4">
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 space-y-4">
+                <div>
+                    <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-700">
+                        <span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+                        Section 1 · Basic Details
+                    </span>
+                    <h2 class="mt-2 text-base font-semibold text-slate-900">Service title & slug</h2>
+                    <p class="mt-1 text-xs text-slate-500">Adjust how this service appears in admin and URLs.</p>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-medium text-slate-600 mb-1">Title</label>
@@ -40,8 +49,12 @@
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 space-y-3">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h2 class="text-sm font-semibold text-slate-900">Primary Section</h2>
-                        <p class="text-xs text-slate-400">Main description of the service (TinyMCE).</p>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-700">
+                            <span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+                            Section 2 · Primary Content
+                        </span>
+                        <h2 class="mt-2 text-base font-semibold text-slate-900">Primary Section</h2>
+                        <p class="text-xs text-slate-400">Main description of the service shown on the detail page.</p>
                     </div>
                 </div>
 
@@ -79,7 +92,11 @@
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
                 <div class="flex items-center justify-between mb-4">
                     <div>
-                        <h2 class="text-sm font-semibold text-slate-900">Secondary Sections</h2>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-700">
+                            <span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+                            Section 3 · Highlights
+                        </span>
+                        <h2 class="mt-2 text-base font-semibold text-slate-900">Secondary Sections</h2>
                         <p class="text-xs text-slate-400">Key/value highlights grouped under small headings.</p>
                     </div>
                     <button type="button" wire:click="addSecondarySection" class="inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-blue-500">
@@ -142,7 +159,11 @@
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
                 <div class="flex items-center justify-between mb-4">
                     <div>
-                        <h2 class="text-sm font-semibold text-slate-900">Tertiary Sections</h2>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-700">
+                            <span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+                            Section 4 · Detail Blocks
+                        </span>
+                        <h2 class="mt-2 text-base font-semibold text-slate-900">Tertiary Sections</h2>
                         <p class="text-xs text-slate-400">Detailed blocks with description and key/value details.</p>
                     </div>
                     <button type="button" wire:click="addTertiarySection" class="inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-blue-500">
@@ -214,7 +235,11 @@
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
                 <div class="flex items-center justify-between mb-4">
                     <div>
-                        <h2 class="text-sm font-semibold text-slate-900">Service Lenders</h2>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-700">
+                            <span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+                            Section 5 · Lenders
+                        </span>
+                        <h2 class="mt-2 text-base font-semibold text-slate-900">Service Lenders</h2>
                         <p class="text-xs text-slate-400">Manage lending partners connected to this service.</p>
                     </div>
                     <button type="button" wire:click="addLender" class="inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-blue-500">
@@ -296,7 +321,7 @@
         <!-- Right: featured image + submit -->
         <div class="space-y-4">
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 space-y-3">
-                <h2 class="text-sm font-semibold text-slate-900">Featured Image</h2>
+                <h2 class="text-base font-semibold text-slate-900">Featured Image</h2>
                 <p class="text-xs text-slate-400">Thumbnail shown on the public service page.</p>
 
                 <div>

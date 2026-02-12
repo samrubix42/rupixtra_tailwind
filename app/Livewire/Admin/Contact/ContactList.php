@@ -19,6 +19,7 @@ class ContactList extends Component
 
     public ?int $deleteId = null;
 
+
     public function updatingSearch(): void
     {
         $this->resetPage();

@@ -18,8 +18,11 @@ class ServiceView extends Component
     #[Layout('layouts.admin')]
     public function render()
     {
+        $services = Service::orderBy('title')->get(['id', 'title', 'slug']);
+
         return view('livewire.public.service.service-view', [
             'service' => $this->service,
+            'services' => $services,
         ]);
     }
 }
