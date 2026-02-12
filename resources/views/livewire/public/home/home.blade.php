@@ -416,7 +416,7 @@
 
     <section
         class="bg-cyan py-12 sm:py-14 lg:py-12"
-        x-data="testimonialSlider()"
+        x-data="testimonialSlider(@js($testimonials))"
         x-init="init()">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
@@ -451,17 +451,11 @@
                                     flex flex-col justify-between ">
 
                                 <div>
-                                    <h4 class="text-base sm:text-lg font-bold text-blue">
-                                        A.M Bose
-                                    </h4>
+                                    <h4 class="text-base sm:text-lg font-bold text-blue" x-text="item.client_name"></h4>
 
-                                    <p class="text-xs sm:text-sm font-semibold text-blue mt-1">
-                                        Lorem ipsum dolem
-                                    </p>
+                                    <p class="text-xs sm:text-sm font-semibold text-blue mt-1" x-text="item.client_profession"></p>
 
-                                    <p class="text-xs sm:text-sm text-blue/80 mt-3 leading-relaxed">
-                                        Lorem ipsum dolem Lorem ipsum dolem
-                                    </p>
+                                    <p class="text-xs sm:text-sm text-blue/80 mt-3 leading-relaxed" x-text="item.client_description"></p>
                                 </div>
 
                                 <!-- STARS -->
@@ -500,28 +494,17 @@
     </section>
 
     <script>
-        function testimonialSlider() {
+        function testimonialSlider(testimonialsData) {
             return {
                 current: 0,
                 interval: null,
                 perView: 3,
-
-                testimonials: [{
-                        rating: 3
-                    },
-                    {
-                        rating: 4
-                    },
-                    {
-                        rating: 5
-                    },
-                    {
-                        rating: 4
-                    },
-                    {
-                        rating: 5
-                    },
-                ],
+                testimonials: testimonialsData.map(t => ({
+                    client_name: t.client_name,
+                    client_profession: t.client_profession,
+                    client_description: t.client_description,
+                    rating: t.rating ?? 0,
+                })),
 
                 get totalDots() {
                     return this.testimonials.length - this.perView + 1

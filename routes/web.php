@@ -6,6 +6,7 @@ use App\Livewire\Admin\Blog\Post\PostList;
 use App\Livewire\Admin\Blog\Post\UpdatePost;
 use App\Livewire\Admin\Dashboard\Dashboard;
 use App\Livewire\Admin\Testimonial\TestimonialList;
+use App\Livewire\Admin\Contact\ContactList;
 use App\Livewire\Admin\Setting\Setting as AdminSetting;
 use App\Livewire\Auth\Login;
 use App\Livewire\Page\PageMangement;
@@ -44,8 +45,10 @@ Route::post('logout', function () {
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('/', Dashboard::class)->name('admin.dashboard');
     Route::livewire('testimonial', TestimonialList::class)->name('admin.testimonial');
+    Route::livewire('contacts', ContactList::class)->name('admin.contacts');
     Route::livewire('blog/category', BlogCategoryList::class)->name('admin.blog.category');
     Route::livewire('blog-list', PostList::class)->name('admin.blog-list');
+    Route::livewire('blog/category/add', AddPost::class)->name('admin.blog.category.add');
     Route::livewire('blog/post/add', AddPost::class)->name('admin.blog.post.add');
     Route::livewire('blog/post/edit/{postId}', UpdatePost::class)->name('admin.blog.post.edit');
     Route::livewire('page-management',PageMangement::class)->name('admin.page-management');
