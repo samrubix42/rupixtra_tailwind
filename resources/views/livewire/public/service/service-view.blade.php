@@ -231,11 +231,11 @@
                                     @if(!empty($lender->logo))
                                     <img src="{{ asset('storage/' . $lender->logo) }}"
                                         alt="{{ $lender->name }}"
-                                        class="h-10 w-10 rounded-full object-contain bg-white">
+                                        class="h-16 w-18 rounded-full object-contain bg-white">
                                     @else
                                     <img src="{{ asset('images/sarah.png') }}"
                                         alt="{{ $lender->name }}"
-                                        class="h-10 w-10 rounded-full object-contain">
+                                        class="h-16 w-18 rounded-full object-contain">
                                     @endif
 
                                     <div>
