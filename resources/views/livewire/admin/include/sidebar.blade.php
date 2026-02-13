@@ -75,7 +75,7 @@
                 @foreach ($item->submenu as $child)
                 <a
                     href="{{ $child->url }}"
-                    wire:navigate
+                    @if (! in_array($child->title, ['Privacy Policy', 'Terms & Conditions'])) wire:navigate @endif
                     class="flex items-center px-3 py-2 text-sm rounded-lg transition
                            {{ request()->url() === $child->url
                                ? 'bg-slate-800 text-white font-medium'

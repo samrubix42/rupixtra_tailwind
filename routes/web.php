@@ -20,6 +20,8 @@ use App\Livewire\Public\Service\ServiceView;
 use App\Livewire\Admin\Service\ServiceList as AdminServiceList;
 use App\Livewire\Admin\Service\AddService as AdminAddService;
 use App\Livewire\Admin\Service\UpdateService as AdminUpdateService;
+use App\Livewire\Admin\Legal\PrivacyPolicy as AdminPrivacyPolicy;
+use App\Livewire\Admin\Legal\TermAndCondition as AdminTermAndCondition;
 use App\Http\Controllers\Admin\ContactExportController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
@@ -61,4 +63,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('blog/post/edit/{postId}', UpdatePost::class)->name('admin.blog.post.edit');
     Route::livewire('page-management',PageMangement::class)->name('admin.page-management');
     Route::livewire('settings', AdminSetting::class)->name('admin.settings');
+    Route::livewire('legal/privacy-policy', AdminPrivacyPolicy::class)->name('admin.legal.privacy-policy');
+    Route::livewire('legal/terms-and-conditions', AdminTermAndCondition::class)->name('admin.legal.terms-and-conditions');
 });

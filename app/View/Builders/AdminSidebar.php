@@ -57,6 +57,8 @@ class AdminSidebar
                     ],
                 ],
             ],
+            
+      
             (object) [
                 'title' => 'Services',
                 'icon' => 'ri-customer-service-2-line',
@@ -85,6 +87,28 @@ class AdminSidebar
                 'url' => route('admin.testimonial'),
                 'hasSubmenu' => false,
                 'submenu' => [],
+            ],
+            (object) [
+                'title' => 'Legal',
+                'icon' => 'ri-shield-check-line',
+                'url' => 'javascript:void(0)',
+                'hasSubmenu' => true,
+                'submenu' => [
+                    (object) [
+                        'title' => 'Privacy Policy',
+                        'icon' => 'ri-file-shield-line',
+                        'url' => route('admin.legal.privacy-policy'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
+                    (object) [
+                        'title' => 'Terms & Conditions',
+                        'icon' => 'ri-file-text-line',
+                        'url' => route('admin.legal.terms-and-conditions'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
+                ],
             ],
             (object)[
                 'title' => 'Contacts',
