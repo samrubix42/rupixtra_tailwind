@@ -171,6 +171,7 @@
         <div
             x-data="{ open: false }"
             x-on:open-delete-modal.window="open = true"
+            x-on:close-modal.window="open = false"
             x-show="open"
             x-cloak
             class="fixed inset-0 z-30 flex items-center justify-center bg-black/40">

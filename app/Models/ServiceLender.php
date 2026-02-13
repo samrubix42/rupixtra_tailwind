@@ -11,6 +11,7 @@ class ServiceLender extends Model
         'name',
         'logo',
         'age_limit',
+        'effective_interest_rate',
         'repayment_period',
         'description',
     ];

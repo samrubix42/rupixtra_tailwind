@@ -44,12 +44,14 @@ class ServiceSeeder extends Seeder
                     [
                         'name' => 'ABC Bank',
                         'age_limit' => '21-60 years',
+                        'effective_interest_rate' => '10.99% p.a.',
                         'repayment_period' => 'Up to 60 months',
                         'description' => 'Popular choice for salaried customers with competitive interest rates.',
                     ],
                     [
                         'name' => 'XYZ Finance',
                         'age_limit' => '23-58 years',
+                        'effective_interest_rate' => '12.49% p.a.',
                         'repayment_period' => 'Up to 48 months',
                         'description' => 'NBFC partner with flexible documentation options.',
                     ],
@@ -84,12 +86,14 @@ class ServiceSeeder extends Seeder
                     [
                         'name' => 'Growth Bank',
                         'age_limit' => null,
+                        'effective_interest_rate' => '11.75% p.a.',
                         'repayment_period' => 'Up to 84 months',
                         'description' => 'Offers a range of secured and unsecured business funding products.',
                     ],
                     [
                         'name' => 'Capital NBFC',
                         'age_limit' => null,
+                        'effective_interest_rate' => '13.25% p.a.',
                         'repayment_period' => 'Up to 60 months',
                         'description' => 'Flexible lending partner for small and mid-sized businesses.',
                     ],
@@ -124,6 +128,7 @@ class ServiceSeeder extends Seeder
                     [
                         'name' => 'HomeFirst Bank',
                         'age_limit' => '24-65 years',
+                        'effective_interest_rate' => '8.75% p.a.',
                         'repayment_period' => 'Up to 30 years',
                         'description' => 'Known for flexible home loan products and longer tenures.',
                     ],
@@ -158,6 +163,7 @@ class ServiceSeeder extends Seeder
                     [
                         'name' => 'Secure Homes Finance',
                         'age_limit' => '25-65 years',
+                        'effective_interest_rate' => '9.50% p.a.',
                         'repayment_period' => 'Up to 15 years',
                         'description' => 'Specialized in mortgage-backed funding with structured repayment options.',
                     ],
@@ -192,12 +198,14 @@ class ServiceSeeder extends Seeder
                     [
                         'name' => 'Metro Bank Cards',
                         'age_limit' => '21-60 years',
+                        'effective_interest_rate' => '3.25% per month',
                         'repayment_period' => null,
                         'description' => 'Wide range of cards across cashback, travel and lifestyle categories.',
                     ],
                     [
                         'name' => 'Skyline Bank',
                         'age_limit' => '23-65 years',
+                        'effective_interest_rate' => '3.40% per month',
                         'repayment_period' => null,
                         'description' => 'Premium card offerings with airport lounge and travel benefits.',
                     ],
@@ -224,6 +232,7 @@ class ServiceSeeder extends Seeder
                         'name' => $lender['name'],
                         'logo' => null,
                         'age_limit' => $lender['age_limit'] ?? null,
+                        'effective_interest_rate' => $lender['effective_interest_rate'] ?? null,
                         'repayment_period' => $lender['repayment_period'] ?? null,
                         'description' => $lender['description'] ?? null,
                     ]);

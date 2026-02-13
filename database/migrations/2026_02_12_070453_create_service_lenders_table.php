@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('logo')->nullable();
             $table->string('age_limit')->nullable();
+            $table->string('effective_interest_rate')->nullable();
             $table->string('repayment_period')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();

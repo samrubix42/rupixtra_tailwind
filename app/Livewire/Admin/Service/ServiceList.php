@@ -49,6 +49,7 @@ class ServiceList extends Component
         }
 
         $this->reset('deleteId');
+        $this->dispatch('close-modal');
 
         $this->dispatch('toast-show', [
             'message' => 'Service deleted successfully!',

@@ -15,7 +15,7 @@ class ServiceView extends Component
         $this->service = Service::where('slug', $slug)->firstOrFail();
     }
 
-    #[Layout('layouts.admin')]
+    #[Layout('layouts.app')]
     public function render()
     {
         $services = Service::orderBy('title')->get(['id', 'title', 'slug']);

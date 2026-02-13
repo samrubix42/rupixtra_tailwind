@@ -255,21 +255,23 @@
                         <div class="rounded-lg border border-slate-200 bg-slate-50/40 p-4 space-y-3">
                             <div class="flex items-start justify-between gap-3">
                                 <div class="flex-1 space-y-3">
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div>
-                                            <label class="block text-xs font-medium text-slate-600">Lender Name</label>
-                                            <input type="text" placeholder="e.g. ABC Bank" wire:model.defer="lenders.{{ $lenderIndex }}.name" class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none" />
-                                        </div>
-                                        <div class="grid grid-cols-2 gap-3">
-                                            <div>
-                                                <label class="block text-xs font-medium text-slate-600">Age Limit</label>
-                                                <input type="text" placeholder="e.g. 21-60 years" wire:model.defer="lenders.{{ $lenderIndex }}.age_limit" class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-1.5 text-xs text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none" />
-                                            </div>
-                                            <div>
-                                                <label class="block text-xs font-medium text-slate-600">Repayment Period</label>
-                                                <input type="text" placeholder="e.g. up to 60 months" wire:model.defer="lenders.{{ $lenderIndex }}.repayment_period" class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-1.5 text-xs text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none" />
-                                            </div>
-                                        </div>
+                                       <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                                           <div class="md:col-span-2">
+                                               <label class="block text-xs font-medium text-slate-600">Lender Name</label>
+                                               <input type="text" placeholder="e.g. ABC Bank" wire:model.defer="lenders.{{ $lenderIndex }}.name" class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none" />
+                                           </div>
+                                           <div>
+                                               <label class="block text-xs font-medium text-slate-600">Age Limit</label>
+                                               <input type="text" placeholder="e.g. 21-60 years" wire:model.defer="lenders.{{ $lenderIndex }}.age_limit" class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-1.5 text-xs text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none" />
+                                           </div>
+                                           <div>
+                                               <label class="block text-xs font-medium text-slate-600">Effective Interest Rate</label>
+                                               <input type="text" placeholder="e.g. 10.5% p.a." wire:model.defer="lenders.{{ $lenderIndex }}.effective_interest_rate" class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-1.5 text-xs text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none" />
+                                           </div>
+                                           <div>
+                                               <label class="block text-xs font-medium text-slate-600">Repayment Period</label>
+                                               <input type="text" placeholder="e.g. up to 60 months" wire:model.defer="lenders.{{ $lenderIndex }}.repayment_period" class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-1.5 text-xs text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none" />
+                                           </div>
                                     </div>
 
                                     <div>

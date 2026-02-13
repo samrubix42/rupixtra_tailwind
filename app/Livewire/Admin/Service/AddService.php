@@ -49,6 +49,7 @@ class AddService extends Component
 			'lenders' => 'array',
 			'lenders.*.name' => 'nullable|string|max:255',
 			'lenders.*.age_limit' => 'nullable|string|max:255',
+            'lenders.*.effective_interest_rate' => 'nullable|string|max:255',
 			'lenders.*.repayment_period' => 'nullable|string|max:255',
             'lenders.*.description' => 'nullable|string',
             'lenders.*.logo' => 'nullable|image|max:2048',
@@ -137,6 +138,7 @@ class AddService extends Component
         $this->lenders[] = [
             'name' => '',
             'age_limit' => '',
+			'effective_interest_rate' => '',
             'repayment_period' => '',
             'description' => '',
             'logo' => null,
@@ -205,10 +207,11 @@ class AddService extends Component
             ->filter(function ($lender) {
                 $name = trim($lender['name'] ?? '');
                 $age = trim($lender['age_limit'] ?? '');
+                $rate = trim($lender['effective_interest_rate'] ?? '');
                 $repayment = trim($lender['repayment_period'] ?? '');
                 $desc = trim($lender['description'] ?? '');
 
-                return $name !== '' || $age !== '' || $repayment !== '' || $desc !== '';
+				return $name !== '' || $age !== '' || $rate !== '' || $repayment !== '' || $desc !== '';
             })
             ->each(function ($lender) use ($service) {
                 $logoPath = null;
@@ -220,6 +223,7 @@ class AddService extends Component
                     'service_id' => $service->id,
                     'name' => $lender['name'] ?? '',
                     'age_limit' => $lender['age_limit'] ?? null,
+					'effective_interest_rate' => $lender['effective_interest_rate'] ?? null,
                     'repayment_period' => $lender['repayment_period'] ?? null,
                     'description' => $lender['description'] ?? null,
                     'logo' => $logoPath,
