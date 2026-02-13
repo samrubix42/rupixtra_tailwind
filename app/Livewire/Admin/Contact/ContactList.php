@@ -12,16 +12,29 @@ class ContactList extends Component
 {
     use WithPagination;
 
+    protected string $paginationTheme = 'tailwind';
+
     #[Url]
     public string $search = '';
 
+    public string $date = '';
+
     public ?int $viewId = null;
-
     public ?int $deleteId = null;
-
 
     public function updatingSearch(): void
     {
+        $this->resetPage();
+    }
+
+    public function updatedDate(): void
+    {
+        $this->resetPage();
+    }
+
+    public function clearDate(): void
+    {
+        $this->date = '';
         $this->resetPage();
     }
 
@@ -94,6 +107,9 @@ class ContactList extends Component
                         ->orWhere('phone', 'like', "%{$this->search}%")
                         ->orWhere('country', 'like', "%{$this->search}%");
                 });
+            })
+            ->when($this->date !== '', function ($query) {
+                $query->whereDate('created_at', $this->date);
             })
             ->latest()
             ->paginate(10);

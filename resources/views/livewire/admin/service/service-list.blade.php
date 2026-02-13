@@ -103,12 +103,12 @@
                                             Edit
                                         </a>
 
-                                        <button
+                                        <!-- <button
                                             @click="$dispatch('open-delete-modal');$wire.confirmDelete({{ $service->id }})"
                                             class="inline-flex items-center gap-1 rounded-md border border-rose-200 px-2.5 py-1.5 text-xs font-medium text-rose-600 hover:bg-rose-50">
                                             <i class="ri-delete-bin-6-line text-sm"></i>
                                             Delete
-                                        </button>
+                                        </button> -->
                                     </div>
                                 </td>
                             </tr>
@@ -149,12 +149,12 @@
                             Edit
                         </a>
 
-                        <button
+                        <!-- <button
                             @click="$dispatch('open-delete-modal');$wire.confirmDelete({{ $service->id }})"
                             class="inline-flex items-center gap-1 rounded-md border border-rose-200 px-2.5 py-1.5 text-xs font-medium text-rose-600 hover:bg-rose-50">
                             <i class="ri-delete-bin-6-line text-sm"></i>
                             Delete
-                        </button>
+                        </button> -->
                     </div>
                 </div>
             @empty

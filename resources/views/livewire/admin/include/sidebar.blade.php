@@ -13,6 +13,7 @@
 
         <!-- Mobile close button -->
         <button
+        
             @click="sidebarOpen = false"
             class="ml-auto inline-flex items-center justify-center rounded-lg p-2 text-slate-300 hover:bg-slate-800 hover:text-white lg:hidden"
             aria-label="Close sidebar"
@@ -66,6 +67,7 @@
             <div
                 x-show="openMenu === '{{ $item->title }}'"
                 x-collapse
+                x-cloak
                 class="ml-6 mt-1 space-y-1">
 
                 @foreach ($item->submenu as $child)

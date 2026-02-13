@@ -48,6 +48,7 @@
                 <!-- Dropdown -->
                 <div
                     x-show="open"
+                    x-cloak
                     @click.outside="open = false"
                     x-transition
                     class="absolute right-0 mt-2 w-56 bg-white/95 backdrop-blur-xl

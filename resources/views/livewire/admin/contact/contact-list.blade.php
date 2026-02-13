@@ -12,26 +12,160 @@
 
     <div class="space-y-4">
 
-        <!-- Top bar: search -->
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div class="w-full sm:max-w-xs">
-                <label class="block text-xs font-medium text-slate-500 mb-1">
-                    Search Contacts
-                </label>
-                <div class="relative">
-                    <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400 text-sm">
-                        <i class="ri-search-line"></i>
-                    </span>
-                    <input
-                        type="text"
-                        wire:model.live.debounce.300ms="search"
-                        placeholder="Search by name, email, phone, country..."
-                        class="block w-full rounded-md border border-slate-300 bg-white pl-9 pr-3 py-2 text-sm
-                               text-slate-700 placeholder:text-slate-400
-                               focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none">
+        <!-- Top bar: search + date filter -->
+     <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+
+    <!-- Search -->
+    <div class="w-full sm:max-w-xs">
+        <label class="block text-xs font-medium text-slate-500 mb-1">
+            Search Contacts
+        </label>
+        <div class="relative">
+            <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400 text-sm">
+                <i class="ri-search-line"></i>
+            </span>
+            <input
+                type="text"
+                wire:model.live.debounce.300ms="search"
+                placeholder="Search by name, email, phone, country..."
+                class="block w-full rounded-md border border-slate-300 bg-white pl-9 pr-3 py-2 text-sm
+                       text-slate-700 placeholder:text-slate-400
+                       focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none">
+        </div>
+    </div>
+
+    <!-- Date Filter -->
+    <div class="w-full sm:w-auto">
+        <label class="block text-xs font-medium text-slate-500 mb-1">
+            Filter by Date
+        </label>
+
+        <div
+            x-data="{
+                open: false,
+                value: @entangle('date').live,
+                month: new Date().getMonth(),
+                year: new Date().getFullYear(),
+                days: [],
+                blanks: [],
+
+                init() {
+                    this.calculate();
+                },
+
+                calculate() {
+                    let daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
+                    let firstDay = new Date(this.year, this.month).getDay();
+
+                    this.blanks = Array.from({ length: firstDay });
+                    this.days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+                },
+
+                format(d) {
+                    let m = ('0' + (d.getMonth() + 1)).slice(-2);
+                    let day = ('0' + d.getDate()).slice(-2);
+                    return `${d.getFullYear()}-${m}-${day}`;
+                },
+
+                select(day) {
+                    let selected = new Date(this.year, this.month, day);
+                    this.value = this.format(selected);
+                    this.open = false;
+                },
+
+                next() {
+                    if (this.month === 11) {
+                        this.month = 0;
+                        this.year++;
+                    } else {
+                        this.month++;
+                    }
+                    this.calculate();
+                },
+
+                prev() {
+                    if (this.month === 0) {
+                        this.month = 11;
+                        this.year--;
+                    } else {
+                        this.month--;
+                    }
+                    this.calculate();
+                }
+            }"
+            x-init="init()"
+            class="relative"
+        >
+
+            <!-- Input -->
+            <div class="relative">
+                <input
+                    type="text"
+                    x-model="value"
+                    @click="open = !open"
+                    readonly
+                    placeholder="Select date"
+                    class="block w-full sm:w-48 rounded-md border border-slate-300 bg-white px-3 py-2 text-sm
+                           text-slate-700 placeholder:text-slate-400
+                           focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none cursor-pointer">
+            </div>
+
+            <!-- Calendar -->
+            <div
+                x-show="open"
+                x-transition
+                @click.away="open = false"
+                class="absolute right-0 z-50 mt-2 w-64 rounded-xl border border-slate-200 bg-white p-4 shadow-lg"
+            >
+
+                <!-- Header -->
+                <div class="flex items-center justify-between mb-2 text-sm font-medium text-slate-700">
+                    <button @click="prev()" class="hover:text-blue-600">
+                        ‹
+                    </button>
+                    <div>
+                        <span x-text="['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][month]"></span>
+                        <span x-text="year"></span>
+                    </div>
+                    <button @click="next()" class="hover:text-blue-600">
+                        ›
+                    </button>
+                </div>
+
+                <!-- Days -->
+                <div class="grid grid-cols-7 text-xs text-slate-500 text-center mb-1">
+                    <template x-for="d in ['S','M','T','W','T','F','S']">
+                        <div x-text="d"></div>
+                    </template>
+                </div>
+
+                <div class="grid grid-cols-7 text-sm text-center">
+                    <template x-for="blank in blanks">
+                        <div></div>
+                    </template>
+
+                    <template x-for="day in days">
+                        <div
+                            @click="select(day)"
+                            class="p-1 rounded cursor-pointer hover:bg-blue-100"
+                            x-text="day">
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
+
+        <!-- Clear Button -->
+        @if($date)
+            <button
+                wire:click="clearDate"
+                class="mt-2 text-xs text-rose-600 hover:underline">
+                Clear date
+            </button>
+        @endif
+    </div>
+</div>
+
 
         <!-- Table (desktop & tablet) -->
         <div class="hidden sm:block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
@@ -44,6 +178,7 @@
                             <th class="px-4 py-3">Email</th>
                             <th class="px-4 py-3">Phone</th>
                             <th class="px-4 py-3">Country</th>
+                            <th class="px-4 py-3">Subject</th>
                             <th class="px-4 py-3">Status</th>
                             <th class="px-4 py-3 text-right w-48">Actions</th>
                         </tr>
@@ -66,6 +201,9 @@
                                 </td>
                                 <td class="px-4 py-3 text-slate-600">
                                     {{ $contact->country ?? '—' }}
+                                </td>
+                                <td class="px-4 py-3 text-slate-600 max-w-xs truncate">
+                                    {{ $contact->subject ?? '—' }}
                                 </td>
                                 <td class="px-4 py-3">
                                     @if($contact->is_read)
@@ -120,7 +258,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="px-4 py-8 text-center text-sm text-slate-500">
+                                <td colspan="8" class="px-4 py-8 text-center text-sm text-slate-500">
                                     No contacts found.
                                 </td>
                             </tr>
@@ -241,6 +379,10 @@
                         <div>
                             <span class="font-semibold">Country:</span>
                             <span class="ml-1">{{ $selectedContact->country ?? '—' }}</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold">Subject:</span>
+                            <span class="ml-1">{{ $selectedContact->subject ?? '—' }}</span>
                         </div>
                         <div class="pt-2 border-t border-slate-100">
                             <span class="font-semibold block mb-1">Message:</span>
