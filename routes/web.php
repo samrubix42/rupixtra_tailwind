@@ -20,6 +20,7 @@ use App\Livewire\Public\Service\ServiceView;
 use App\Livewire\Admin\Service\ServiceList as AdminServiceList;
 use App\Livewire\Admin\Service\AddService as AdminAddService;
 use App\Livewire\Admin\Service\UpdateService as AdminUpdateService;
+use App\Http\Controllers\Admin\ContactExportController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +50,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('/', Dashboard::class)->name('admin.dashboard');
     Route::livewire('testimonial', TestimonialList::class)->name('admin.testimonial');
     Route::livewire('contacts', ContactList::class)->name('admin.contacts');
+    Route::get('contacts/export', ContactExportController::class)->name('admin.contacts.export');
     Route::livewire('services', AdminServiceList::class)->name('admin.services');
     Route::livewire('services/add', AdminAddService::class)->name('admin.services.add');
     Route::livewire('services/{serviceId}/edit', AdminUpdateService::class)->name('admin.services.edit');

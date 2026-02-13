@@ -30,6 +30,7 @@
             <!-- User -->
             <div x-data="{ open: false }" class="relative">
                 <button
+                    x-cloak
                     @click="open = !open"
                     class="flex items-center gap-2 px-2 py-1 rounded-full hover:bg-slate-100 transition">
 
