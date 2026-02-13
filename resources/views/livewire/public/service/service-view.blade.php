@@ -211,7 +211,7 @@
                         Lenders for {{ $service->title }}
                     </h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 gap-6">
                         @foreach($service->lenders as $lender)
                         <div x-data="{ open: false }"
                             class="bg-[#bfe3e6] rounded-[25px] p-6 shadow-lg">
@@ -245,14 +245,19 @@
                             </div>
 
                             <!-- INFO BOXES -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 text-sm text-blue">
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 text-sm text-blue">
 
-                                <div class="bg-[#19b6b6]/80 rounded-xl p-3 text-center shadow-md">
+                                <div class="bg-[#19b6b6]/80 rounded-xl px-3 py-10 text-center shadow-md">
                                     <p class="opacity-80">Age Limit</p>
                                     <p class="font-semibold mt-1">{{ $lender->age_limit ?? 'As per lender' }}</p>
                                 </div>
 
-                                <div class="bg-[#19b6b6]/80 rounded-xl p-3 text-center shadow-md">
+                                <div class="bg-[#19b6b6]/80 rounded-xl px-3 py-10 text-center shadow-md">
+                                    <p class="opacity-80">Effective Interest Rate</p>
+                                    <p class="font-semibold mt-1">{{ $lender->effective_interest_rate ?? 'As per lender' }}</p>
+                                </div>
+
+                                <div class="bg-[#19b6b6]/80 rounded-xl px-3 py-10 text-center shadow-md">
                                     <p class="opacity-80">Repayment Period</p>
                                     <p class="font-semibold mt-1">{{ $lender->repayment_period ?? 'As per lender' }}</p>
                                 </div>
