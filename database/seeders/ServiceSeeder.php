@@ -16,7 +16,8 @@ class ServiceSeeder extends Seeder
     {
         $services = [
             [
-                'title' => 'Personal Loan Assistance',
+                'title' => 'Personal Loan',
+                'slug' => 'personal-loan',
                 'primary_section' => implode("\n", [
                     '<p>We help you compare and choose the right personal loan with transparent guidance and end-to-end support.</p>',
                     '<p>Our experts work with leading banks and NBFCs so you get competitive interest rates, flexible tenures and quick approvals.</p>',
@@ -58,7 +59,8 @@ class ServiceSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Business Loan Advisory',
+                'title' => 'Business Loan',
+                'slug' => 'business-loan',
                 'primary_section' => implode("\n", [
                     '<p>Get structured business loan support for working capital, expansion, equipment purchases and more.</p>',
                     '<p>We help you prepare your financials, choose the right product and present a strong application to banks and NBFCs.</p>',
@@ -100,7 +102,8 @@ class ServiceSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Home Loan Consulting',
+                'title' => 'Home Loan',
+                'slug' => 'home-loan',
                 'primary_section' => implode("\n", [
                     '<p>From first-time buyers to experienced investors, we guide you through the complete home loan journey.</p>',
                     '<p>We simplify complex terms, negotiate with lenders and help you structure EMIs that fit your long-term plans.</p>',
@@ -135,7 +138,8 @@ class ServiceSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Loan Against Property (LAP)',
+                'title' => 'LAP',
+                'slug' => 'lap',
                 'primary_section' => implode("\n", [
                     '<p>Unlock the value of your residential or commercial property with a loan against property.</p>',
                     '<p>We help you understand how much you can borrow, compare offers and choose comfortable EMIs.</p>',
@@ -170,7 +174,8 @@ class ServiceSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Credit Card Solutions',
+                'title' => 'Credit Card',
+                'slug' => 'credit-card',
                 'primary_section' => implode("\n", [
                     '<p>We help you shortlist and apply for credit cards that match your lifestyle and spending patterns.</p>',
                     '<p>From rewards and cashback to travel and premium benefits, we guide you to the right card mix.</p>',
@@ -214,10 +219,13 @@ class ServiceSeeder extends Seeder
         ];
 
         foreach ($services as $data) {
+            $slug = $data['slug'] ?? Str::slug($data['title']);
+
             $service = Service::firstOrCreate(
-                ['slug' => Str::slug($data['title'])],
+                ['slug' => $slug],
                 [
                     'title' => $data['title'],
+                    'slug' => $slug,
                     'primary_section' => $data['primary_section'],
                     'featured_image' => null,
                     'secondary_sections' => $data['secondary_sections'],

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->string('subject')->nullable();
             $table->string('country')->nullable();
             $table->string('message')->nullable();
             $table->boolean('is_read')->default(false);

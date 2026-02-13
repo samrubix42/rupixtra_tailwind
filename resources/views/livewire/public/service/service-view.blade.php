@@ -122,17 +122,27 @@
                             Apply for a Loan
                         </h3>
 
-                        <form class="space-y-5">
+                        @if (session()->has('success'))
+                            <p class="mb-4 text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3">
+                                {{ session('success') }}
+                            </p>
+                        @endif
+
+                        <form wire:submit.prevent="submit" class="space-y-5">
 
                             <div>
                                 <label class="block text-blue mb-2 font-medium">
                                     Full Name
                                 </label>
                                 <input type="text"
+                                    wire:model.defer="name"
                                     placeholder="Enter your name"
                                     class="w-full px-4 py-3 rounded-xl
                                        bg-[#dff3f4] border border-[#2e2a7b]/20
                                        focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
+                                @error('name')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div>
@@ -140,10 +150,14 @@
                                     Email Address
                                 </label>
                                 <input type="email"
+                                    wire:model.defer="email"
                                     placeholder="Enter your email"
                                     class="w-full px-4 py-3 rounded-xl
                                        bg-[#dff3f4] border border-[#2e2a7b]/20
                                        focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
+                                @error('email')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div>
@@ -151,34 +165,28 @@
                                     Phone Number
                                 </label>
                                 <input type="text"
+                                    wire:model.defer="phone"
                                     placeholder="Enter your phone"
                                     class="w-full px-4 py-3 rounded-xl
                                        bg-[#dff3f4] border border-[#2e2a7b]/20
                                        focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
+                                @error('phone')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div>
                                 <label class="block text-blue mb-2 font-medium">
-                                    Loan Category
-                                </label>
-                                <select
-                                    class="w-full px-4 py-3 rounded-xl
-                                       bg-[#dff3f4] border border-[#2e2a7b]/20
-                                       focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
-                                    @foreach($services as $svc)
-                                    <option value="{{ $svc->slug }}" @selected($svc->id === $service->id)>
-                                        {{ $svc->title }}
-                                    </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-blue mb-2 font-medium">
                                     Message
                                 </label>
-                                <textarea name="message" id="message" class="w-full px-4 py-3 rounded-xl
+                                <textarea name="message" id="message"
+                                    wire:model.defer="message"
+                                    class="w-full px-4 py-3 rounded-xl
                                        bg-[#dff3f4] border border-[#2e2a7b]/20
                                        focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30" placeholder="Enter your message"></textarea>
+                                @error('message')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <button type="submit"
