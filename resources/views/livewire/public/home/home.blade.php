@@ -278,7 +278,7 @@
 
     <section
         class="bg-cyan py-12 sm:py-14 lg:py-12"
-        x-data="offersSlider()"
+        x-data="offersSlider(@js($offers))"
         x-init="init()">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
@@ -309,27 +309,18 @@
                         <div class="w-full sm:w-1/2 lg:w-1/4 px-2 sm:px-3 shrink-0">
                             <div class="relative overflow-hidden group">
 
-                                <!-- IMAGE -->
-                                <img
-                                    :src="item.image"
-                                    alt="Offer"
-                                    class="w-full h-[240px] sm:h-[280px] lg:h-[320px]
-                                       object-cover transition-transform duration-500
-                                       group-hover:scale-105">
-
-                                <!-- DATE -->
-                                <span class="absolute top-4 left-4 bg-black/60
-                                         text-white text-xs px-3 py-1">
-                                    <span x-text="item.date"></span>
-                                </span>
-
-                                <!-- TEXT OVERLAY -->
-                                <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5
-                                        bg-gradient-to-t from-black/70 to-transparent">
-                                    <h4 class="text-white text-base sm:text-lg font-semibold leading-snug"
-                                        x-text="item.title">
-                                    </h4>
-                                </div>
+                                <!-- CLICKABLE IMAGE -->
+                                <a 
+                                    :href="item.url || '#'" 
+                                    :target="item.url ? '_blank' : '_self'"
+                                    class="block">
+                                    <img
+                                        :src="item.featured_image ? `/storage/${item.featured_image}` : '{{ asset('images/Group 87.png') }}'"
+                                        alt="Offer"
+                                        class="w-full h-[240px] sm:h-[280px] lg:h-[320px]
+                                           object-cover transition-transform duration-500
+                                           group-hover:scale-105">
+                                </a>
 
                             </div>
                         </div>
@@ -339,7 +330,9 @@
             </div>
 
             <!-- DOTS -->
-            <div class="flex justify-center gap-3 mt-10 sm:mt-12">
+            <div 
+                class="flex justify-center gap-3 mt-10 sm:mt-12"
+                x-show="offers.length > perView">
                 <template x-for="i in totalDots" :key="i">
                     <button
                         @click="goTo(i - 1)"
@@ -353,47 +346,23 @@
     </section>
 
     <script>
-        function offersSlider() {
+        function offersSlider(offersData = []) {
             return {
                 current: 0,
                 interval: null,
                 perView: 4,
-
-                offers: [{
-                        image: "{{ asset('images/Group 87.png') }}",
-                        date: "26TH APRIL 2025",
-                        title: "Duis aute irure dolor in",
-                    },
-                    {
-                        image: "{{ asset('images/Group 87.png') }}",
-                        date: "16TH APRIL 2025",
-                        title: "Lorem ipsum dolor sit",
-                    },
-                    {
-                        image: "{{ asset('images/Group 87.png') }}",
-                        date: "26TH APRIL 2025",
-                        title: "Duis aute irure dolor in",
-                    },
-                    {
-                        image: "{{ asset('images/Group 87.png') }}",
-                        date: "16TH APRIL 2025",
-                        title: "Lorem ipsum dolor sit",
-                    },
-                    {
-                        image: "{{ asset('images/Group 87.png') }}",
-                        date: "26TH APRIL 2025",
-                        title: "Duis aute irure dolor in",
-                    },
-                ],
+                offers: offersData,
 
                 get totalDots() {
-                    return this.offers.length - this.perView + 1
+                    return Math.max(1, this.offers.length - this.perView + 1)
                 },
 
                 init() {
                     this.updatePerView()
                     window.addEventListener('resize', () => this.updatePerView())
-                    this.play()
+                    if (this.offers.length > this.perView) {
+                        this.play()
+                    }
                 },
 
                 updatePerView() {
@@ -404,9 +373,12 @@
                     } else {
                         this.perView = 4
                     }
+                    // Reset current position if needed
+                    this.current = Math.min(this.current, this.totalDots - 1)
                 },
 
                 play() {
+                    if (this.offers.length <= this.perView) return
                     this.interval = setInterval(() => {
                         this.next()
                     }, 3000)

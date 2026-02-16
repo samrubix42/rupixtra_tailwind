@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Public\Home;
 
+use App\Models\Offer;
 use App\Models\Post;
 use App\Models\Testimonial;
 use Livewire\Component;
@@ -22,9 +23,16 @@ class Home extends Component
             ->take(4)
             ->get();
 
+        $offers = Offer::query()
+            ->where('is_active', true)
+            ->whereNotNull('featured_image')
+            ->latest()
+            ->get();
+
         return view('livewire.public.home.home', [
             'testimonials' => $testimonials,
             'latestPosts' => $latestPosts,
+            'offers' => $offers,
         ]);
     }
 }

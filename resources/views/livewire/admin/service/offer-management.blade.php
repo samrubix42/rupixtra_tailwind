@@ -85,17 +85,30 @@
                                     </a>
                                 </td>
                                 <td class="px-4 py-3">
-                                    <label class="inline-flex items-center cursor-pointer">
-                                        <input
-                                            type="checkbox"
-                                            wire:change="toggleStatus({{ $offer->id }})"
-                                            {{ $offer->is_active ? 'checked' : '' }}
-                                            class="sr-only peer">
-                                        <div class="relative w-9 h-5 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
-                                        <span class="ml-2 text-xs {{ $offer->is_active ? 'text-emerald-600' : 'text-slate-500' }}">
-                                            {{ $offer->is_active ? 'Active' : 'Inactive' }}
-                                        </span>
-                                    </label>
+                                    <div class="relative">
+                                        <label class="inline-flex items-center cursor-pointer">
+                                            <input
+                                                type="checkbox"
+                                                wire:change="toggleStatus({{ $offer->id }})"
+                                                {{ $offer->is_active ? 'checked' : '' }}
+                                                wire:loading.attr="disabled"
+                                                wire:target="toggleStatus({{ $offer->id }})"
+                                                class="sr-only peer">
+                                            <div class="relative w-9 h-5 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600 peer-disabled:opacity-50"></div>
+                                            <span class="ml-2 text-xs {{ $offer->is_active ? 'text-emerald-600' : 'text-slate-500' }}">
+                                                <span wire:loading.remove wire:target="toggleStatus({{ $offer->id }})">
+                                                    {{ $offer->is_active ? 'Active' : 'Inactive' }}
+                                                </span>
+                                                <span wire:loading wire:target="toggleStatus({{ $offer->id }})" class="flex items-center gap-1">
+                                                    <svg class="animate-spin h-3 w-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                    </svg>
+                                                    Updating...
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
                                 </td>
                                 <td class="px-4 py-3 text-slate-600 text-xs">
                                     {{ $offer->created_at?->format('M d, Y') }}
@@ -172,11 +185,22 @@
                                                 type="checkbox"
                                                 wire:change="toggleStatus({{ $offer->id }})"
                                                 {{ $offer->is_active ? 'checked' : '' }}
+                                                wire:loading.attr="disabled"
+                                                wire:target="toggleStatus({{ $offer->id }})"
                                                 class="sr-only peer">
-                                            <div class="relative w-8 h-4 bg-slate-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[1px] after:left-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-blue-600"></div>
+                                            <div class="relative w-8 h-4 bg-slate-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[1px] after:left-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-blue-600 peer-disabled:opacity-50"></div>
                                         </label>
                                         <span class="text-[10px] {{ $offer->is_active ? 'text-emerald-600' : 'text-slate-500' }}">
-                                            {{ $offer->is_active ? 'Active' : 'Inactive' }}
+                                            <span wire:loading.remove wire:target="toggleStatus({{ $offer->id }})">
+                                                {{ $offer->is_active ? 'Active' : 'Inactive' }}
+                                            </span>
+                                            <span wire:loading wire:target="toggleStatus({{ $offer->id }})" class="flex items-center gap-1">
+                                                <svg class="animate-spin h-2 w-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                </svg>
+                                                Updating...
+                                            </span>
                                         </span>
                                     </div>
                                 </div>

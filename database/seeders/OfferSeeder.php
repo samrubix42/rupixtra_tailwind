@@ -15,28 +15,28 @@ class OfferSeeder extends Seeder
         $offers = [
             [
                 'url' => 'https://example.com/special-discount-offer',
-                'featured_image' => null,
+                'featured_image' => 'offers/offer1.jpg', // You can add actual image files to storage/app/public/offers/
                 'is_active' => true,
             ],
             [
                 'url' => 'https://example.com/limited-time-promotion',
-                'featured_image' => null,
+                'featured_image' => 'offers/offer2.jpg',
                 'is_active' => true,
             ],
             [
-                'url' => 'https://example.com/black-friday-deals',
-                'featured_image' => null,
-                'is_active' => false,
-            ],
-            [
                 'url' => 'https://example.com/summer-sale-2024',
-                'featured_image' => null,
+                'featured_image' => 'offers/offer3.jpg',
                 'is_active' => true,
             ],
             [
                 'url' => 'https://example.com/new-customer-bonus',
-                'featured_image' => null,
-                'is_active' => false,
+                'featured_image' => 'offers/offer4.jpg',
+                'is_active' => true,
+            ],
+            [
+                'url' => 'https://example.com/holiday-special',
+                'featured_image' => 'offers/offer5.jpg',
+                'is_active' => true,
             ],
         ];
 
