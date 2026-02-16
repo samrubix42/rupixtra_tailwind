@@ -16,6 +16,8 @@ use App\Livewire\Public\Blog\BlogView;
 use App\Livewire\Public\Calculator\Calulator;
 use App\Livewire\Public\Contact\Contact;
 use App\Livewire\Public\Home\Home;
+use App\Livewire\Public\Privacy\PrivacyPolicyPage;
+use App\Livewire\Public\Privacy\TermAndCondition as PublicTermAndCondition;
 use App\Livewire\Public\Service\ServiceView;
 use App\Livewire\Admin\Service\ServiceList as AdminServiceList;
 use App\Livewire\Admin\Service\AddService as AdminAddService;
@@ -35,6 +37,8 @@ Route::livewire('calculator', Calulator::class)->name('calculator');
 Route::livewire('blog',Blog::class)->name('blog');
 Route::livewire('blog/{slug}',BlogView::class)->name('blog.post');
 Route::livewire('service/{slug}',ServiceView::class)->name('services');
+Route::livewire('privacy-policy', PrivacyPolicyPage::class)->name('privacy-policy');
+Route::livewire('terms-and-conditions', PublicTermAndCondition::class)->name('terms-and-conditions');
 Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');
