@@ -27,9 +27,9 @@
 
           <!-- Dropdown -->
           <div
-            x-data="{ open: false }"
+            x-data="{ open: false, loansOpen: false }"
             @mouseenter="open = true"
-            @mouseleave="open = false"
+            @mouseleave="open = false; loansOpen = false;"
             class="relative">
 
             <button
@@ -45,37 +45,68 @@
               x-transition.origin.top
               x-cloak
               class="absolute mt-4 left-0
-                               w-56 bg-white  shadow-lg
-                               border border-gray-100 z-50 overflow-hidden">
+                               w-64 bg-white shadow-lg
+                               border border-gray-100 z-50 overflow-visible py-2">
 
-              <a wire:navigate href="{{ route('services', ['slug' => 'personal-loan']) }}"
-                class="block px-4 py-2.5 text-sm text-zinc-700
-                                  hover:bg-cyan-50 hover:text-[#112b5e] transition">
-                Personal Loan
-              </a>
+              <!-- Loans (with nested dropdown of loan services) -->
+              <div
+                class="relative"
+                @mouseenter="loansOpen = true"
+                @mouseleave="loansOpen = false">
 
-              <a wire:navigate href="{{ route('services', ['slug' => 'business-loan']) }}"
-                class="block px-4 py-2.5 text-sm text-zinc-700
-                                  hover:bg-cyan-50 hover:text-[#112b5e] transition">
-                Business Loan
-              </a>
+                <button
+                  class="flex items-center justify-between w-full px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e]">
+                  <span>Loans</span>
+                  <i class="ri-arrow-right-s-line text-sm"></i>
+                </button>
 
-              <a wire:navigate href="{{ route('services', ['slug' => 'home-loan']) }}"
-                class="block px-4 py-2.5 text-sm text-zinc-700
-                                  hover:bg-cyan-50 hover:text-[#112b5e] transition">
-                Home Loan
-              </a>
+                <div
+                  x-show="loansOpen"
+                  x-transition.origin-top-left
+                  class="absolute top-0 left-full ml-1 mt-0 w-64 bg-white shadow-lg border border-gray-100 z-50">
+                  <a wire:navigate href="{{ route('services', ['slug' => 'personal-loan']) }}"
+                    class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
+                    Personal Loan
+                  </a>
 
-              <a wire:navigate href="{{ route('services', ['slug' => 'lap']) }}"
-                class="block px-4 py-2.5 text-sm text-zinc-700
-                                  hover:bg-cyan-50 hover:text-[#112b5e] transition">
-                LAP
-              </a>
+                  <a wire:navigate href="{{ route('services', ['slug' => 'home-loan']) }}"
+                    class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
+                    Home Loan
+                  </a>
 
+                  <a wire:navigate href="{{ route('services', ['slug' => 'business-loan']) }}"
+                    class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
+                    Business Loan
+                  </a>
+
+                  <a wire:navigate href="{{ route('services', ['slug' => 'lap']) }}"
+                    class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
+                    LAP
+                  </a>
+
+                  <a wire:navigate href="{{ route('services', ['slug' => 'loan-for-self-employed-professionals']) }}"
+                    class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
+                    Loan for Self-Employed Professionals
+                  </a>
+                </div>
+              </div>
+
+              <!-- Credit Cards -->
               <a wire:navigate href="{{ route('services', ['slug' => 'credit-card']) }}"
-                class="block px-4 py-2.5 text-sm text-zinc-700
-                                  hover:bg-cyan-50 hover:text-[#112b5e] transition">
-                Credit Card
+                class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
+                Credit Cards
+              </a>
+
+              <!-- Mutual Funds -->
+              <a wire:navigate href="{{ route('services', ['slug' => 'mutual-funds']) }}"
+                class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
+                Mutual Funds
+              </a>
+
+              <!-- Health Insurance -->
+              <a wire:navigate href="{{ route('services', ['slug' => 'health-insurance']) }}"
+                class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
+                Health Insurance
               </a>
             </div>
           </div>
@@ -122,7 +153,7 @@
 
 
 
-  <header x-data="{ open: false, offerings: false }"
+  <header x-data="{ open: false, offerings: false, loans: false }"
     class="md:hidden border-b border-cyan-100 bg-[#eefcfd]">
 
     <!-- TOP BAR -->
@@ -190,13 +221,33 @@
           <div
             x-show="offerings"
             x-transition
-            class="mt-3 ml-4 space-y-3 text-sm text-slate-600">
+            class="mt-3 ml-4 space-y-4 text-sm text-slate-600">
 
-            <a wire:navigate href="{{ route('services', ['slug' => 'personal-loan']) }}" class="block">Personal Loan</a>
-            <a wire:navigate href="{{ route('services', ['slug' => 'business-loan']) }}" class="block">Business Loan</a>
-            <a wire:navigate href="{{ route('services', ['slug' => 'home-loan']) }}" class="block">Home Loan</a>
-            <a wire:navigate href="{{ route('services', ['slug' => 'lap']) }}" class="block">LAP</a>
-            <a wire:navigate href="{{ route('services', ['slug' => 'credit-card']) }}" class="block">Credit Card</a>
+            <!-- Loans (collapsible list of loan services) -->
+            <div>
+              <button
+                @click="loans = !loans"
+                class="flex items-center justify-between w-full text-slate-700">
+                <span>Loans</span>
+                <i :class="loans ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'"></i>
+              </button>
+
+              <div
+                x-show="loans"
+                x-transition
+                class="mt-2 ml-4 space-y-2 text-sm text-slate-600">
+                <a wire:navigate href="{{ route('services', ['slug' => 'personal-loan']) }}" class="block">Personal Loan</a>
+                <a wire:navigate href="{{ route('services', ['slug' => 'home-loan']) }}" class="block">Home Loan</a>
+                <a wire:navigate href="{{ route('services', ['slug' => 'business-loan']) }}" class="block">Business Loan</a>
+                <a wire:navigate href="{{ route('services', ['slug' => 'lap']) }}" class="block">LAP</a>
+                <a wire:navigate href="{{ route('services', ['slug' => 'loan-for-self-employed-professionals']) }}" class="block">Loan for Self-Employed Professionals</a>
+              </div>
+            </div>
+
+            <!-- Other offerings -->
+            <a wire:navigate href="{{ route('services', ['slug' => 'credit-card']) }}" class="block">Credit Cards</a>
+            <a wire:navigate href="{{ route('services', ['slug' => 'mutual-funds']) }}" class="block">Mutual Funds</a>
+            <a wire:navigate href="{{ route('services', ['slug' => 'health-insurance']) }}" class="block">Health Insurance</a>
           </div>
         </div>
 
