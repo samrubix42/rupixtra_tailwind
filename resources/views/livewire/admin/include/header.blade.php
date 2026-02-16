@@ -12,7 +12,7 @@
             </button>
 
             <h1 class="text-lg font-semibold text-slate-800">
-                Dashboard
+                Rupixtra Admin Pannel
             </h1>
         </div>
 
