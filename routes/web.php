@@ -22,6 +22,7 @@ use App\Livewire\Public\Service\ServiceView;
 use App\Livewire\Admin\Service\ServiceList as AdminServiceList;
 use App\Livewire\Admin\Service\AddService as AdminAddService;
 use App\Livewire\Admin\Service\UpdateService as AdminUpdateService;
+use App\Livewire\Admin\Service\OfferManagement;
 use App\Livewire\Admin\Legal\PrivacyPolicy as AdminPrivacyPolicy;
 use App\Livewire\Admin\Legal\TermAndCondition as AdminTermAndCondition;
 use App\Http\Controllers\Admin\ContactExportController;
@@ -60,6 +61,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('services', AdminServiceList::class)->name('admin.services');
     Route::livewire('services/add', AdminAddService::class)->name('admin.services.add');
     Route::livewire('services/{serviceId}/edit', AdminUpdateService::class)->name('admin.services.edit');
+    Route::livewire('services/offers', OfferManagement::class)->name('admin.services.offers');
     Route::livewire('blog/category', BlogCategoryList::class)->name('admin.blog.category');
     Route::livewire('blog-list', PostList::class)->name('admin.blog-list');
     Route::livewire('blog/category/add', AddPost::class)->name('admin.blog.category.add');

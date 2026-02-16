@@ -79,6 +79,13 @@ class AdminSidebar
                         'hasSubmenu' => false,
                         'submenu' => [],
                     ],
+                    (object) [
+                        'title' => 'Manage Offers',
+                        'icon' => 'ri-price-tag-3-line',
+                        'url' => route('admin.services.offers'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
                 ],
             ],
             (object) [
