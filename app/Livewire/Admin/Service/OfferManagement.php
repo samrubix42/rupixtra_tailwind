@@ -27,6 +27,8 @@ class OfferManagement extends Component
 
     public ?string $url = null;
 
+    public bool $is_active = true;
+
     /** @var \Livewire\Features\SupportFileUploads\TemporaryUploadedFile|null */
     public $featured_image = null;
 
@@ -39,12 +41,14 @@ class OfferManagement extends Component
         return [
             'url' => ['required', 'url', 'max:255'],
             'featured_image' => ['nullable', 'image', 'max:2048'],
+            'is_active' => ['boolean'],
         ];
     }
 
     public function resetForm(): void
     {
         $this->reset(['offerId', 'url', 'featured_image', 'existing_featured_image']);
+        $this->is_active = true;
     }
 
     /* -------------------------
@@ -63,6 +67,7 @@ class OfferManagement extends Component
 
         $this->offerId = $offer->id;
         $this->url = $offer->url;
+        $this->is_active = $offer->is_active;
         $this->existing_featured_image = $offer->featured_image;
 
         $this->dispatch('open-modal');
@@ -127,6 +132,7 @@ class OfferManagement extends Component
             [
                 'url' => $validated['url'],
                 'featured_image' => $imagePath,
+                'is_active' => $this->is_active,
             ]
         );
 
@@ -138,6 +144,20 @@ class OfferManagement extends Component
 
         $this->closeModal();
         $this->resetForm();
+    }
+
+    public function toggleStatus(int $id): void
+    {
+        $offer = Offer::findOrFail($id);
+        $offer->update(['is_active' => !$offer->is_active]);
+
+        $status = $offer->is_active ? 'activated' : 'deactivated';
+
+        $this->dispatch('toast-show', [
+            'message' => "Offer {$status} successfully!",
+            'type' => 'success',
+            'position' => 'top-right',
+        ]);
     }
 
     #[Layout('layouts.admin')]

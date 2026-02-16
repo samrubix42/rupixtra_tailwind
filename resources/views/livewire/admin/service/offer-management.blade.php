@@ -56,6 +56,7 @@
                             <th class="px-4 py-3 w-12">#</th>
                             <th class="px-4 py-3 w-20">Image</th>
                             <th class="px-4 py-3">URL</th>
+                            <th class="px-4 py-3 w-20">Status</th>
                             <th class="px-4 py-3 w-32">Created</th>
                             <th class="px-4 py-3 text-right w-40">Actions</th>
                         </tr>
@@ -82,6 +83,19 @@
                                     <a href="{{ $offer->url }}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline break-all">
                                         {{ $offer->url }}
                                     </a>
+                                </td>
+                                <td class="px-4 py-3">
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            wire:change="toggleStatus({{ $offer->id }})"
+                                            {{ $offer->is_active ? 'checked' : '' }}
+                                            class="sr-only peer">
+                                        <div class="relative w-9 h-5 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+                                        <span class="ml-2 text-xs {{ $offer->is_active ? 'text-emerald-600' : 'text-slate-500' }}">
+                                            {{ $offer->is_active ? 'Active' : 'Inactive' }}
+                                        </span>
+                                    </label>
                                 </td>
                                 <td class="px-4 py-3 text-slate-600 text-xs">
                                     {{ $offer->created_at?->format('M d, Y') }}
@@ -115,7 +129,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" class="px-4 py-8 text-center text-sm text-slate-500">
+                                <td colspan="6" class="px-4 py-8 text-center text-sm text-slate-500">
                                     @if($search !== '')
                                         No offers found matching "{{ $search }}".
                                     @else
@@ -148,9 +162,24 @@
                                 <a href="{{ $offer->url }}" target="_blank" class="text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline break-all">
                                     {{ $offer->url }}
                                 </a>
-                                <p class="mt-0.5 text-[11px] text-slate-500">
-                                    Created: {{ $offer->created_at?->format('M d, Y') }}
-                                </p>
+                                <div class="mt-1 flex items-center gap-3">
+                                    <p class="text-[11px] text-slate-500">
+                                        Created: {{ $offer->created_at?->format('M d, Y') }}
+                                    </p>
+                                    <div class="flex items-center gap-2">
+                                        <label class="inline-flex items-center cursor-pointer">
+                                            <input
+                                                type="checkbox"
+                                                wire:change="toggleStatus({{ $offer->id }})"
+                                                {{ $offer->is_active ? 'checked' : '' }}
+                                                class="sr-only peer">
+                                            <div class="relative w-8 h-4 bg-slate-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[1px] after:left-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-blue-600"></div>
+                                        </label>
+                                        <span class="text-[10px] {{ $offer->is_active ? 'text-emerald-600' : 'text-slate-500' }}">
+                                            {{ $offer->is_active ? 'Active' : 'Inactive' }}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

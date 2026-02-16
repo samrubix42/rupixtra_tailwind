@@ -61,6 +61,16 @@
                             @endif
                         </div>
                     </div>
+
+                    <div>
+                        <label class="inline-flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+                            <input type="checkbox" wire:model="is_active" class="rounded border-slate-300 bg-blue-500 text-blue-600 focus:ring-blue-500">
+                            <span>Active Status</span>
+                        </label>
+                        @error('is_active')
+                            <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
 
                     <div class="flex justify-end gap-3">
