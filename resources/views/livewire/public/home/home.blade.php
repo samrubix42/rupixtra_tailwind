@@ -1,3 +1,21 @@
+@php
+    $homePage = \App\Models\Page::where('slug', 'home')->first();
+
+    $metaTitle = $homePage?->meta_title
+        ?? $homePage?->title
+        ?? setting('seo_title', config('app.name'));
+
+    $metaDescription = $homePage?->meta_description
+        ?? setting('seo_description');
+
+    $metaKeywords = $homePage?->meta_keywords
+        ?? setting('seo_keywords');
+@endphp
+
+@section('meta_title', $metaTitle)
+@section('meta_description', $metaDescription)
+@section('meta_keywords', $metaKeywords)
+
 <div>
     <style>
         .shadow-card {

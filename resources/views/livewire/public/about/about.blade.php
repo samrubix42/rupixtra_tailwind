@@ -1,3 +1,21 @@
+@php
+  $aboutPage = \App\Models\Page::where('slug', 'our-story')->first();
+
+  $metaTitle = $aboutPage?->meta_title
+    ?? $aboutPage?->title
+    ?? setting('seo_title', config('app.name'));
+
+  $metaDescription = $aboutPage?->meta_description
+    ?? setting('seo_description');
+
+  $metaKeywords = $aboutPage?->meta_keywords
+    ?? setting('seo_keywords');
+@endphp
+
+@section('meta_title', $metaTitle)
+@section('meta_description', $metaDescription)
+@section('meta_keywords', $metaKeywords)
+
 <div>
   <section class="relative overflow-hidden bg-cyan py-20 lg:py-28">
 

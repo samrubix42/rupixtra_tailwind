@@ -1,3 +1,19 @@
+@php
+    $metaTitle = $page?->meta_title
+        ?? $page?->title
+        ?? setting('seo_title', config('app.name'));
+
+    $metaDescription = $page?->meta_description
+        ?? setting('seo_description');
+
+    $metaKeywords = $page?->meta_keywords
+        ?? setting('seo_keywords');
+@endphp
+
+@section('meta_title', $metaTitle)
+@section('meta_description', $metaDescription)
+@section('meta_keywords', $metaKeywords)
+
 <div class="bg-cyan py-12 sm:py-16 lg:py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-8">

@@ -1,3 +1,18 @@
+@php
+    $metaTitle = ($service->title ?? '') . ' | ' . setting('app_name', config('app.name'));
+
+    $baseDescription = \Illuminate\Support\Str::limit(strip_tags((string) $service->primary_section), 160);
+
+    $metaDescription = $baseDescription
+        ?: setting('seo_description');
+
+    $metaKeywords = setting('seo_keywords');
+@endphp
+
+@section('meta_title', $metaTitle)
+@section('meta_description', $metaDescription)
+@section('meta_keywords', $metaKeywords)
+
 <div>
     <section class="bg-cyan py-12 sm:py-20">
 

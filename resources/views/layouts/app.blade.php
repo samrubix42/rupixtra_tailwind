@@ -5,7 +5,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ $title ?? config('app.name') }}</title>
+    @php
+        $defaultSeoTitle = setting('seo_title', config('app.name'));
+        $defaultSeoDescription = setting('seo_description');
+        $defaultSeoKeywords = setting('seo_keywords');
+
+        $sectionTitle = trim($__env->yieldContent('meta_title'));
+        $sectionDescription = trim($__env->yieldContent('meta_description'));
+        $sectionKeywords = trim($__env->yieldContent('meta_keywords'));
+
+        $pageTitle = $sectionTitle !== ''
+            ? $sectionTitle
+            : ($title ?? $defaultSeoTitle);
+
+        $pageDescription = $sectionDescription !== ''
+            ? $sectionDescription
+            : $defaultSeoDescription;
+
+        $pageKeywords = $sectionKeywords !== ''
+            ? $sectionKeywords
+            : $defaultSeoKeywords;
+
+        $faviconPath = setting('site_favicon');
+    @endphp
+
+    <title>{{ $pageTitle }}</title>
+    @if(!empty($pageDescription))
+        <meta name="description" content="{{ $pageDescription }}">
+    @endif
+    @if(!empty($pageKeywords))
+        <meta name="keywords" content="{{ $pageKeywords }}">
+    @endif
+
+    @if(!empty($faviconPath))
+        <link rel="icon" type="image/png" href="{{ asset('storage/' . $faviconPath) }}">
+        <link rel="shortcut icon" type="image/png" href="{{ asset('storage/' . $faviconPath) }}">
+    @else
+        <link rel="icon" href="{{ asset('favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    @endif
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">

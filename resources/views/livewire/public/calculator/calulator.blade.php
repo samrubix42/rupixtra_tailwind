@@ -1,3 +1,21 @@
+@php
+    $calculatorPage = \App\Models\Page::where('slug', 'calculator')->first();
+
+    $metaTitle = $calculatorPage?->meta_title
+        ?? $calculatorPage?->title
+        ?? setting('seo_title', config('app.name'));
+
+    $metaDescription = $calculatorPage?->meta_description
+        ?? setting('seo_description');
+
+    $metaKeywords = $calculatorPage?->meta_keywords
+        ?? setting('seo_keywords');
+@endphp
+
+@section('meta_title', $metaTitle)
+@section('meta_description', $metaDescription)
+@section('meta_keywords', $metaKeywords)
+
 <div>
 
 

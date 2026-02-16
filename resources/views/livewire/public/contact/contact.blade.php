@@ -1,3 +1,21 @@
+@php
+  $contactPage = \App\Models\Page::where('slug', 'reach-us')->first();
+
+  $metaTitle = $contactPage?->meta_title
+    ?? $contactPage?->title
+    ?? setting('seo_title', config('app.name'));
+
+  $metaDescription = $contactPage?->meta_description
+    ?? setting('seo_description');
+
+  $metaKeywords = $contactPage?->meta_keywords
+    ?? setting('seo_keywords');
+@endphp
+
+@section('meta_title', $metaTitle)
+@section('meta_description', $metaDescription)
+@section('meta_keywords', $metaKeywords)
+
 <section class="bg-[#dff3f4] py-20">
 
   <div class="max-w-7xl mx-auto px-6">

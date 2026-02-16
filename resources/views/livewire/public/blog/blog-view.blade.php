@@ -1,3 +1,22 @@
+@php
+    $metaTitle = $post->meta_title
+        ?? $post->title
+        ?? setting('seo_title', config('app.name'));
+
+    $baseDescription = $post->meta_description
+        ?? \Illuminate\Support\Str::limit(strip_tags((string) $post->content), 160);
+
+    $metaDescription = $baseDescription
+        ?: setting('seo_description');
+
+    $metaKeywords = $post->meta_keywords
+        ?? setting('seo_keywords');
+@endphp
+
+@section('meta_title', $metaTitle)
+@section('meta_description', $metaDescription)
+@section('meta_keywords', $metaKeywords)
+
 <section class="bg-[#dff3f4] py-16">
 
     <div class="max-w-7xl mx-auto px-6">
