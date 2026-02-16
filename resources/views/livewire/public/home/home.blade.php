@@ -60,14 +60,14 @@
                 <!-- CTA BUTTONS -->
                 <div class="mt-10 flex gap-4">
 
-                    <a href="#"
+                    <a href="{{route('reach-us')}}"
                         class="font-bold px-8 py-3
                           bg-dark-cyan text-blue
                           hover:opacity-90 transition">
-                        READ MORE
+                        KNOW MORE
                     </a>
 
-                    <a href="#"
+                    <a href="tel:{{ setting('phone_number') }}"
                         class="font-bold px-8 py-3 border-2
                           border-dark-cyan text-dark-cyan
                         ">
@@ -125,13 +125,13 @@
             <!-- CTA BUTTONS -->
             <div class="mt-8 flex gap-4">
 
-                <a href="#"
+                <a href="{{route('reach-us')}}"
                     class="text-center font-bold px-6 py-3 
                       bg-dark-cyan text-blue hover:opacity-90 transition">
                     READ MORE
                 </a>
 
-                <a href="#"
+                <a href="tel:{{ setting('phone_number') }}"
                     class="text-center font-bold px-6 py-3 border-2
                       border-dark-cyan text-dark-cyan
                       hover:bg-dark-cyan hover:text-blue transition">
