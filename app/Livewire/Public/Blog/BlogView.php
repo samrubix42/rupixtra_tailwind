@@ -41,7 +41,7 @@ class BlogView extends Component
         $this->recentPosts = Post::where('is_published', true)
             ->where('id', '!=', $this->post->id)
             ->latest()
-            ->take(5)
+            ->take(3)
             ->get();
     }
 
