@@ -55,7 +55,7 @@
                             </div>
 
                             <div>
-                                <label class="block text-xs font-medium text-slate-600 mb-1">Support Email</label>
+                                <label class="block text-xs font-medium text-slate-600 mb-1">Primary Support Email</label>
                                 <input
                                     type="email"
                                     wire:model.defer="contact_email"
@@ -63,6 +63,21 @@
                                     class="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none"
                                 >
                                 @error('contact_email')
+                                    <p class="mt-1 text-xs text-rose-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-600 mb-1">Secondary Email</label>
+                                <input
+                                    type="email"
+                                    wire:model.defer="contact_email_secondary"
+                                    placeholder="e.g. info@example.com"
+                                    class="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none"
+                                >
+                                @error('contact_email_secondary')
                                     <p class="mt-1 text-xs text-rose-600">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -129,45 +144,57 @@
                 </div>
 
                 <div class="rounded-xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm">
-                    <h2 class="text-sm font-semibold text-slate-900 mb-4">Default SEO</h2>
+                    <h2 class="text-sm font-semibold text-slate-900 mb-4">Social Media</h2>
 
                     <div class="space-y-4">
                         <div>
-                            <label class="block text-xs font-medium text-slate-600 mb-1">SEO Title</label>
+                            <label class="block text-xs font-medium text-slate-600 mb-1">Facebook URL</label>
                             <input
-                                type="text"
-                                wire:model.defer="seo_title"
-                                placeholder="Default meta title for your site"
+                                type="url"
+                                wire:model.defer="social_facebook"
+                                placeholder="https://facebook.com/your-page"
                                 class="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none"
                             >
-                            @error('seo_title')
+                            @error('social_facebook')
                                 <p class="mt-1 text-xs text-rose-600">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div>
-                            <label class="block text-xs font-medium text-slate-600 mb-1">SEO Description</label>
-                            <textarea
-                                wire:model.defer="seo_description"
-                                rows="3"
-                                placeholder="Short description used for meta tags and social sharing."
-                                class="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none resize-none"
-                            ></textarea>
-                            @error('seo_description')
+                            <label class="block text-xs font-medium text-slate-600 mb-1">Twitter / X URL</label>
+                            <input
+                                type="url"
+                                wire:model.defer="social_twitter"
+                                placeholder="https://x.com/your-handle"
+                                class="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none"
+                            >
+                            @error('social_twitter')
                                 <p class="mt-1 text-xs text-rose-600">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div>
-                            <label class="block text-xs font-medium text-slate-600 mb-1">SEO Keywords</label>
+                            <label class="block text-xs font-medium text-slate-600 mb-1">Instagram URL</label>
                             <input
-                                type="text"
-                                wire:model.defer="seo_keywords"
-                                placeholder="e.g. finance, calculator, services"
+                                type="url"
+                                wire:model.defer="social_instagram"
+                                placeholder="https://instagram.com/your-handle"
                                 class="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none"
                             >
-                            <p class="mt-1 text-[11px] text-slate-400">Separate keywords with commas.</p>
-                            @error('seo_keywords')
+                            @error('social_instagram')
+                                <p class="mt-1 text-xs text-rose-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-slate-600 mb-1">LinkedIn URL</label>
+                            <input
+                                type="url"
+                                wire:model.defer="social_linkedin"
+                                placeholder="https://linkedin.com/company/your-company"
+                                class="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none"
+                            >
+                            @error('social_linkedin')
                                 <p class="mt-1 text-xs text-rose-600">{{ $message }}</p>
                             @enderror
                         </div>

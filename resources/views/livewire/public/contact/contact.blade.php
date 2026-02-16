@@ -138,8 +138,8 @@
           <i class="ri-phone-line text-xl text-blue"></i>
           <div>
             <p class="font-semibold text-blue text-sm">Call Now</p>
-            <p class="text-sm text-blue/70">(123) 456-7891</p>
-            <p class="text-sm text-blue/70">(907) 456-7891</p>
+            <p class="text-sm text-blue/70">{{ setting('phone_number', '(123) 456-7891') }}</p>
+            <p class="text-sm text-blue/70">{{ setting('whatsapp_number', '(907) 456-7891') }}</p>
           </div>
         </div>
 
@@ -148,8 +148,8 @@
           <i class="ri-mail-line text-xl text-blue"></i>
           <div>
             <p class="font-semibold text-blue text-sm">Email</p>
-            <p class="text-sm text-blue/70">info@example.com</p>
-            <p class="text-sm text-blue/70">support@example.com</p>
+            <p class="text-sm text-blue/70">{{ setting('contact_email', 'info@example.com') }}</p>
+            <p class="text-sm text-blue/70">{{ setting('contact_email_secondary', 'support@example.com') }}</p>
           </div>
         </div>
 
@@ -159,8 +159,7 @@
           <div>
             <p class="font-semibold text-blue text-sm">Location</p>
             <p class="text-sm text-blue/70">
-              Royal Ln, Mesa,<br>
-              New Jersey 45643
+              {!! nl2br(e(setting('contact_address', "Royal Ln, Mesa,\nNew Jersey 45643"))) !!}
             </p>
           </div>
         </div>

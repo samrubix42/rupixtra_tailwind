@@ -16,14 +16,16 @@ class Setting extends Component
     public ?string $company_name = null;
     public ?string $ceo_name = null;
     public ?string $contact_email = null;
+    public ?string $contact_email_secondary = null;
     public ?string $contact_address = null;
     public ?string $footer_text = null;
 
     public ?string $phone_number = null;
     public ?string $whatsapp_number = null;
-    public ?string $seo_title = null;
-    public ?string $seo_description = null;
-    public ?string $seo_keywords = null;
+    public ?string $social_facebook = null;
+    public ?string $social_twitter = null;
+    public ?string $social_instagram = null;
+    public ?string $social_linkedin = null;
 
     /** @var \Livewire\Features\SupportFileUploads\TemporaryUploadedFile|null */
     public $logo = null;
@@ -42,14 +44,16 @@ class Setting extends Component
         $this->company_name = $settings['company_name'] ?? null;
         $this->ceo_name = $settings['ceo_name'] ?? null;
         $this->contact_email = $settings['contact_email'] ?? null;
+        $this->contact_email_secondary = $settings['contact_email_secondary'] ?? null;
         $this->contact_address = $settings['contact_address'] ?? null;
         $this->footer_text = $settings['footer_text'] ?? null;
 
         $this->phone_number = $settings['phone_number'] ?? null;
         $this->whatsapp_number = $settings['whatsapp_number'] ?? null;
-        $this->seo_title = $settings['seo_title'] ?? null;
-        $this->seo_description = $settings['seo_description'] ?? null;
-        $this->seo_keywords = $settings['seo_keywords'] ?? null;
+        $this->social_facebook = $settings['social_facebook'] ?? null;
+        $this->social_twitter = $settings['social_twitter'] ?? null;
+        $this->social_instagram = $settings['social_instagram'] ?? null;
+        $this->social_linkedin = $settings['social_linkedin'] ?? null;
 
         $this->logo_path = $settings['site_logo'] ?? null;
         $this->favicon_path = $settings['site_favicon'] ?? null;
@@ -62,13 +66,15 @@ class Setting extends Component
             'company_name' => ['nullable', 'string', 'max:255'],
             'ceo_name' => ['nullable', 'string', 'max:255'],
             'contact_email' => ['nullable', 'string', 'max:255'],
+            'contact_email_secondary' => ['nullable', 'string', 'max:255'],
             'contact_address' => ['nullable', 'string'],
             'footer_text' => ['nullable', 'string', 'max:255'],
             'phone_number' => ['nullable', 'string', 'max:50'],
             'whatsapp_number' => ['nullable', 'string', 'max:50'],
-            'seo_title' => ['nullable', 'string', 'max:255'],
-            'seo_description' => ['nullable', 'string', 'max:500'],
-            'seo_keywords' => ['nullable', 'string', 'max:255'],
+            'social_facebook' => ['nullable', 'string', 'max:255'],
+            'social_twitter' => ['nullable', 'string', 'max:255'],
+            'social_instagram' => ['nullable', 'string', 'max:255'],
+            'social_linkedin' => ['nullable', 'string', 'max:255'],
             'logo' => ['nullable', 'image', 'max:2048'],
             'favicon' => ['nullable', 'image', 'max:1024'],
         ];
@@ -83,13 +89,15 @@ class Setting extends Component
             'company_name' => $this->company_name,
             'ceo_name' => $this->ceo_name,
             'contact_email' => $this->contact_email,
+            'contact_email_secondary' => $this->contact_email_secondary,
             'contact_address' => $this->contact_address,
             'footer_text' => $this->footer_text,
             'phone_number' => $this->phone_number,
             'whatsapp_number' => $this->whatsapp_number,
-            'seo_title' => $this->seo_title,
-            'seo_description' => $this->seo_description,
-            'seo_keywords' => $this->seo_keywords,
+            'social_facebook' => $this->social_facebook,
+            'social_twitter' => $this->social_twitter,
+            'social_instagram' => $this->social_instagram,
+            'social_linkedin' => $this->social_linkedin,
         ];
 
         if ($this->logo) {

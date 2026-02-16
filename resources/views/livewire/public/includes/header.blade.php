@@ -4,7 +4,13 @@
 
       <!-- LEFT: Logo -->
       <a wire:navigate href="{{ route('home') }}" class="flex items-center shrink-0">
-        <img src="{{ asset('images/logo-light.png') }}" class="h-16" alt="Rupixtra">
+        @php
+            $siteLogo = setting('site_logo');
+        @endphp
+        <img
+          src="{{ $siteLogo ? asset('storage/'.$siteLogo) : asset('images/logo-light.png') }}"
+          class="h-16"
+          alt="{{ setting('app_name', 'Rupixtra') }}">
       </a>
 
       <!-- MIDDLE: Navbar -->
@@ -122,7 +128,13 @@
     <!-- TOP BAR -->
     <div class="px-4 pt-4 pb-3">
       <div class="flex items-center justify-between">
-        <img src="{{ asset('images/logo-light.png') }}" class="h-12" />
+        @php
+            $siteLogo = setting('site_logo');
+        @endphp
+        <img
+          src="{{ $siteLogo ? asset('storage/'.$siteLogo) : asset('images/logo-light.png') }}"
+          class="h-12"
+          alt="{{ setting('app_name', 'Rupixtra') }}" />
 
         <button @click="open = true">
           <i class="ri-menu-3-line text-2xl text-slate-700"></i>
