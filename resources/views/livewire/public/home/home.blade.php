@@ -594,125 +594,57 @@
                 </h2>
             </div>
 
-            <!-- BLOG GRID -->
+            <!-- BLOG GRID (dynamic latest posts) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
                     gap-5 sm:gap-8">
 
-                <!-- CARD -->
-                <div class="group relative overflow-hidden">
-                    <img
-                        src="{{ asset('images/Group 87.png') }}"
-                        alt="Blog"
-                        class="w-full h-[200px] sm:h-[280px] lg:h-[320px]
-                           object-cover transition-transform duration-500
-                           group-hover:scale-105">
+                @forelse($latestPosts as $post)
+                    <!-- CARD -->
+                    <a wire:navigate href="{{ route('blog.post', $post->slug) }}" class="group relative overflow-hidden block">
+                        @if($post->featured_image)
+                            <img
+                                src="{{ asset('storage/' . $post->featured_image) }}"
+                                alt="{{ $post->title }}"
+                                class="w-full h-[200px] sm:h-[280px] lg:h-[320px]
+                                   object-cover transition-transform duration-500
+                                   group-hover:scale-105">
+                        @else
+                            <img
+                                src="{{ asset('images/Group 87.png') }}"
+                                alt="{{ $post->title }}"
+                                class="w-full h-[200px] sm:h-[280px] lg:h-[320px]
+                                   object-cover transition-transform duration-500
+                                   group-hover:scale-105">
+                        @endif
 
-                    <!-- DATE -->
-                    <span class="absolute top-3 left-3 sm:top-4 sm:left-4
-                             bg-black/60 text-white
-                             text-[10px] sm:text-xs
-                             px-2 sm:px-3 py-1">
-                        26TH APRIL 2025
-                    </span>
+                        <!-- DATE -->
+                        <span class="absolute top-3 left-3 sm:top-4 sm:left-4
+                                 bg-black/60 text-white
+                                 text-[10px] sm:text-xs
+                                 px-2 sm:px-3 py-1">
+                            {{ optional($post->created_at)->format('d M Y') }}
+                        </span>
 
-                    <!-- TEXT OVERLAY -->
-                    <div class="absolute bottom-0 left-0 right-0
-                            p-3 sm:p-5
-                            bg-gradient-to-t from-black/70 to-transparent">
-                        <h4 class="text-white
-                               text-sm sm:text-base lg:text-lg
-                               font-semibold leading-snug">
-                            Duis aute irure dolor in
-                        </h4>
-                    </div>
-                </div>
-
-                <!-- CARD -->
-                <div class="group relative overflow-hidden">
-                    <img
-                        src="{{ asset('images/Group 87.png') }}"
-                        alt="Blog"
-                        class="w-full h-[200px] sm:h-[280px] lg:h-[320px]
-                           object-cover transition-transform duration-500
-                           group-hover:scale-105">
-
-                    <span class="absolute top-3 left-3 sm:top-4 sm:left-4
-                             bg-black/60 text-white
-                             text-[10px] sm:text-xs
-                             px-2 sm:px-3 py-1">
-                        16TH APRIL 2025
-                    </span>
-
-                    <div class="absolute bottom-0 left-0 right-0
-                            p-3 sm:p-5
-                            bg-gradient-to-t from-black/70 to-transparent">
-                        <h4 class="text-white
-                               text-sm sm:text-base lg:text-lg
-                               font-semibold leading-snug">
-                            Lorem ipsum dolor sit
-                        </h4>
-                    </div>
-                </div>
-
-                <!-- CARD -->
-                <div class="group relative overflow-hidden">
-                    <img
-                        src="{{ asset('images/Group 87.png') }}"
-                        alt="Blog"
-                        class="w-full h-[200px] sm:h-[280px] lg:h-[320px]
-                           object-cover transition-transform duration-500
-                           group-hover:scale-105">
-
-                    <span class="absolute top-3 left-3 sm:top-4 sm:left-4
-                             bg-black/60 text-white
-                             text-[10px] sm:text-xs
-                             px-2 sm:px-3 py-1">
-                        26TH APRIL 2025
-                    </span>
-
-                    <div class="absolute bottom-0 left-0 right-0
-                            p-3 sm:p-5
-                            bg-gradient-to-t from-black/70 to-transparent">
-                        <h4 class="text-white
-                               text-sm sm:text-base lg:text-lg
-                               font-semibold leading-snug">
-                            Duis aute irure dolor in
-                        </h4>
-                    </div>
-                </div>
-
-                <!-- CARD -->
-                <div class="group relative overflow-hidden">
-                    <img
-                        src="{{ asset('images/Group 87.png') }}"
-                        alt="Blog"
-                        class="w-full h-[200px] sm:h-[280px] lg:h-[320px]
-                           object-cover transition-transform duration-500
-                           group-hover:scale-105">
-
-                    <span class="absolute top-3 left-3 sm:top-4 sm:left-4
-                             bg-black/60 text-white
-                             text-[10px] sm:text-xs
-                             px-2 sm:px-3 py-1">
-                        16TH APRIL 2025
-                    </span>
-
-                    <div class="absolute bottom-0 left-0 right-0
-                            p-3 sm:p-5
-                            bg-gradient-to-t from-black/70 to-transparent">
-                        <h4 class="text-white
-                               text-sm sm:text-base lg:text-lg
-                               font-semibold leading-snug">
-                            Lorem ipsum dolor sit
-                        </h4>
-                    </div>
-                </div>
+                        <!-- TEXT OVERLAY -->
+                        <div class="absolute bottom-0 left-0 right-0
+                                p-3 sm:p-5
+                                bg-gradient-to-t from-black/70 to-transparent">
+                            <h4 class="text-white
+                                   text-sm sm:text-base lg:text-lg
+                                   font-semibold leading-snug">
+                                {{ $post->title }}
+                            </h4>
+                        </div>
+                    </a>
+                @empty
+                    <p class="text-blue/70 text-sm sm:text-base">No blog posts available yet.</p>
+                @endforelse
 
             </div>
 
             <!-- EXPLORE MORE -->
             <div class="mt-8 sm:mt-14 px-2 sm:px-4">
-                <a href="#"
+                <a wire:navigate href="{{ route('blog') }}"
                     class="inline-flex items-center
                       text-base sm:text-xl lg:text-2xl
                       underline gap-2 sm:gap-3
@@ -739,8 +671,9 @@
                     </h2>
 
                     <p class="mt-6 max-w-lg text-blue/80">
-                        Duis aute irure dolor in reprehenderit in<br>
-                        voluptate velit esse cillum
+                        We’re here to help you find the best loan options that fit your
+                        unique financial needs. Connect with us today and let’s get started
+                        on your journey to financial success.
                     </p>
                 </div>
 
