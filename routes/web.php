@@ -35,9 +35,9 @@ Route::livewire('/', Home::class)->name('home');
 Route::livewire('/our-story', About::class)->name('our-story');
 Route::livewire('/reach-us', Contact::class)->name('reach-us');
 Route::livewire('calculator', Calulator::class)->name('calculator');
-Route::livewire('blog',Blog::class)->name('blog');
-Route::livewire('blog/{slug}',BlogView::class)->name('blog.post');
-Route::livewire('service/{slug}',ServiceView::class)->name('services');
+Route::livewire('blog', Blog::class)->name('blog');
+Route::livewire('blog/{slug}', BlogView::class)->name('blog.post');
+Route::livewire('service/{slug}', ServiceView::class)->name('services');
 Route::livewire('privacy-policy', PrivacyPolicyPage::class)->name('privacy-policy');
 Route::livewire('terms-and-conditions', PublicTermAndCondition::class)->name('terms-and-conditions');
 Route::get('/clear-cache', function () {
@@ -57,7 +57,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('/', Dashboard::class)->name('admin.dashboard');
     Route::livewire('testimonial', TestimonialList::class)->name('admin.testimonial');
     Route::livewire('contacts', ContactList::class)->name('admin.contacts');
-    Route::get('contacts/export', ContactExportController::class)->name('admin.contacts.export');
+    Route::livewire('contacts/export', ContactExportController::class)->name('admin.contacts.export');
     Route::livewire('services', AdminServiceList::class)->name('admin.services');
     Route::livewire('services/add', AdminAddService::class)->name('admin.services.add');
     Route::livewire('services/{serviceId}/edit', AdminUpdateService::class)->name('admin.services.edit');
@@ -67,7 +67,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('blog/category/add', AddPost::class)->name('admin.blog.category.add');
     Route::livewire('blog/post/add', AddPost::class)->name('admin.blog.post.add');
     Route::livewire('blog/post/edit/{postId}', UpdatePost::class)->name('admin.blog.post.edit');
-    Route::livewire('page-management',PageMangement::class)->name('admin.page-management');
+    Route::livewire('page-management', PageMangement::class)->name('admin.page-management');
     Route::livewire('settings', AdminSetting::class)->name('admin.settings');
     Route::livewire('legal/privacy-policy', AdminPrivacyPolicy::class)->name('admin.legal.privacy-policy');
     Route::livewire('legal/terms-and-conditions', AdminTermAndCondition::class)->name('admin.legal.terms-and-conditions');

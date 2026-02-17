@@ -91,23 +91,23 @@
                 </div>
               </div>
 
-              <!-- Credit Cards -->
+<!--            
               <a wire:navigate href="{{ route('services', ['slug' => 'credit-card']) }}"
                 class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
                 Credit Cards
               </a>
 
-              <!-- Mutual Funds -->
+           
               <a wire:navigate href="{{ route('services', ['slug' => 'mutual-funds']) }}"
                 class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
                 Mutual Funds
               </a>
 
-              <!-- Health Insurance -->
+             
               <a wire:navigate href="{{ route('services', ['slug' => 'health-insurance']) }}"
                 class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
                 Health Insurance
-              </a>
+              </a> -->
             </div>
           </div>
 
@@ -245,9 +245,9 @@
             </div>
 
             <!-- Other offerings -->
-            <a wire:navigate href="{{ route('services', ['slug' => 'credit-card']) }}" class="block">Credit Cards</a>
+            <!-- <a wire:navigate href="{{ route('services', ['slug' => 'credit-card']) }}" class="block">Credit Cards</a>
             <a wire:navigate href="{{ route('services', ['slug' => 'mutual-funds']) }}" class="block">Mutual Funds</a>
-            <a wire:navigate href="{{ route('services', ['slug' => 'health-insurance']) }}" class="block">Health Insurance</a>
+            <a wire:navigate href="{{ route('services', ['slug' => 'health-insurance']) }}" class="block">Health Insurance</a> -->
           </div>
         </div>
 

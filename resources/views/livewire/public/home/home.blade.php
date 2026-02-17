@@ -160,7 +160,7 @@
 
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl
                        font-bold text-blue mb-4 sm:mb-6">
-                    Our services.
+                    Our Services
                 </h2>
 
                 <h3 class="text-xl sm:text-2xl lg:text-3xl
@@ -254,7 +254,7 @@
                 </div>
 
                 <!-- Credit Card -->
-                <div class="flex flex-col items-center">
+                <!-- <div class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan
                             flex flex-col items-center shadow-card justify-center gap-1 sm:gap-2
@@ -267,7 +267,7 @@
                             Credit Card
                         </span>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -291,7 +291,7 @@
                 <div class="w-16 h-1.5 bg-zinc-700 rounded mt-2 mb-6"></div>
 
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue">
-                    What’s new?
+                    What’s New?
                 </h2>
             </div>
 
@@ -560,9 +560,7 @@
 
                 <h2 class="text-2xl sm:text-4xl lg:text-5xl
                        font-bold text-blue leading-tight">
-                    What’s new?
-                    <br class="hidden sm:block">
-                    Our blog and news.
+                    Our Blog and News.
                 </h2>
             </div>
 
@@ -650,11 +648,14 @@
                 </div>
 
                 <!-- RIGHT FORM -->
-                <div class="flex flex-col sm:flex-row gap-6 sm:items-center">
+                <div class="flex flex-col gap-3 sm:items-start">
+
+                    <form wire:submit.prevent="submitInterest" class="flex flex-col sm:flex-row gap-6 sm:items-center w-full">
 
                     <!-- EMAIL INPUT -->
                     <input
                         type="email"
+                        wire:model.defer="interestEmail"
                         placeholder="Enter your email address"
                         class="w-full sm:w-[320px] bg-transparent
                            border-2 border-blue
@@ -664,11 +665,32 @@
 
                     <!-- BUTTON -->
                     <button
+                        type="submit"
+                        wire:target="submitInterest"
+                        wire:loading.attr="disabled"
+                        wire:loading.class="opacity-70 cursor-not-allowed"
                         class="bg-[#1f2233] text-white
                            px-10 py-4 text-lg font-semibold
-                           tracking-wide hover:opacity-90 transition">
-                        CONNECT US
+                           tracking-wide hover:opacity-90 transition
+                           flex items-center justify-center">
+                        <span wire:loading.remove wire:target="submitInterest">
+                            CONNECT US
+                        </span>
+                        <span wire:loading wire:target="submitInterest" class="flex items-center gap-2 text-sm">
+                            <span class="h-2 w-2 rounded-full bg-white animate-ping"></span>
+                            <span>Submitting...</span>
+                        </span>
                     </button>
+
+                    </form>
+
+                    @error('interestEmail')
+                        <p class="text-sm text-blue-900">{{ $message }}</p>
+                    @enderror
+
+                    @if (session('interest_success'))
+                        <p class="text-sm text-blue">{{ session('interest_success') }}</p>
+                    @endif
 
                 </div>
 
