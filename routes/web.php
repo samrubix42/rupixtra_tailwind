@@ -51,7 +51,7 @@ Route::livewire('login', Login::class)->name('login');
 Route::post('logout', function () {
     FacadesAuth::logout();
 
-    return redirect()->route('admin.login');
+    return redirect()->route('login');
 })->name('logout');
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('/', Dashboard::class)->name('admin.dashboard');
