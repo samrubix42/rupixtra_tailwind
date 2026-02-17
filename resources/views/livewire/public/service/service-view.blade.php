@@ -38,13 +38,15 @@
 
                         <div class="max-w-4xl mx-auto space-y-10 sm:space-y-12">
 
+                            @php
+                            $secondary = $service->secondary_sections[0] ?? null;
+                            $secondaryItems = $secondary['items'] ?? [];
+                            $hasSecondaryContent = !empty($secondaryItems) || !empty($secondary['title']) || !empty($secondary['description']);
+                            @endphp
+
+                            @if($hasSecondaryContent)
                             <!-- HOME LOAN FEATURES -->
                             <div class="bg-gray-200 rounded-[30px] p-6 sm:p-8 lg:p-10 shadow-lg">
-                                @php
-                                $secondary = $service->secondary_sections[0] ?? null;
-                                $secondaryItems = $secondary['items'] ?? [];
-                                @endphp
-
                                 <h2 class="text-3xl font-semibold text-blue mb-6">
                                     {{ $secondary['title'] ?? 'Key Features' }}
                                 </h2>
@@ -68,16 +70,18 @@
                                     Detailed highlights for this service will be available soon.
                                 </p>
                                 @endif
-
                             </div>
+                            @endif
 
+                            @php
+                            $tertiary = $service->tertiary_sections[0] ?? null;
+                            $tertiaryItems = $tertiary['items'] ?? [];
+                            $hasTertiaryContent = !empty($tertiaryItems) || !empty($tertiary['description']) || !empty($tertiary['title']);
+                            @endphp
+
+                            @if($hasTertiaryContent)
                             <!-- HOW TO APPLY -->
                             <div class="bg-[#bfe3e6] rounded-[30px] p-6 sm:p-8 lg:p-10 shadow-lg">
-                                @php
-                                $tertiary = $service->tertiary_sections[0] ?? null;
-                                $tertiaryItems = $tertiary['items'] ?? [];
-                                @endphp
-
                                 <h2 class="text-3xl font-semibold text-blue mb-6">
                                     {{ $tertiary['title'] ?? 'How this service helps you' }}
                                 </h2>
@@ -103,8 +107,8 @@
                                     @endforeach
                                 </ul>
                                 @endif
-
                             </div>
+                            @endif
 
                         </div>
 

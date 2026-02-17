@@ -79,7 +79,7 @@
                     Business Loan
                   </a>
 
-                  <a wire:navigate href="{{ route('services', ['slug' => 'lap']) }}"
+                  <a wire:navigate href="{{ route('services', ['slug' => 'loan-against-property']) }}"
                     class="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-cyan-50 hover:text-[#112b5e] transition">
                     LAP
                   </a>
@@ -239,7 +239,7 @@
                 <a wire:navigate href="{{ route('services', ['slug' => 'personal-loan']) }}" class="block">Personal Loan</a>
                 <a wire:navigate href="{{ route('services', ['slug' => 'home-loan']) }}" class="block">Home Loan</a>
                 <a wire:navigate href="{{ route('services', ['slug' => 'business-loan']) }}" class="block">Business Loan</a>
-                <a wire:navigate href="{{ route('services', ['slug' => 'lap']) }}" class="block">LAP</a>
+                <a wire:navigate href="{{ route('services', ['slug' => 'loan-against-property']) }}" class="block">LAP</a>
                 <a wire:navigate href="{{ route('services', ['slug' => 'loan-for-self-employed-professionals']) }}" class="block">Loan for Self-Employed Professionals</a>
               </div>
             </div>
