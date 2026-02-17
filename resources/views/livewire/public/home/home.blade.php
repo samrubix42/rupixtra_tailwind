@@ -128,7 +128,7 @@
                 <a href="{{route('reach-us')}}"
                     class="text-center font-bold px-6 py-3 
                       bg-dark-cyan text-blue hover:opacity-90 transition">
-                    READ MORE
+                    KNOW MORE
                 </a>
 
                 <a href="tel:{{ setting('phone_number') }}"
