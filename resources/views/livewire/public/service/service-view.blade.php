@@ -29,7 +29,7 @@
                             {{ $service->title }}
                         </h2>
 
-                        <div class="text-blue/80 leading-relaxed space-y-4 prose prose-sm max-w-none prose-p:mb-0">
+                        <div class="text-blue/80 tinymce-content leading-relaxed text-balance space-y-4 prose prose-sm max-w-none prose-p:mb-0">
                             {!! $service->primary_section !!}
                         </div>
 
