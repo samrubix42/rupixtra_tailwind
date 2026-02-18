@@ -1,15 +1,15 @@
 @php
-    $homePage = \App\Models\Page::where('slug', 'home')->first();
+$homePage = \App\Models\Page::where('slug', 'home')->first();
 
-    $metaTitle = $homePage?->meta_title
-        ?? $homePage?->title
-        ?? setting('seo_title', config('app.name'));
+$metaTitle = $homePage?->meta_title
+?? $homePage?->title
+?? setting('seo_title', config('app.name'));
 
-    $metaDescription = $homePage?->meta_description
-        ?? setting('seo_description');
+$metaDescription = $homePage?->meta_description
+?? setting('seo_description');
 
-    $metaKeywords = $homePage?->meta_keywords
-        ?? setting('seo_keywords');
+$metaKeywords = $homePage?->meta_keywords
+?? setting('seo_keywords');
 @endphp
 
 @section('meta_title', $metaTitle)
@@ -40,21 +40,19 @@
             <!-- LEFT CONTENT -->
             <div>
                 <h1 class="text-5xl md:text-[80px] font-extrabold leading-tight text-blue">
-                    More <span class="text-dark-cyan">Options.</span><br>
-                    More <span class="text-dark-cyan">You.</span>
+                    {{ data_get($hero, 'heading1', 'More') }} <span class="text-blue">{{ data_get($hero, 'heading2', 'Options.') }}</span>
                 </h1>
 
-                <h2 class="mt-8 text-4xl font-semibold text-blue">
-                    Compare Loans Online
+                <h2 class="mt-8 text-4xl font-semibold text-dark-cyan">
+                    {{ data_get($hero, 'subtitle1', 'Compare Loans Online') }}
                 </h2>
 
                 <p class="mt-3 text-3xl font-bold text-dark-cyan">
-                    50% faster
+                    {{ data_get($hero, 'subtitle2', '50% faster') }}
                 </p>
 
-                <p class="mt-6 max-w-lg text-sm leading-relaxed text-zinc-600">
-                    We understand that finding the right loan can be overwhelming.
-                    That’s why we’re here to help simplify the process.
+                <p class="mt-6 max-w-lg text-sm leading-relaxed text-blue">
+                    {{ data_get($hero, 'para', 'We understand that finding the right loan can be overwhelming. That’s why we’re here to help simplify the process.') }}
                 </p>
 
                 <!-- CTA BUTTONS -->
@@ -79,8 +77,8 @@
             <!-- RIGHT IMAGE (MOVED DOWN CLEANLY) -->
             <div class="relative mt-12 lg:mt-20">
                 <img
-                    src="{{ asset('images/hero-img.png') }}"
-                    alt="Loan Consultation"
+                    src="{{ data_get($hero, 'image') ? data_get($hero, 'image') : asset('images/hero-img.png') }}"
+                    alt="Hero"
                     class="w-full object-contain">
             </div>
 
@@ -105,21 +103,19 @@
         <div class="relative px-6 py-20">
 
             <h1 class="text-5xl font-extrabold leading-tight text-blue">
-                More <span class="text-dark-cyan">Options.</span><br>
-                More <span class="text-dark-cyan">You.</span>
+                {{ data_get($hero, 'heading1', 'More') }} <span class="text-dark-cyan">{{ data_get($hero, 'heading2', 'Options.') }}</span>
             </h1>
 
             <h2 class="mt-6 text-3xl font-semibold text-blue">
-                Compare Loans Online
+                {{ data_get($hero, 'subtitle1', 'Compare Loans Online') }}
             </h2>
 
             <p class="mt-2 text-3xl font-bold text-dark-cyan">
-                50% faster
+                {{ data_get($hero, 'subtitle2', '50% faster') }}
             </p>
 
             <p class="mt-5 max-w-md text-normal leading-relaxed text-zinc-700">
-                We understand that finding the right loan can be overwhelming.
-                That’s why we’re here to help simplify the process.
+                {{ data_get($hero, 'para', 'We understand that finding the right loan can be overwhelming. That’s why we’re here to help simplify the process.') }}
             </p>
 
             <!-- CTA BUTTONS -->
@@ -160,19 +156,18 @@
 
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl
                        font-bold text-blue mb-4 sm:mb-6">
-                    Our Services
-                </h2>
+                    Our Services </h2>
 
                 <h3 class="text-xl sm:text-2xl lg:text-3xl
                        font-semibold text-blue mb-2">
-                    Your Trusted Guide to Finding the Perfect Loan
+                    {{ data_get($services, 'title', 'Our Services') }}
+
                 </h3>
 
-                <p class="text-gray-700 text-base sm:text-lg lg:text-xl
-                      font-medium leading-relaxed">
-                    We provide clear, step-by-step assistance tailored to your unique
-                    financial needs, ensuring that you find the perfect loan with confidence.
-                </p>
+                                <p class="text-gray-700 text-base sm:text-lg lg:text-xl
+                                            font-medium leading-relaxed">
+                                        {{ data_get($services, 'subtitle', 'Your Trusted Guide to Finding the Perfect Loan') }}
+                                </p>
             </div>
 
             <!-- SERVICES GRID -->
@@ -310,8 +305,8 @@
                             <div class="relative overflow-hidden group">
 
                                 <!-- CLICKABLE IMAGE -->
-                                <a 
-                                    :href="item.url || '#'" 
+                                <a
+                                    :href="item.url || '#'"
                                     :target="item.url ? '_blank' : '_self'"
                                     class="block">
                                     <img
@@ -330,7 +325,7 @@
             </div>
 
             <!-- DOTS -->
-            <div 
+            <div
                 class="flex justify-center gap-3 mt-10 sm:mt-12"
                 x-show="offers.length > perView">
                 <template x-for="i in totalDots" :key="i">
@@ -569,45 +564,45 @@
                     gap-5 sm:gap-8">
 
                 @forelse($latestPosts as $post)
-                    <!-- CARD -->
-                    <a wire:navigate href="{{ route('blog.post', $post->slug) }}" class="group relative overflow-hidden block">
-                        @if($post->featured_image)
-                            <img
-                                src="{{ asset('storage/' . $post->featured_image) }}"
-                                alt="{{ $post->title }}"
-                                class="w-full h-[200px] sm:h-[280px] lg:h-[320px]
+                <!-- CARD -->
+                <a wire:navigate href="{{ route('blog.post', $post->slug) }}" class="group relative overflow-hidden block">
+                    @if($post->featured_image)
+                    <img
+                        src="{{ asset('storage/' . $post->featured_image) }}"
+                        alt="{{ $post->title }}"
+                        class="w-full h-[200px] sm:h-[280px] lg:h-[320px]
                                    object-cover transition-transform duration-500
                                    group-hover:scale-105">
-                        @else
-                            <img
-                                src="{{ asset('images/Group 87.png') }}"
-                                alt="{{ $post->title }}"
-                                class="w-full h-[200px] sm:h-[280px] lg:h-[320px]
+                    @else
+                    <img
+                        src="{{ asset('images/Group 87.png') }}"
+                        alt="{{ $post->title }}"
+                        class="w-full h-[200px] sm:h-[280px] lg:h-[320px]
                                    object-cover transition-transform duration-500
                                    group-hover:scale-105">
-                        @endif
+                    @endif
 
-                        <!-- DATE -->
-                        <span class="absolute top-3 left-3 sm:top-4 sm:left-4
+                    <!-- DATE -->
+                    <span class="absolute top-3 left-3 sm:top-4 sm:left-4
                                  bg-black/60 text-white
                                  text-[10px] sm:text-xs
                                  px-2 sm:px-3 py-1">
-                            {{ optional($post->created_at)->format('d M Y') }}
-                        </span>
+                        {{ optional($post->created_at)->format('d M Y') }}
+                    </span>
 
-                        <!-- TEXT OVERLAY -->
-                        <div class="absolute bottom-0 left-0 right-0
+                    <!-- TEXT OVERLAY -->
+                    <div class="absolute bottom-0 left-0 right-0
                                 p-3 sm:p-5
                                 bg-gradient-to-t from-black/70 to-transparent">
-                            <h4 class="text-white
+                        <h4 class="text-white
                                    text-sm sm:text-base lg:text-lg
                                    font-semibold leading-snug">
-                                {{ $post->title }}
-                            </h4>
-                        </div>
-                    </a>
+                            {{ $post->title }}
+                        </h4>
+                    </div>
+                </a>
                 @empty
-                    <p class="text-blue/70 text-sm sm:text-base">No blog posts available yet.</p>
+                <p class="text-blue/70 text-sm sm:text-base">No blog posts available yet.</p>
                 @endforelse
 
             </div>
@@ -636,14 +631,11 @@
                 <!-- LEFT CONTENT -->
                 <div>
                     <h2 class="text-4xl md:text-5xl font-bold text-blue leading-tight">
-                        Connect us to get the<br>
-                        great deals.
+                        {{ data_get($email, 'title', 'Connect us to get the great deals.') }}
                     </h2>
 
                     <p class="mt-6 max-w-lg text-blue/80">
-                        We’re here to help you find the best loan options that fit your
-                        unique financial needs. Connect with us today and let’s get started
-                        on your journey to financial success.
+                        {{ data_get($email, 'subtitle', 'We’re here to help you find the best loan options that fit your unique financial needs. Connect with us today and let’s get started on your journey to financial success.') }}
                     </p>
                 </div>
 
@@ -652,44 +644,44 @@
 
                     <form wire:submit.prevent="submitInterest" class="flex flex-col sm:flex-row gap-6 sm:items-center w-full">
 
-                    <!-- EMAIL INPUT -->
-                    <input
-                        type="email"
-                        wire:model.defer="interestEmail"
-                        placeholder="Enter your email address"
-                        class="w-full sm:w-[320px] bg-transparent
+                        <!-- EMAIL INPUT -->
+                        <input
+                            type="email"
+                            wire:model.defer="interestEmail"
+                            placeholder="Enter your email address"
+                            class="w-full sm:w-[320px] bg-transparent
                            border-2 border-blue
                            px-6 py-4 text-blue
                            placeholder:text-blue/70
                            focus:outline-none focus:ring-0">
 
-                    <!-- BUTTON -->
-                    <button
-                        type="submit"
-                        wire:target="submitInterest"
-                        wire:loading.attr="disabled"
-                        wire:loading.class="opacity-70 cursor-not-allowed"
-                        class="bg-[#1f2233] text-white
+                        <!-- BUTTON -->
+                        <button
+                            type="submit"
+                            wire:target="submitInterest"
+                            wire:loading.attr="disabled"
+                            wire:loading.class="opacity-70 cursor-not-allowed"
+                            class="bg-[#1f2233] text-white
                            px-10 py-4 text-lg font-semibold
                            tracking-wide hover:opacity-90 transition
                            flex items-center justify-center">
-                        <span wire:loading.remove wire:target="submitInterest">
-                            CONNECT US
-                        </span>
-                        <span wire:loading wire:target="submitInterest" class="flex items-center gap-2 text-sm">
-                            <span class="h-2 w-2 rounded-full bg-white animate-ping"></span>
-                            <span>Submitting...</span>
-                        </span>
-                    </button>
+                            <span wire:loading.remove wire:target="submitInterest">
+                                CONNECT US
+                            </span>
+                            <span wire:loading wire:target="submitInterest" class="flex items-center gap-2 text-sm">
+                                <span class="h-2 w-2 rounded-full bg-white animate-ping"></span>
+                                <span>Submitting...</span>
+                            </span>
+                        </button>
 
                     </form>
 
                     @error('interestEmail')
-                        <p class="text-sm text-blue-900">{{ $message }}</p>
+                    <p class="text-sm text-blue-900">{{ $message }}</p>
                     @enderror
 
                     @if (session('interest_success'))
-                        <p class="text-sm text-blue">{{ session('interest_success') }}</p>
+                    <p class="text-sm text-blue">{{ session('interest_success') }}</p>
                     @endif
 
                 </div>
