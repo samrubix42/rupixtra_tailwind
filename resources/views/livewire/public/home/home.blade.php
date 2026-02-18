@@ -164,10 +164,10 @@ $metaKeywords = $homePage?->meta_keywords
 
                 </h3>
 
-                                <p class="text-gray-700 text-base sm:text-lg lg:text-xl
+                <p class="text-gray-700 text-base sm:text-lg lg:text-xl
                                             font-medium leading-relaxed">
-                                        {{ data_get($services, 'subtitle', 'Your Trusted Guide to Finding the Perfect Loan') }}
-                                </p>
+                    {{ data_get($services, 'subtitle', 'Your Trusted Guide to Finding the Perfect Loan') }}
+                </p>
             </div>
 
             <!-- SERVICES GRID -->
@@ -177,7 +177,7 @@ $metaKeywords = $homePage?->meta_keywords
 
                 <!-- CARD TEMPLATE -->
                 <!-- LAP -->
-                <div class="flex flex-col items-center">
+                <a wire:navigate href="{{route('services', ['slug' => 'loan-against-property'])}}" class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan
                             flex flex-col items-center justify-center gap-1 sm:gap-2
@@ -190,10 +190,10 @@ $metaKeywords = $homePage?->meta_keywords
                             LAP
                         </span>
                     </div>
-                </div>
+                </a>
 
                 <!-- Home Loan -->
-                <div class="flex flex-col items-center">
+                <a wire:navigate href="{{route('services', ['slug' => 'home-loan'])}}" class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan shadow-xl
                             flex flex-col items-center justify-center gap-1 shadow-card sm:gap-2">
@@ -204,10 +204,10 @@ $metaKeywords = $homePage?->meta_keywords
                             Home Loan
                         </span>
                     </div>
-                </div>
+</a>
 
                 <!-- Business Loan -->
-                <div class="flex flex-col items-center">
+                <a wire:navigate href="{{route('services', ['slug' => 'business-loan'])}}" class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan shadow-xl
                             flex flex-col items-center justify-center shadow-card gap-1 sm:gap-2">
@@ -218,10 +218,10 @@ $metaKeywords = $homePage?->meta_keywords
                             Business Loan
                         </span>
                     </div>
-                </div>
+                </a>
 
                 <!-- Self Employed -->
-                <div class="flex flex-col items-center">
+                <a wire:navigate href="{{route('services', ['slug' => 'self-employed'])}}" class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan shadow-xl
                             flex flex-col items-center justify-center shadow-card gap-1 sm:gap-2">
@@ -232,10 +232,10 @@ $metaKeywords = $homePage?->meta_keywords
                             Self Employed
                         </span>
                     </div>
-                </div>
+                </a>
 
                 <!-- Personal Loan -->
-                <div class="flex flex-col items-center">
+                <a wire:navigate href="{{route('services', ['slug' => 'personal-loan'])}}" class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan shadow-xl
                             flex flex-col items-center shadow-card justify-center gap-1 sm:gap-2">
@@ -246,7 +246,7 @@ $metaKeywords = $homePage?->meta_keywords
                             Personal Loan
                         </span>
                     </div>
-                </div>
+                </a>
 
                 <!-- Credit Card -->
                 <!-- <div class="flex flex-col items-center">

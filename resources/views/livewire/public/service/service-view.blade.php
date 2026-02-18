@@ -275,11 +275,6 @@
                                     </div>
                                 </div>
 
-                                <button class="bg-[#19b6b6] text-blue text-xs
-                                       px-3 py-2 rounded-lg font-medium
-                                       hover:opacity-90 transition">
-                                    ENQUIRE
-                                </button>
 
                             </div>
 
