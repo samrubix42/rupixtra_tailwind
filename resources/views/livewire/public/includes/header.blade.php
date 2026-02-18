@@ -124,25 +124,8 @@
           </a>
         </nav>
 
-        <div
-          x-data="{ open: false }"
-          @click.outside="open = false"
-          class="relative mt-1">
-          <input
-            type="text"
-            placeholder="Search..."
-            @focus="open = true"
-            class="bg-[#eefcfd] border border-gray-400 rounded-full
-               pl-5 pr-12 py-2 text-sm
-               focus:outline-none focus:ring-2 focus:ring-[#112b5e]
-               transition-all duration-300 ease-in-out
-               w-36"
-            :class="open ? 'w-64' : ''" />
-
-          <i
-            class="ri-search-line absolute right-4 top-1/2 -translate-y-1/2
-               text-gray-500 cursor-pointer"
-            @click="open = true"></i>
+        <div class="relative mt-1">
+          <livewire:public.search-services />
         </div>
 
       </div>
@@ -174,14 +157,7 @@
 
       <!-- SEARCH (below logo) -->
       <div class="relative mt-4">
-        <input
-          type="text"
-          placeholder="Search..."
-          class="w-full bg-[#eefcfd] border border-gray-400 rounded-full
-                       pl-5 pr-12 py-2.5 text-sm
-                       focus:outline-none focus:ring-2 focus:ring-[#112b5e]" />
-
-        <i class="ri-search-line absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+        <livewire:public.search-services />
       </div>
     </div>
 
