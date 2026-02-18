@@ -44,6 +44,15 @@
                         @enderror
                     </div>
                 </div>
+                <div class="mt-3">
+                    <label class="block text-xs font-medium text-slate-600 mb-1">Mailer ID (email)</label>
+                    <input type="email" wire:model.defer="mailer_id"
+                           placeholder="Optional mailer email"
+                           class="mt-1 block w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none" />
+                    @error('mailer_id')
+                        <p class="mt-1 text-xs text-rose-500">{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
 
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 space-y-3">

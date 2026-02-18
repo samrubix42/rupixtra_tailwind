@@ -21,6 +21,8 @@ class UpdateService extends Component
 
     public ?string $primary_section = null;
 
+    public ?string $mailer_id = null;
+
     /** @var \Livewire\Features\SupportFileUploads\TemporaryUploadedFile|null */
     public $featured_image = null;
 
@@ -38,6 +40,7 @@ class UpdateService extends Component
             'title' => 'required|string|min:3',
             'slug' => 'required|string|unique:services,slug,' . $this->serviceId,
             'primary_section' => 'nullable|string',
+            'mailer_id' => 'nullable|email|max:255',
             'featured_image' => 'nullable|image|max:2048',
             'secondary_sections' => 'array',
             'secondary_sections.*.title' => 'nullable|string',
@@ -69,6 +72,7 @@ class UpdateService extends Component
         $this->title = (string) $service->title;
         $this->slug = (string) $service->slug;
         $this->primary_section = $service->primary_section;
+        $this->mailer_id = $service->mailer_id;
         $this->existing_featured_image = $service->featured_image;
         $this->secondary_sections = $service->secondary_sections ?? [];
         $this->tertiary_sections = $service->tertiary_sections ?? [];
@@ -222,6 +226,7 @@ class UpdateService extends Component
             'featured_image' => $featuredPath,
             'secondary_sections' => $secondary,
             'tertiary_sections' => $tertiary,
+            'mailer_id' => !empty($validated['mailer_id']) ? $validated['mailer_id'] : null,
         ]);
 
         // sync lenders: simple delete & recreate based on current form

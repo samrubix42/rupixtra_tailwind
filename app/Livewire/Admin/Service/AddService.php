@@ -16,8 +16,9 @@ class AddService extends Component
     public string $title = '';
 
     public string $slug = '';
-
     public ?string $primary_section = null;
+
+    public ?string $mailer_id = null;
 
     /** @var \Livewire\Features\SupportFileUploads\TemporaryUploadedFile|null */
     public $featured_image = null;
@@ -34,6 +35,7 @@ class AddService extends Component
             'title' => 'required|string|min:3',
             'slug' => 'required|string|unique:services,slug',
             'primary_section' => 'nullable|string',
+            'mailer_id' => 'nullable|email|max:255',
             'featured_image' => 'nullable|image|max:2048',
             'secondary_sections' => 'array',
             'secondary_sections.*.title' => 'nullable|string',
@@ -200,6 +202,7 @@ class AddService extends Component
             'featured_image' => $featuredPath,
             'secondary_sections' => $secondary,
             'tertiary_sections' => $tertiary,
+            'mailer_id' => !empty($validated['mailer_id']) ? $validated['mailer_id'] : null,
         ]);
 
         // create lenders if provided

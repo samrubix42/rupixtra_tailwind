@@ -13,6 +13,7 @@ class Service extends Model
         'featured_image',
         'secondary_sections',
         'tertiary_sections',
+        'mailer_id',
     ];
 
     protected $casts = [
