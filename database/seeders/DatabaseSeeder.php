@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             PageSeeder::class,
             OfferSeeder::class,
-        ]);
+                DynamicPagesSeeder::class,
+            ]);
     }
 }

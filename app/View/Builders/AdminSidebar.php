@@ -31,9 +31,35 @@ class AdminSidebar
             (object) [
                 'title' => 'Pages',
                 'icon' => 'ri-file-list-3-line',
-                'url' => route('admin.page-management'),
-                'hasSubmenu' => false,
-                'submenu' => [],
+                'url' => 'javascript:void(0)',
+                'hasSubmenu' => true,
+                'submenu' => [
+                    (object) [
+                        'title' => 'Manage Pages Seo',
+                        'icon' => 'ri-file-list-3-line',
+                        'url' => route('admin.page-management'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
+                    (object) [
+                        'title' => 'Home Page',
+                        'icon' => 'ri-home-4-line',
+                        'url' => route('admin.pages.home'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
+                    
+                    (object) [
+                        'title' => 'About Page',
+                        'icon' => 'ri-user-line',
+                        'url' => route('admin.pages.about'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
+                    
+                 
+                    
+                ],
             ],
             (object) [
                 'title' => 'Blog',

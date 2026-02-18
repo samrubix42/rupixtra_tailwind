@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Public\About;
 
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 class About extends Component
