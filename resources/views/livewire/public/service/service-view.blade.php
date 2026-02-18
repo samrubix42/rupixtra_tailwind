@@ -164,22 +164,7 @@
                                 @enderror
                             </div>
 
-                            <div>
-                                <label class="block text-blue mb-2 font-medium">
-                                    Email Address
-                                </label>
-                                <input type="email"
-                                    wire:model.defer="email"
-                                    placeholder="Enter your email"
-                                    class="w-full px-4 py-3 rounded-xl
-                                       bg-[#dff3f4] border border-[#2e2a7b]/20
-                                       focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
-                                @error('email')
-                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            <div>
+                              <div>
                                 <label class="block text-blue mb-2 font-medium">
                                     Phone Number
                                 </label>
@@ -196,6 +181,23 @@
 
                             <div>
                                 <label class="block text-blue mb-2 font-medium">
+                                    Email Address
+                                </label>
+                                <input type="email"
+                                    wire:model.defer="email"
+                                    placeholder="Enter your email"
+                                    class="w-full px-4 py-3 rounded-xl
+                                       bg-[#dff3f4] border border-[#2e2a7b]/20
+                                       focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
+                                @error('email')
+                                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                          
+
+                            <div>
+                                <label class="block text-blue mb-2 font-medium">
                                     Message
                                 </label>
                                 <textarea name="message" id="message"
@@ -208,13 +210,23 @@
                                 @enderror
                             </div>
 
+                            <div class="flex items-center gap-3">
+                                <input id="accepted_terms" type="checkbox" wire:model.defer="accepted_terms" class="h-4 w-4 rounded border-gray-300 text-[#19b6b6] focus:ring-[#19b6b6]" />
+                                <label for="accepted_terms" class="text-sm text-blue">I accept the <a href="{{ route('terms-and-conditions') }}" target="_blank" class="underline">Terms &amp; Conditions</a></label>
+                            </div>
+                            @error('accepted_terms')
+                                <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                            @enderror
+
                             <button type="submit"
+                                wire:loading.attr="disabled"
+                                wire:target="submit"
                                 class="w-full bg-[#19b6b6] text-white
                                    py-3 rounded-xl font-semibold
-                                   hover:opacity-90 transition">
-                                Submit
+                                   hover:opacity-90 transition flex items-center justify-center">
+                                <span wire:loading wire:target="submit" class="inline-block h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></span>
+                                <span>Submit</span>
                             </button>
-                            <p class="text-blue text-center text-sm">We will get back to you shortly.</p>
 
                         </form>
 
