@@ -134,6 +134,24 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Service Filter Dropdown -->
+        <div class="w-full sm:w-56">
+            <label class="block text-xs font-medium text-slate-500 mb-1">
+                Filter by Service
+            </label>
+            <select
+                wire:model.live="serviceId"
+                class="block w-full h-10 rounded-md border border-slate-300 bg-white px-3 text-sm
+                       text-slate-700 placeholder:text-slate-400
+                       focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none">
+                <option value="">All services</option>
+                @foreach($services as $service)
+                    <option value="{{ $service->id }}">{{ $service->title }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
 
     <!-- RIGHT SIDE ACTIONS -->
@@ -172,8 +190,7 @@
                             <th class="px-4 py-3">Name</th>
                             <th class="px-4 py-3">Email</th>
                             <th class="px-4 py-3">Phone</th>
-                            <th class="px-4 py-3">Country</th>
-                            <th class="px-4 py-3">Subject</th>
+                            <th class="px-4 py-3">Requested Service</th>
                             <th class="px-4 py-3">Status</th>
                             <th class="px-4 py-3 text-right w-48">Actions</th>
                         </tr>
@@ -194,12 +211,11 @@
                             <td class="px-4 py-3 text-slate-600">
                                 {{ $contact->phone ?? '—' }}
                             </td>
+                       
                             <td class="px-4 py-3 text-slate-600">
-                                {{ $contact->country ?? '—' }}
+                                {{ optional($contact->service)->title ?? '—' }}
                             </td>
-                            <td class="px-4 py-3 text-slate-600 max-w-xs truncate">
-                                {{ $contact->subject ?? '—' }}
-                            </td>
+                            
                             <td class="px-4 py-3">
                                 @if($contact->is_read)
                                 <span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-700">

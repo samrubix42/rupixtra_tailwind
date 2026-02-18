@@ -39,6 +39,7 @@ class ServiceView extends Component
         $serviceTitle = $this->service->title;
 
         ContactModel::create([
+            'service_id' => $this->service->id,
             'name' => $validated['name'],
             'email' => $validated['email'] ?? null,
             'phone' => $validated['phone'] ?? null,

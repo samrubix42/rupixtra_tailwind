@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Contact;
 
 use App\Models\Contact;
+use App\Models\Service;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -19,6 +20,10 @@ class ContactList extends Component
 
     public string $date = '';
 
+    public string $serviceIdSearch = '';
+
+    public ?int $serviceId = null;
+
     public ?int $viewId = null;
     public ?int $deleteId = null;
 
@@ -28,6 +33,16 @@ class ContactList extends Component
     }
 
     public function updatedDate(): void
+    {
+        $this->resetPage();
+    }
+
+    public function updatingServiceIdSearch(): void
+    {
+        $this->resetPage();
+    }
+
+    public function updatingServiceId(): void
     {
         $this->resetPage();
     }
@@ -99,7 +114,8 @@ class ContactList extends Component
     #[Layout('layouts.admin')]
     public function render()
     {
-        $contacts = Contact::query()
+        $contactsQuery = Contact::query()
+            ->with('service')
             ->when($this->search !== '', function ($query) {
                 $query->where(function ($q) {
                     $q->where('name', 'like', "%{$this->search}%")
@@ -111,6 +127,14 @@ class ContactList extends Component
             ->when($this->date !== '', function ($query) {
                 $query->whereDate('created_at', $this->date);
             })
+            ->when($this->serviceIdSearch !== '', function ($query) {
+                $query->where('service_id', $this->serviceIdSearch);
+            })
+            ->when($this->serviceId !== null, function ($query) {
+                $query->where('service_id', $this->serviceId);
+            });
+
+        $contacts = $contactsQuery
             ->latest()
             ->paginate(10);
 
@@ -118,9 +142,12 @@ class ContactList extends Component
             ? Contact::find($this->viewId)
             : null;
 
+        $services = Service::orderBy('title')->get(['id', 'title']);
+
         return view('livewire.admin.contact.contact-list', [
             'contacts' => $contacts,
             'selectedContact' => $selectedContact,
+            'services' => $services,
         ]);
     }
 }

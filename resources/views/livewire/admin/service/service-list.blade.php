@@ -32,6 +32,28 @@
 
             <div class="flex items-center justify-between sm:justify-end gap-3">
                 <div class="flex items-center gap-2 text-xs text-slate-600">
+                    <span>Filter</span>
+                    <select
+                        wire:model.live="lendersFilter"
+                        class="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none">
+                        @foreach($lendersFilterOptions as $value => $label)
+                            <option value="{{ $value }}">{{ $label }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="flex items-center gap-2 text-xs text-slate-600">
+                    <span>Sort</span>
+                    <select
+                        wire:model.live="sort"
+                        class="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs text-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none">
+                        @foreach($sortOptions as $value => $label)
+                            <option value="{{ $value }}">{{ $label }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="flex items-center gap-2 text-xs text-slate-600">
                     <span>Rows per page</span>
                     <select
                         wire:model.live="perPage"
