@@ -221,7 +221,7 @@ $metaKeywords = $homePage?->meta_keywords
                 </a>
 
                 <!-- Self Employed -->
-                <a wire:navigate href="{{route('services', ['slug' => 'self-employed'])}}" class="flex flex-col items-center">
+                <a wire:navigate href="{{route('services', ['slug' => 'loan-for-self-employed-professionals'])}}" class="flex flex-col items-center">
                     <div class="w-28 h-28 sm:w-32 sm:h-32 lg:w-44 lg:h-44
                             rounded-full bg-dark-cyan shadow-xl
                             flex flex-col items-center justify-center shadow-card gap-1 sm:gap-2">
