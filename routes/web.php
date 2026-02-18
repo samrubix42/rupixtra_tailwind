@@ -60,7 +60,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('/', Dashboard::class)->name('admin.dashboard');
     Route::livewire('pages/home', AdminHomePage::class)->name('admin.pages.home');
     Route::livewire('pages/about', AdminAboutPage::class)->name('admin.pages.about');
-    Route::livewire('pages/{slug}', DynamicPageEditor::class)->name('admin.pages.dynamic');
     Route::livewire('testimonial', TestimonialList::class)->name('admin.testimonial');
     Route::livewire('contacts', ContactList::class)->name('admin.contacts');
     Route::livewire('contacts/export', ContactExportController::class)->name('admin.contacts.export');

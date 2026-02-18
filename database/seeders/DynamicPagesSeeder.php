@@ -40,12 +40,13 @@ class DynamicPagesSeeder extends Seeder
             [
                 'title' => 'About',
                 'content' => [
-                    'hero' => [
-                        'heading' => '',
-                        'subtitle' => '',
-                        'paragraph' => '',
-                    ],
                     'sections' => [],
+                    'stats' => [
+                        ['value' => '66.6k', 'label' => 'Total Services Loan'],
+                        ['value' => '99.6k', 'label' => 'Customer Satisfaction'],
+                        ['value' => '44.6k', 'label' => 'Compare Loan'],
+                        ['value' => '56+', 'label' => 'Awards Won'],
+                    ],
                 ],
             ]
         );

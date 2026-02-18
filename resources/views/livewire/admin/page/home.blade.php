@@ -6,10 +6,7 @@
         <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm space-y-4">
             <h2 class="text-sm font-semibold text-slate-900">Hero Section</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="md:col-span-2">
-                    <label class="block text-xs font-medium text-slate-500 mb-1">Paragraph</label>
-                    <textarea wire:model.defer="content.hero.para" rows="3" class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40"></textarea>
-                </div>
+            
                 <div>
                     <label class="block text-xs font-medium text-slate-500 mb-1">Heading 1</label>
                     <input type="text" wire:model.defer="content.hero.heading1" class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40">
@@ -25,6 +22,10 @@
                 <div>
                     <label class="block text-xs font-medium text-slate-500 mb-1">Subtitle 2</label>
                     <input type="text" wire:model.defer="content.hero.subtitle2" class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40">
+                </div>
+                    <div class="md:col-span-2">
+                    <label class="block text-xs font-medium text-slate-500 mb-1">Paragraph</label>
+                    <textarea wire:model.defer="content.hero.para" rows="3" class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40"></textarea>
                 </div>
                 <div class="md:col-span-2 space-y-3">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
