@@ -64,14 +64,25 @@
         </main>
         <livewire:public.includes.footer />
     </div>
-    <!-- Floating contact buttons: replace phone/wa numbers with real values -->
+    <!-- Floating contact buttons: phone and WhatsApp from settings -->
+    @php
+        $sitePhone = setting('phone_number', '+1234567890');
+        $siteWhatsApp = setting('whatsapp_number', '+1234567890');
+        $waMessage = setting('whatsapp_message', 'Hi, I would like to know more about your services.');
+
+        // Normalize numbers for tel and wa.me (remove spaces, parentheses, dashes)
+        $telNumber = preg_replace('/[^0-9+]/', '', $sitePhone);
+        $waNumber = preg_replace('/[^0-9+]/', '', $siteWhatsApp);
+        $waText = urlencode($waMessage);
+    @endphp
+
     <div class="floating-contact fixed right-4 bottom-6 flex flex-col gap-3 z-50">
-        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp" title="WhatsApp"
+        <a href="https://wa.me/{{ $waNumber }}?text={{ $waText }}" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp" title="WhatsApp"
             class="w-14 h-14 rounded-full flex items-center justify-center bg-primary text-white shadow-lg hover:scale-110 transform transition-transform duration-150">
             <i class="ri-whatsapp-fill text-3xl"></i>
         </a>
 
-        <a href="tel:+1234567890" aria-label="Call us" title="Call"
+        <a href="tel:{{ $telNumber }}" aria-label="Call us" title="Call"
             class="w-14 h-14 rounded-full flex items-center justify-center bg-primary text-white shadow-lg hover:scale-110 transform transition-transform duration-150">
             <i class="ri-phone-fill text-3xl"></i>
         </a>

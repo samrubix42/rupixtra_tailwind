@@ -68,20 +68,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                            <div>
-                                <label class="block text-xs font-medium text-slate-600 mb-1">Secondary Email</label>
-                                <input
-                                    type="email"
-                                    wire:model.defer="contact_email_secondary"
-                                    placeholder="e.g. info@example.com"
-                                    class="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none"
-                                >
-                                @error('contact_email_secondary')
-                                    <p class="mt-1 text-xs text-rose-600">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
+                        <!-- Secondary email removed: using a single contact email setting -->
 
                         <div>
                             <label class="block text-xs font-medium text-slate-600 mb-1">Address</label>
@@ -114,7 +101,7 @@
                 <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                     <h2 class="text-sm font-semibold text-slate-900 mb-4">Contact Information</h2>
 
-                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div class="grid grid-cols-1 gap-4">
                         <div>
                             <label class="block text-xs font-medium text-slate-600 mb-1">Phone Number</label>
                             <input
@@ -124,19 +111,6 @@
                                 class="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none"
                             >
                             @error('phone_number')
-                                <p class="mt-1 text-xs text-rose-600">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-medium text-slate-600 mb-1">WhatsApp Number</label>
-                            <input
-                                type="text"
-                                wire:model.defer="whatsapp_number"
-                                placeholder="e.g. +1 555 123 4567"
-                                class="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none"
-                            >
-                            @error('whatsapp_number')
                                 <p class="mt-1 text-xs text-rose-600">{{ $message }}</p>
                             @enderror
                         </div>

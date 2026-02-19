@@ -62,9 +62,8 @@
                     Support
                 </h4>
                 <ul class="space-y-2 md:space-y-3 text-sm text-zinc-500">
-                    <li>{{ setting('phone_number', '001-002-0040') }}</li>
-                    <li>{{ setting('contact_email', 'info@rupixtra.com') }}</li>
-                    <li>{{ setting('contact_email_secondary', 'support@rupixtra.com') }}</li>
+                    <li><a href="tel:{{ setting('phone_number', '001-002-0040') }}" class="hover:underline">{{ setting('phone_number', '001-002-0040') }}</a></li>
+                    <li><a href="mailto:{{ setting('contact_email', 'info@rupixtra.com') }}" class="hover:underline">{{ setting('contact_email', 'info@rupixtra.com') }}</a></li>
                     <li>Monday – Saturday</li>
                     <li>9 AM – 6 PM EST</li>
                 </ul>

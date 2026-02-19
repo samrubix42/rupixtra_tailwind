@@ -156,8 +156,7 @@
           <i class="ri-phone-line text-xl text-blue"></i>
           <div>
             <p class="font-semibold text-blue text-sm">Call Now</p>
-            <p class="text-sm text-blue/70">{{ setting('phone_number', '(123) 456-7891') }}</p>
-            <p class="text-sm text-blue/70">{{ setting('whatsapp_number', '(907) 456-7891') }}</p>
+            <p class="text-sm text-blue/70"><a href="tel:{{ setting('phone_number', '(123) 456-7891') }}" class="hover:underline">{{ setting('phone_number', '(123) 456-7891') }}</a></p>
           </div>
         </div>
 
@@ -166,8 +165,7 @@
           <i class="ri-mail-line text-xl text-blue"></i>
           <div>
             <p class="font-semibold text-blue text-sm">Email</p>
-            <p class="text-sm text-blue/70">{{ setting('contact_email', 'info@example.com') }}</p>
-            <p class="text-sm text-blue/70">{{ setting('contact_email_secondary', 'support@example.com') }}</p>
+            <p class="text-sm text-blue/70"><a href="mailto:{{ setting('contact_email', 'info@example.com') }}" class="hover:underline">{{ setting('contact_email', 'info@example.com') }}</a></p>
           </div>
         </div>
 
@@ -184,13 +182,9 @@
 
         <!-- Map -->
         <div class="rounded-2xl overflow-hidden shadow-md mt-2">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019927123456!2d-122.41941548468192!3d37.77492977975944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5b6e4b1b%3A0x4a1a1a1a1a1a1a1a!2sRoyal%20Ln%2C%20Mesa%2C%20New%20Jersey%2045643!5e0!3m2!1sen!2sus!4v1610000000000!5m2!1sen!2sus"
-            class="w-full h-56 md:h-72 border-0"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe  class="w-full h-56 md:h-72 border-0"
+            style="border:0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.1451115842015!2d77.48018239999999!3d28.655373400000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf3a4d3e503d9%3A0x4bae765955c98d20!2sPark%20Town%20Commercial!5e0!3m2!1sen!2sin!4v1771483986028!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
         </div>
 
       </div>
