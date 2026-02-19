@@ -40,7 +40,6 @@
                     <li><a wire:navigate href="{{ route('services', ['slug' => 'business-loan']) }}" class="hover:text-[#112b5e]">Business Loan</a></li>
                     <li><a wire:navigate href="{{ route('services', ['slug' => 'home-loan']) }}" class="hover:text-[#112b5e]">Home Loan</a></li>
                     <li><a wire:navigate href="{{ route('services', ['slug' => 'lap']) }}" class="hover:text-[#112b5e]">LAP</a></li>
-                    <li><a wire:navigate href="{{ route('services', ['slug' => 'credit-card']) }}" class="hover:text-[#112b5e]">Credit Card</a></li>
                 </ul>
             </div>
 
