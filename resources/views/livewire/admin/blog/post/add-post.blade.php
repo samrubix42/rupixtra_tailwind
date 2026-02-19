@@ -59,8 +59,9 @@
 
                 <div wire:ignore
                      x-data="{ value: @entangle('content') }"
-                     x-init="
-                        if (window.tinymce) {
+                     x-init="(function(){
+                        function initEditor(){
+                            if (!window.tinymce) return;
                             tinymce.init({
                                 target: $refs.tinymce,
                                 height: 350,
@@ -105,7 +106,18 @@
                                 }
                             });
                         }
-                     "
+
+                        if (window.tinymce) {
+                            initEditor();
+                        } else {
+                            var s = document.createElement('script');
+                            s.src = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js';
+                            s.referrerPolicy = 'origin';
+                            s.onload = function(){ initEditor(); };
+                            s.onerror = function(e){ console.error('Failed to load TinyMCE', e); };
+                            document.head.appendChild(s);
+                        }
+                     })()"
                 >
                     <textarea
                         x-ref="tinymce"
