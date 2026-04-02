@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/techldjy/rupixtra1.smartadvagency.com/
+    - export DEPLOYPATH=/home4/rupixd16/public_html/
     - /bin/cp -R * $DEPLOYPATH 
