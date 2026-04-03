@@ -6,7 +6,8 @@ $content = $dynamic?->content ?? [];
 
 $metaTitle = data_get($content, 'meta_title')
   ?? data_get($content, 'hero.title')
-  ?? setting('seo_title', config('app.name'));
+  ?? setting('seo_title')
+  ?? 'About Us';
 
 $metaDescription = data_get($content, 'meta_description') ?? setting('seo_description');
 $metaKeywords = data_get($content, 'meta_keywords') ?? setting('seo_keywords');

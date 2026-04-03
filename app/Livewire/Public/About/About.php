@@ -2,10 +2,9 @@
 
 namespace App\Livewire\Public\About;
 
-use Livewire\Attributes\Computed;
-use Livewire\Attributes\Layout;
-use Livewire\Component;
 use App\Models\DynamicPages;
+use Livewire\Attributes\Computed;
+use Livewire\Component;
 
 class About extends Component
 {
@@ -30,9 +29,17 @@ class About extends Component
 
     public function render()
     {
+        $content = $this->pageContent;
+        $metaTitle = data_get($content, 'meta_title')
+            ?? data_get($content, 'hero.title')
+            ?? setting('seo_title')
+            ?? 'About Us';
+
         return view('livewire.public.about.about', [
             'sections' => $this->sections,
             'stats' => $this->stats,
-        ]);
+        ])->layout('layouts.app', [
+            'title' => $metaTitle,
+        ])->title($metaTitle);
     }
 }
