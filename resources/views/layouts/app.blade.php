@@ -66,8 +66,8 @@
     </div>
     <!-- Floating contact buttons: phone and WhatsApp from settings -->
     @php
-        $sitePhone = setting('phone_number', '+1234567890');
-        $siteWhatsApp = setting('whatsapp_number', '+1234567890');
+        $sitePhone = setting('phone_number', '+919311127097');
+        $siteWhatsApp = setting('whatsapp_number', '+919311127097');
         $waMessage = setting('whatsapp_message', 'Hi, I would like to know more about your services.');
 
         // Normalize numbers for tel and wa.me (remove spaces, parentheses, dashes)
