@@ -29,6 +29,13 @@ class AdminSidebar
                 'submenu' => [],
             ],
             (object) [
+                'title' => 'Users',
+                'icon' => 'ri-user-line',
+                'url' => route('admin.users'),
+                'hasSubmenu' => false,
+                'submenu' => [],
+            ],
+            (object) [
                 'title' => 'Pages',
                 'icon' => 'ri-file-list-3-line',
                 'url' => 'javascript:void(0)',

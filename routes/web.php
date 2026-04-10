@@ -29,6 +29,7 @@ use App\Livewire\Admin\Service\OfferManagement;
 use App\Livewire\Admin\Legal\PrivacyPolicy as AdminPrivacyPolicy;
 use App\Livewire\Admin\Legal\TermAndCondition as AdminTermAndCondition;
 use App\Http\Controllers\Admin\ContactExportController;
+use App\Livewire\Admin\User\UserList;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Route;
@@ -58,6 +59,7 @@ Route::post('logout', function () {
 })->name('logout');
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('/', Dashboard::class)->name('admin.dashboard');
+    Route::livewire('users', UserList::class)->name('admin.users');
     Route::livewire('pages/home', AdminHomePage::class)->name('admin.pages.home');
     Route::livewire('pages/about', AdminAboutPage::class)->name('admin.pages.about');
     Route::livewire('testimonial', TestimonialList::class)->name('admin.testimonial');
