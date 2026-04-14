@@ -284,7 +284,7 @@
 
                             <div class="flex-1 text-xs text-slate-500">
                                 <p class="font-medium text-slate-700 mb-0.5">Upload Favicon</p>
-                                <p class="mb-1">Recommended size: 32x32 PNG or ICO.</p>
+                                <p class="mb-1">Recommended size: 32x32 PNG.</p>
                                 <div class="flex items-center gap-2 text-[11px] text-slate-400">
                                     <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
                                     <span>Preview updates instantly when you pick a file.</span>
