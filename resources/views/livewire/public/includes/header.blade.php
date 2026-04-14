@@ -145,10 +145,13 @@
         @php
             $siteLogo = setting('site_logo');
         @endphp
-        <img
+        <a href="{{route('home')}}" wire:navigate>
+           <img
           src="{{ $siteLogo ? asset('storage/'.$siteLogo) : asset('images/logo-light.png') }}"
           class="h-12"
           alt="{{ setting('app_name', 'Rupixtra') }}" />
+        </a>
+       
 
         <button @click="open = true">
           <i class="ri-menu-3-line text-2xl text-slate-700"></i>

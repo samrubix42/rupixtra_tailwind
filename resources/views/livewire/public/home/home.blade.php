@@ -666,7 +666,7 @@ $metaKeywords = $homePage?->meta_keywords
                            tracking-wide hover:opacity-90 transition
                            flex items-center justify-center">
                             <span wire:loading.remove wire:target="submitInterest">
-                                CONNECT US
+                                CONNECT With US
                             </span>
                             <span wire:loading wire:target="submitInterest" class="flex items-center gap-2 text-sm">
                                 <span class="h-2 w-2 rounded-full bg-white animate-ping"></span>
