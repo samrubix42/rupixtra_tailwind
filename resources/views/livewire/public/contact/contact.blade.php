@@ -48,6 +48,8 @@
             <input type="text"
               placeholder="Enter your name"
               wire:model.defer="name"
+              wire:loading.attr="disabled"
+              wire:target="submit"
               class="w-full px-5 py-3 rounded-xl
                                    bg-[#dff3f4] border border-[#2e2a7b]/20
                                    focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
@@ -64,6 +66,8 @@
             <input type="email"
               placeholder="Enter your email"
               wire:model.defer="email"
+              wire:loading.attr="disabled"
+              wire:target="submit"
               class="w-full px-5 py-3 rounded-xl
                                    bg-[#dff3f4] border border-[#2e2a7b]/20
                                    focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
@@ -80,6 +84,8 @@
             <input type="text"
               placeholder="Enter your phone"
               wire:model.defer="phone"
+              wire:loading.attr="disabled"
+              wire:target="submit"
               class="w-full px-5 py-3 rounded-xl
                                    bg-[#dff3f4] border border-[#2e2a7b]/20
                                    focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
@@ -95,6 +101,8 @@
             </label>
             <input type="text"
               wire:model.defer="country"
+              wire:loading.attr="disabled"
+              wire:target="submit"
               class="w-full px-5 py-3 rounded-xl
                                    bg-[#dff3f4] border border-[#2e2a7b]/20
                                    focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30">
@@ -110,6 +118,8 @@
             </label>
             <textarea rows="4"
               wire:model.defer="message"
+              wire:loading.attr="disabled"
+              wire:target="submit"
               class="w-full px-5 py-3 rounded-xl
                                    bg-[#dff3f4] border border-[#2e2a7b]/20
                                    focus:outline-none focus:ring-2 focus:ring-[#2e2a7b]/30"></textarea>
@@ -122,6 +132,10 @@
             {{ session('success') }}
           </div>
           @endif
+
+          <div wire:loading wire:target="submit" class="text-sm text-blue font-medium">
+            Sending your message...
+          </div>
 
           <!-- Submit -->
           <button type="submit"

@@ -2,7 +2,10 @@
 
 namespace App\Livewire\Public\Contact;
 
+use App\Mail\ContactEnquiry;
 use App\Models\Contact as ContactModel;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class Contact extends Component
@@ -29,14 +32,21 @@ class Contact extends Component
     {
         $validated = $this->validate();
 
-        ContactModel::create([
+        $contact = ContactModel::create([
             'name' => $validated['name'],
             'email' => $validated['email'] ?? null,
             'phone' => $validated['phone'] ?? null,
             'country' => $validated['country'] ?? null,
+            'subject' => 'Contact Enquiry',
             'message' => $validated['message'] ?? null,
             'is_read' => false,
         ]);
+
+        try {
+            Mail::to('info@rupixtra.com')->send(new ContactEnquiry($contact));
+        } catch (\Throwable $e) {
+            Log::error('Failed to send contact enquiry email: ' . $e->getMessage());
+        }
 
         session()->flash('success', 'Thank you! Your message has been sent.');
 

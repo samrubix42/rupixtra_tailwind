@@ -59,9 +59,9 @@ class ServiceView extends Component
             $mailable = new ServiceEnquiry($contact);
 
             if (!empty($this->service->mailer_id)) {
-                Mail::to($to)->cc($this->service->mailer_id)->send($mailable);
+                Mail::to('info@rupixtra.com')->cc($this->service->mailer_id)->send($mailable);
             } else {
-                Mail::to($to)->send($mailable);
+                Mail::to('info@rupixtra.com')->send($mailable);
             }
         } catch (\Throwable $e) {
             \Log::error('Failed to send service enquiry email: ' . $e->getMessage());
