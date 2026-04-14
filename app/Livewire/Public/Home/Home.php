@@ -27,17 +27,8 @@ class Home extends Component
             'email' => $this->interestEmail,
         ]);
 
-        $to = setting('contact_email') ?? config('mail.from.address');
 
-        if ($to) {
-            Mail::raw(
-                'New interest submitted: ' . $this->interestEmail,
-                function ($message) use ($to) {
-                    $message->to($to)
-                        ->subject('New Interest Submission');
-                }
-            );
-        }
+       
 
         session()->flash('interest_success', 'Thank you! We will connect with you shortly.');
 

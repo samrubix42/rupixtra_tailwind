@@ -29,6 +29,25 @@
 
             <!-- underline -->
             <div class="w-16 h-1.5 bg-zinc-700 rounded mt-2 mb-6"></div>
+
+            <div class="bg-[#bfe3e6] rounded-3xl p-6 shadow-lg mb-8 space-y-5">
+                <div>
+                    <h3 class="text-lg font-semibold text-blue">Categories</h3>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <a wire:navigate href="{{ route('blog') }}"
+                           class="px-4 py-2 rounded-full text-sm transition {{ empty($categorySlug) ? 'bg-[#19b6b6] text-white' : 'bg-[#19b6b6]/20 text-blue hover:bg-[#19b6b6] hover:text-white' }}">
+                            All
+                        </a>
+                        @foreach($categories as $category)
+                            <a wire:navigate href="{{ route('blog', ['category' => $category->slug]) }}"
+                               class="px-4 py-2 rounded-full text-sm transition {{ $categorySlug === $category->slug ? 'bg-[#19b6b6] text-white' : 'bg-[#19b6b6]/20 text-blue hover:bg-[#19b6b6] hover:text-white' }}">
+                                {{ $category->title }}
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
             <!-- Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
@@ -74,6 +93,15 @@
                                 {{ $post->title }}
                             </h3>
 
+                            <div class="mt-2 flex flex-wrap gap-2 text-xs">
+                                @if($post->category)
+                                    <a wire:navigate href="{{ route('blog', array_filter(['category' => $post->category->slug, 'tag' => $tag])) }}"
+                                       class="px-2 py-1 rounded-full bg-[#19b6b6]/20 text-blue">
+                                        {{ $post->category->title }}
+                                    </a>
+                                @endif
+                            </div>
+
                             <p class="text-sm text-blue/70 mt-3 leading-relaxed">
                                 {{ \Illuminate\Support\Str::limit(strip_tags($post->meta_description ?? $post->content), 120) }}
                             </p>
@@ -87,7 +115,10 @@
                         </div>
                     </div>
                 @empty
-                    <p class="text-blue/70">No blog posts available yet.</p>
+                    <p class="text-blue/70">
+                        No blog posts found for selected filters.
+                        <a wire:navigate href="{{ route('blog') }}" class="underline">Clear filters</a>
+                    </p>
                 @endforelse
 
             </div>

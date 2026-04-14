@@ -10,6 +10,7 @@ use App\Livewire\Admin\Page\About as AdminAboutPage;
 use App\Livewire\Admin\Page\DynamicPageEditor;
 use App\Livewire\Admin\Testimonial\TestimonialList;
 use App\Livewire\Admin\Contact\ContactList;
+use App\Livewire\Admin\Contact\ConnectMailList;
 use App\Livewire\Admin\Setting\Setting as AdminSetting;
 use App\Livewire\Auth\Login;
 use App\Livewire\Page\PageMangement;
@@ -64,6 +65,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('pages/about', AdminAboutPage::class)->name('admin.pages.about');
     Route::livewire('testimonial', TestimonialList::class)->name('admin.testimonial');
     Route::livewire('contacts', ContactList::class)->name('admin.contacts');
+    Route::livewire('connect-mails', ConnectMailList::class)->name('admin.connect-mails');
     Route::livewire('contacts/export', ContactExportController::class)->name('admin.contacts.export');
     Route::livewire('services', AdminServiceList::class)->name('admin.services');
     Route::livewire('services/add', AdminAddService::class)->name('admin.services.add');

@@ -153,9 +153,24 @@ class AdminSidebar
             (object)[
                 'title' => 'Contacts',
                 'icon' => 'ri-contacts-line',
-                'url' => route('admin.contacts'),
-                'hasSubmenu' => false,
-                'submenu' => [],
+                'url' => 'javascript:void(0)',
+                'hasSubmenu' => true,
+                'submenu' => [
+                    (object) [
+                        'title' => 'Contact Forms',
+                        'icon' => 'ri-mail-line',
+                        'url' => route('admin.contacts'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
+                    (object) [
+                        'title' => 'Connect Mails',
+                        'icon' => 'ri-mail-check-line',
+                        'url' => route('admin.connect-mails'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
+                ],
             ],
             (object) [
                 'title' => 'Settings',

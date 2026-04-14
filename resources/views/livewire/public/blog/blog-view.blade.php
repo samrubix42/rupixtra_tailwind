@@ -42,9 +42,21 @@
                         <span>{{ optional($post->created_at)->format('d M Y') }}</span>
                         @if($post->category)
                             <span>•</span>
-                            <span>{{ $post->category->title }}</span>
+                            <a wire:navigate href="{{ route('blog', ['category' => $post->category->slug]) }}"
+                               class="hover:text-[#19b6b6] transition">{{ $post->category->title }}</a>
                         @endif
                     </div>
+
+                    @if(!empty($tags))
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            @foreach($tags as $tag)
+                                <a wire:navigate href="{{ route('blog', ['tag' => $tag]) }}"
+                                   class="px-3 py-1 text-xs bg-[#19b6b6]/20 text-blue rounded-full hover:bg-[#19b6b6] hover:text-white transition">
+                                    {{ $tag }}
+                                </a>
+                            @endforeach
+                        </div>
+                    @endif
 
                     <!-- Featured Image -->
                     @if($post->featured_image)
@@ -90,7 +102,7 @@
 
                         @forelse($categories as $category)
                             <li>
-                                <a href="#"
+                                <a wire:navigate href="{{ route('blog', ['category' => $category->slug]) }}"
                                    class="flex justify-between items-center hover:text-[#19b6b6] transition">
                                     <span>{{ $category->title }}</span>
                                     <span class="text-sm text-blue/60">&nbsp;</span>
@@ -114,7 +126,7 @@
                     <div class="flex flex-wrap gap-3">
 
                         @forelse($tags as $tag)
-                            <a href="#"
+                            <a wire:navigate href="{{ route('blog', ['tag' => $tag]) }}"
                                class="px-4 py-2 text-sm bg-[#19b6b6]/20
                                       text-blue rounded-full
                                       hover:bg-[#19b6b6] hover:text-white transition">
