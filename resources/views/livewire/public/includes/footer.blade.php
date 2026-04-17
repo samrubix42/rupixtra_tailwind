@@ -2,19 +2,49 @@
     <div class="max-w-7xl mx-auto sm:px-6 py-12 sm:py-16">
 
         <!-- TOP FOOTER -->
-        <div class="grid grid-cols-2 md:grid-cols-5 px-6 gap-10 md:gap-12">
+        <div class="grid grid-cols-2 md:grid-cols-5 px-2 gap-10 md:gap-12">
 
             <!-- LOGO (FULL WIDTH ON MOBILE) -->
             <div class="col-span-2 md:col-span-1 flex justify-start md:justify-start">
                 @php
-                    $siteLogo = setting('site_logo');
-                    $appName = setting('app_name', 'Rupixtra');
+                $siteLogo = setting('site_logo');
+                $appName = setting('app_name', 'Rupixtra');
                 @endphp
-                <img
-                    src="{{ $siteLogo ? asset('storage/'.$siteLogo) : asset('images/logo-light.png') }}"
-                    class="h-14 md:h-16"
-                    alt="{{ $appName }}">
+                <div class="flex flex-col gap-4 items-start">
+                    <div>
+                        <img
+                            src="{{ $siteLogo ? asset('storage/'.$siteLogo) : asset('images/logo-light.png') }}"
+                            class="h-14 md:h-16"
+                            alt="{{ $appName }}">
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <a href="{{ setting('social_linkedin', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
+                                  flex items-center justify-center
+                                  hover:opacity-80 transition">
+                            <i class="ri-linkedin-fill text-primary"></i>
+                        </a>
+                        <a href="{{ setting('social_facebook', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
+                                  flex items-center justify-center
+                                  hover:opacity-80 transition">
+                            <i class="ri-facebook-fill text-primary"></i>
+                        </a>
+                        <a href="{{ setting('social_twitter', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
+                                  flex items-center justify-center
+                                  hover:opacity-80 transition">
+                            <i class="ri-twitter-x-line text-primary"></i>
+                        </a>
+                        <a href="{{ setting('social_instagram', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
+                                  flex items-center justify-center
+                                  hover:opacity-80 transition">
+                            <i class="ri-instagram-line text-primary"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+
+
 
             <!-- COMPANY -->
             <div>
@@ -61,10 +91,33 @@
                     Support
                 </h4>
                 <ul class="space-y-2 md:space-y-3 text-sm text-zinc-500">
-                    <li><a href="tel:{{ setting('phone_number', '001-002-0040') }}" class="hover:underline">{{ setting('phone_number', '001-002-0040') }}</a></li>
-                    <li><a href="mailto:{{ setting('contact_email', 'info@rupixtra.com') }}" class="hover:underline">{{ setting('contact_email', 'info@rupixtra.com') }}</a></li>
-                    <li>Monday – Saturday</li>
-                    <li>9 AM – 6 PM EST</li>
+                    <li class="flex items-start gap-3">
+                        <i class="ri-global-line text-[#112b5e] text-xl mt-1"></i>
+                        <div>
+                            <p class="font-semibold text-[#112b5e]">Our Presence</p>
+                            <p class="text-sm text-zinc-500">Delhi NCR / Patna / Ranchi / Bangalore / Bhubaneswar</p>
+                        </div>
+                    </li>
+
+                    <li class="flex items-center gap-3">
+                        <i class="ri-phone-line text-[#112b5e] text-xl"></i>
+                        <a href="tel:{{ setting('phone_number', '001-002-0040') }}" class="hover:underline">{{ setting('phone_number', '001-002-0040') }}</a>
+                    </li>
+
+                    <li class="flex items-center gap-3">
+                        <i class="ri-mail-line text-[#112b5e] text-xl"></i>
+                        <a href="mailto:{{ setting('contact_email', 'info@rupixtra.com') }}" class="hover:underline">{{ setting('contact_email', 'info@rupixtra.com') }}</a>
+                    </li>
+
+                    <li class="flex items-center gap-3">
+                        <i class="ri-calendar-line text-[#112b5e] text-xl"></i>
+                        <span>Monday – Saturday</span>
+                    </li>
+
+                    <li class="flex items-center gap-3">
+                        <i class="ri-time-line text-[#112b5e] text-xl"></i>
+                        <span>9 AM – 6 PM EST</span>
+                    </li>
                 </ul>
             </div>
 
@@ -80,28 +133,8 @@
                 {{ setting('footer_text', '© '.date('Y').' '.setting('company_name', 'Rupixtra').'. All Rights Reserved.') }}
             </p>
 
-            <div class="flex items-center gap-3">
-                <a href="{{ setting('social_linkedin', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
-                                  flex items-center justify-center
-                                  hover:opacity-80 transition">
-                    <i class="ri-linkedin-fill text-primary"></i>
-                </a>
-                <a href="{{ setting('social_facebook', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
-                                  flex items-center justify-center
-                                  hover:opacity-80 transition">
-                    <i class="ri-facebook-fill text-primary"></i>
-                </a>
-                <a href="{{ setting('social_twitter', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
-                                  flex items-center justify-center
-                                  hover:opacity-80 transition">
-                    <i class="ri-twitter-x-line text-primary"></i>
-                </a>
-                <a href="{{ setting('social_instagram', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
-                                  flex items-center justify-center
-                                  hover:opacity-80 transition">
-                    <i class="ri-instagram-line text-primary"></i>
-                </a>
-            </div>
+            <p>Powered by <a href="https://rupixtra.com" target="_blank" rel="noopener noreferrer" class="text-blue font-bold hover:underline">Techonika</a></p>
+
 
         </div>
 
