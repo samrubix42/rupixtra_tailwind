@@ -184,9 +184,9 @@
         </div>
 
         <div class="flex gap-4 items-start">
-          <i class="ri-global-line text-xl text-blue"></i>
+          <i class="ri-map-pin-line  text-xl text-blue"></i>
           <div>
-            <p class="font-semibold text-blue text-sm">Our presence</p>
+            <p class="font-semibold text-blue text-sm">Our Presence</p>
             <p class="text-sm text-blue/70">Delhi NCR / Patna / Ranchi / Bangalore / Bhubaneswar</p>
           </div>
         </div>

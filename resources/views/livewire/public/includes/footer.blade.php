@@ -92,9 +92,8 @@
                 </h4>
                 <ul class="space-y-2 md:space-y-3 text-sm text-zinc-500">
                     <li class="flex items-start gap-3">
-                        <i class="ri-global-line text-[#112b5e] text-xl mt-1"></i>
+                        <i class="ri-map-pin-line text-[#112b5e] text-xl mt-1"></i>
                         <div>
-                            <p class="font-semibold text-[#112b5e]">Our Presence</p>
                             <p class="text-sm text-zinc-500">Delhi NCR / Patna / Ranchi / Bangalore / Bhubaneswar</p>
                         </div>
                     </li>
@@ -133,7 +132,7 @@
                 {{ setting('footer_text', '© '.date('Y').' '.setting('company_name', 'Rupixtra').'. All Rights Reserved.') }}
             </p>
 
-            <p>Powered by <a href="https://rupixtra.com" target="_blank" rel="noopener noreferrer" class="text-blue font-bold hover:underline">Techonika</a></p>
+            <p>Powered by <a href="https://www.techonika.com/" target="_blank" rel="noopener noreferrer" class="text-blue font-bold hover:underline">Techonika</a></p>
 
 
         </div>
