@@ -2,10 +2,10 @@
     <div class="max-w-7xl mx-auto sm:px-6 py-12 sm:py-16">
 
         <!-- TOP FOOTER -->
-        <div class="grid grid-cols-2 md:grid-cols-5 px-2 gap-10 md:gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-5 px-6 gap-8 md:gap-12">
 
             <!-- LOGO (FULL WIDTH ON MOBILE) -->
-            <div class="col-span-2 md:col-span-1 flex justify-start md:justify-start">
+            <div class="col-span-1 md:col-span-1 flex justify-start md:justify-start">
                 @php
                 $siteLogo = setting('site_logo');
                 $appName = setting('app_name', 'Rupixtra');
@@ -14,27 +14,27 @@
                     <div>
                         <img
                             src="{{ $siteLogo ? asset('storage/'.$siteLogo) : asset('images/logo-light.png') }}"
-                            class="h-14 md:h-16"
+                            class="h-14 md:h-16 max-w-full object-contain"
                             alt="{{ $appName }}">
                     </div>
 
                     <div class="flex items-center gap-3">
-                        <a href="{{ setting('social_linkedin', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
+                        <a href="{{ setting('social_linkedin', '#') }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#1f2937]
                                   flex items-center justify-center
                                   hover:opacity-80 transition">
                             <i class="ri-linkedin-fill text-primary"></i>
                         </a>
-                        <a href="{{ setting('social_facebook', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
+                        <a href="{{ setting('social_facebook', '#') }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#1f2937]
                                   flex items-center justify-center
                                   hover:opacity-80 transition">
                             <i class="ri-facebook-fill text-primary"></i>
                         </a>
-                        <a href="{{ setting('social_twitter', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
+                        <a href="{{ setting('social_twitter', '#') }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#1f2937]
                                   flex items-center justify-center
                                   hover:opacity-80 transition">
                             <i class="ri-twitter-x-line text-primary"></i>
                         </a>
-                        <a href="{{ setting('social_instagram', '#') }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[#1f2937]
+                        <a href="{{ setting('social_instagram', '#') }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#1f2937]
                                   flex items-center justify-center
                                   hover:opacity-80 transition">
                             <i class="ri-instagram-line text-primary"></i>
