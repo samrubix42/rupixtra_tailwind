@@ -94,7 +94,7 @@
                     <li class="flex items-start gap-3">
                         <i class="ri-map-pin-line text-[#112b5e] text-xl mt-1"></i>
                         <div>
-                            <p class="text-sm text-zinc-500">Delhi NCR / Patna / Ranchi / Bangalore / Bhubaneswar</p>
+                            <p class="text-sm text-zinc-500">Delhi NCR / Patna / Ranchi / Bangalore / Bhubaneswar / Nashik</p>
                         </div>
                     </li>
 
@@ -115,7 +115,7 @@
 
                     <li class="flex items-center gap-3">
                         <i class="ri-time-line text-[#112b5e] text-xl"></i>
-                        <span>9 AM – 6 PM EST</span>
+                        <span>9:30 AM – 5:30 PM IST</span>
                     </li>
                 </ul>
             </div>
