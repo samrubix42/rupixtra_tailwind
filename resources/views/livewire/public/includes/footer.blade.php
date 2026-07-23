@@ -18,6 +18,10 @@
                             alt="{{ $appName }}">
                     </div>
 
+                    <p class="text-xs text-zinc-500 leading-relaxed">
+                        Rupixtra is a brand of Shreshtha Creditguru Fintech Private Limited. We are not a bank, NBFC, or lender. We assist with loan consultation and applications through partner banks and RBI-registered NBFCs.
+                    </p>
+
                     <div class="flex items-center gap-3">
                         <a href="{{ setting('social_linkedin', '#') }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#1f2937]
                                   flex items-center justify-center
@@ -81,6 +85,7 @@
                 <ul class="space-y-2 md:space-y-3 text-sm text-zinc-500">
                     <li><a wire:navigate href="{{ route('privacy-policy') }}" class="hover:text-[#112b5e]">Privacy Policy</a></li>
                     <li><a wire:navigate href="{{ route('terms-and-conditions') }}" class="hover:text-[#112b5e]">Terms of Use</a></li>
+                    <li><a wire:navigate href="{{ route('disclaimer') }}" class="hover:text-[#112b5e]">Disclaimer</a></li>
                     <li><a wire:navigate href="{{ route('login') }}" class="hover:text-[#112b5e]">Admin Login</a></li>
                 </ul>
             </div>

@@ -55,7 +55,6 @@ class AdminSidebar
                         'hasSubmenu' => false,
                         'submenu' => [],
                     ],
-                    
                     (object) [
                         'title' => 'About Page',
                         'icon' => 'ri-user-line',
@@ -63,9 +62,6 @@ class AdminSidebar
                         'hasSubmenu' => false,
                         'submenu' => [],
                     ],
-                    
-                 
-                    
                 ],
             ],
             (object) [
@@ -90,8 +86,6 @@ class AdminSidebar
                     ],
                 ],
             ],
-            
-      
             (object) [
                 'title' => 'Services',
                 'icon' => 'ri-customer-service-2-line',
@@ -148,9 +142,16 @@ class AdminSidebar
                         'hasSubmenu' => false,
                         'submenu' => [],
                     ],
+                    (object) [
+                        'title' => 'Disclaimer',
+                        'icon' => 'ri-file-warning-line',
+                        'url' => route('admin.legal.disclaimer'),
+                        'hasSubmenu' => false,
+                        'submenu' => [],
+                    ],
                 ],
             ],
-            (object)[
+            (object) [
                 'title' => 'Contacts',
                 'icon' => 'ri-contacts-line',
                 'url' => 'javascript:void(0)',
