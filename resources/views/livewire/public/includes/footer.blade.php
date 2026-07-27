@@ -43,6 +43,11 @@
                                   hover:opacity-80 transition">
                             <i class="ri-instagram-line text-primary"></i>
                         </a>
+                        <a href="{{ setting('social_pinterest', '#') }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#1f2937]
+                                  flex items-center justify-center
+                                  hover:opacity-80 transition">
+                            <i class="ri-pinterest-fill text-primary"></i>
+                        </a>
                     </div>
                 </div>
             </div>

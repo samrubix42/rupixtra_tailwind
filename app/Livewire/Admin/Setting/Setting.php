@@ -26,6 +26,7 @@ class Setting extends Component
     public ?string $social_twitter = null;
     public ?string $social_instagram = null;
     public ?string $social_linkedin = null;
+    public ?string $social_pinterest = null;
     public ?string $seo_title = null;
     public ?string $seo_description = null;
     public ?string $seo_keywords = null;
@@ -57,6 +58,7 @@ class Setting extends Component
         $this->social_twitter = $settings['social_twitter'] ?? null;
         $this->social_instagram = $settings['social_instagram'] ?? null;
         $this->social_linkedin = $settings['social_linkedin'] ?? null;
+        $this->social_pinterest = $settings['social_pinterest'] ?? null;
         $this->seo_title = $settings['seo_title'] ?? null;
         $this->seo_description = $settings['seo_description'] ?? null;
         $this->seo_keywords = $settings['seo_keywords'] ?? null;
@@ -81,6 +83,7 @@ class Setting extends Component
             'social_twitter' => ['nullable', 'string', 'max:255'],
             'social_instagram' => ['nullable', 'string', 'max:255'],
             'social_linkedin' => ['nullable', 'string', 'max:255'],
+            'social_pinterest' => ['nullable', 'string', 'max:255'],
             'seo_title' => ['nullable', 'string', 'max:255'],
             'seo_description' => ['nullable', 'string', 'max:500'],
             'seo_keywords' => ['nullable', 'string', 'max:255'],
@@ -107,6 +110,7 @@ class Setting extends Component
             'social_twitter' => $this->social_twitter,
             'social_instagram' => $this->social_instagram,
             'social_linkedin' => $this->social_linkedin,
+            'social_pinterest' => $this->social_pinterest,
             'seo_title' => $this->seo_title,
             'seo_description' => $this->seo_description,
             'seo_keywords' => $this->seo_keywords,
