@@ -69,7 +69,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('testimonial', TestimonialList::class)->name('admin.testimonial');
     Route::livewire('contacts', ContactList::class)->name('admin.contacts');
     Route::livewire('connect-mails', ConnectMailList::class)->name('admin.connect-mails');
-    Route::livewire('contacts/export', ContactExportController::class)->name('admin.contacts.export');
+    Route::get('contacts/export', ContactExportController::class)->name('admin.contacts.export');
     Route::livewire('services', AdminServiceList::class)->name('admin.services');
     Route::livewire('services/add', AdminAddService::class)->name('admin.services.add');
     Route::livewire('services/{serviceId}/edit', AdminUpdateService::class)->name('admin.services.edit');
